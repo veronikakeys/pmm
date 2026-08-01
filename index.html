@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veronika Ovchinnikova — Product Marketing Manager</title>
-  <meta name="description" content="Product Marketing Manager. Исследую пользователей, нахожу ограничения роста продукта, проектирую Go-to-Market стратегии и проверяю гипотезы на данных." />
+  <meta name="description" content="Product Marketing Manager. Нахожу точки роста продукта, превращаю их в решения и довожу до измеримого бизнес-результата." />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.jpg" />
@@ -55,6 +55,7 @@
   ></noscript>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- NAV -->
   <header class="nav" id="nav">
@@ -66,8 +67,8 @@
       <a href="#cases">Кейсы</a>
       <a href="#experience">Опыт</a>
       <a href="#method">Подход</a>
-      <a href="#ai-lab">Инструменты</a>
-      <a href="#about">Обо мне</a>
+      <a href="#ai-lab">Как я работаю</a>
+      <a href="#about">Живу жизнь</a>
       <a href="#contact">Контакты</a>
     </nav>
     <a href="#contact" class="btn btn--sm magnetic">Связаться</a>
@@ -80,8 +81,8 @@
     <a href="#cases">Кейсы</a>
     <a href="#experience">Опыт</a>
     <a href="#method">Подход</a>
-    <a href="#ai-lab">Инструменты</a>
-    <a href="#about">Обо мне</a>
+    <a href="#ai-lab">Как я работаю</a>
+    <a href="#about">Живу жизнь</a>
     <a href="#contact" class="btn">Связаться</a>
   </div>
 
@@ -99,35 +100,34 @@
             <p class="hero__hello reveal">Привет, я Вероника!</p>
             <p class="hero__role reveal delay-1">Product Marketing Manager</p>
             <h1 class="hero__title">
-              <span class="word-reveal">Помогаю</span>
-              <span class="word-reveal">продуктам</span>
-              <span class="word-reveal accent">расти</span>
-              <span class="word-reveal">и</span>
+              <span class="word-reveal">Нахожу</span>
+              <span class="word-reveal">точки</span>
+              <span class="word-reveal accent">роста,</span>
               <span class="word-reveal">превращаю</span>
-              <span class="word-reveal">исследования</span>
+              <span class="word-reveal">их</span>
               <span class="word-reveal">в</span>
-              <span class="word-reveal accent">решения,</span>
-              <span class="word-reveal">которые</span>
-              <span class="word-reveal">можно</span>
-              <span class="word-reveal">проверить</span>
-              <span class="word-reveal accent">данными.</span>
+              <span class="word-reveal accent">решения</span>
+              <span class="word-reveal">и</span>
+              <span class="word-reveal">довожу</span>
+              <span class="word-reveal">до</span>
+              <span class="word-reveal accent">измеримого</span>
+              <span class="word-reveal accent">бизнес-результата</span>
             </h1>
             <p class="hero__lead reveal delay-2">
-              Исследую пользователей, нахожу ограничения роста продукта,
-              проверяю гипотезы и&nbsp;ращу метрики.
+              Исследую рынок и&nbsp;пользователей → формирую стратегию → собираю команду → запускаю и&nbsp;измеряю → масштабирую или останавливаю.
             </p>
             <div class="hero__meta reveal delay-3">
               <div class="stat">
-                <strong>8+</strong>
+                <strong data-count="8" data-suffix="+">8+</strong>
                 <span>лет в маркетинге</span>
               </div>
               <div class="stat">
-                <strong>5</strong>
+                <strong data-count="5">5</strong>
                 <span>рынков</span>
               </div>
               <div class="stat">
-                <strong>100+</strong>
-                <span>гипотез протестировано</span>
+                <strong>до 15</strong>
+                <span>человек в команде</span>
               </div>
             </div>
             <div class="hero__cta reveal delay-4">
@@ -163,144 +163,150 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow reveal">// case studies</p>
-          <h2 class="section__title section__title--gradient reveal">Кейсы, которыми я горжусь</h2>
+          <h2 class="section__title section__title--gradient reveal">Сделала</h2>
+          <p class="section__sub reveal">
+            От&nbsp;бизнес-задачи до&nbsp;результата и&nbsp;следующего решения.
+          </p>
         </div>
 
-        <div class="cases-list">
-          <article class="case reveal">
-            <div class="case__meta">
-              <span class="case__num">01</span>
-              <span class="case__domain">PMM Lead · Growth system · Real Estate</span>
-            </div>
-            <p class="case__company">Apart Homes · недвижимость · Пхукет</p>
-            <h3 class="case__title">Создание системы роста для рынка недвижимости</h3>
-            <div class="case__flow">
-              <div class="case-block">
-                <span class="case-block__label">Задача</span>
-                <p>Собрать multi-channel систему лидогенерации и&nbsp;прогрева «с&nbsp;нуля»: ownership стратегии, каналов, аналитики и&nbsp;команды (на&nbsp;пике 5 in-house +&nbsp;7 подрядчиков).</p>
+        <p class="h-scroll-hint reveal" aria-hidden="true">← листай кейсы →</p>
+        <div class="h-scroll h-scroll--cases" data-h-scroll>
+          <div class="h-scroll__track cases-list">
+            <article class="case reveal">
+              <div class="case__meta">
+                <span class="case__num">01</span>
+                <span class="case__domain">PMM Lead · Growth · Real Estate</span>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Решение</span>
-                <p>Сегментация и&nbsp;CJM → TG (контент, бот, закупы), email lifecycle, SEO и&nbsp;вебинары. Выстроила измерение воронки по&nbsp;каналам и&nbsp;операционку команды.</p>
+              <p class="case__company">Apart Homes · недвижимость · Пхукет</p>
+              <h3 class="case__title">Построила систему привлечения и&nbsp;прогрева для рынка недвижимости</h3>
+              <div class="case__flow">
+                <div class="case-block">
+                  <span class="case-block__label">Задача</span>
+                  <p>Снизить зависимость от&nbsp;ограниченного числа источников спроса и&nbsp;выстроить системную коммуникацию с&nbsp;клиентами на&nbsp;длинном цикле сделки.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Решение</span>
+                  <p>На&nbsp;основе сегментации и&nbsp;CJM определила точки роста и&nbsp;собрала multi-channel систему: Telegram, бот, закупы, email, мессенджер-рассылки, SEO, SMM и&nbsp;вебинары. Выстроила аналитику по&nbsp;воронке и&nbsp;операционку команды до&nbsp;15&nbsp;человек.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Результат</span>
+                  <p>Запустила 3&nbsp;новых канала; SEO-трафик вырос в&nbsp;3&nbsp;раза, аудитория Telegram&nbsp;— в&nbsp;2&nbsp;раза, конверсия рассылок из&nbsp;отправки в&nbsp;ответ&nbsp;— 10%. Сформировала систему прогрева для аудитории с&nbsp;отложенным спросом.</p>
+                </div>
+                <div class="case-block case-block--learn">
+                  <span class="case-block__label">Вывод</span>
+                  <p>В&nbsp;длинной воронке рост определяется не&nbsp;количеством лидов и&nbsp;новых каналов, а&nbsp;тем, насколько система доводит пользователя от&nbsp;первого интереса до&nbsp;следующего шага. Поэтому вместе с&nbsp;каналами нужно менять CJM, коммуникацию и&nbsp;воронку продаж.</p>
+                </div>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Результат</span>
-                <p>Собрала multi-channel pipeline: Telegram (контент, бот, закупы) — основной канал; email lifecycle; SEO и&nbsp;вебинары. Канал вырос с&nbsp;~700 до&nbsp;~1500 подписчиков; в&nbsp;боте — база контактов для прогрева. SEO-трафик вырос примерно в&nbsp;3&nbsp;раза (в&nbsp;пике сезона — заметный всплеск). В&nbsp;Max — сильная конверсия «отправка → ответ» (~10%). Команда на&nbsp;пике: 5 in-house +&nbsp;7 подрядчиков.</p>
-              </div>
-              <div class="case-block case-block--learn">
-                <span class="case-block__label">Вывод</span>
-                <p>Рост начинается не&nbsp;с&nbsp;новых каналов, а&nbsp;с&nbsp;системы: сегментации, измеримых метрик и&nbsp;процессов. Низ воронки и&nbsp;этапы CJM не&nbsp;менее важны активации и&nbsp;привлечения.</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="case reveal">
-            <div class="case__meta">
-              <span class="case__num">02</span>
-              <span class="case__domain">PMM · Discovery · GTM · AI</span>
-            </div>
-            <p class="case__company">It's AI · AI-стартап · US / UK / UAE</p>
-            <h3 class="case__title">Discovery и&nbsp;GTM: от&nbsp;гипотез к&nbsp;сегментам и&nbsp;продуктовым решениям</h3>
-            <div class="case__flow">
-              <div class="case-block">
-                <span class="case-block__label">Задача</span>
-                <p>Найти рабочие ICP и&nbsp;GTM-пути для early-stage AI-продукта: что тестировать, что отрезать, что отдавать в&nbsp;product.</p>
+            <article class="case reveal">
+              <div class="case__meta">
+                <span class="case__num">02</span>
+                <span class="case__domain">PMM · Discovery · GTM · AI</span>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Решение</span>
-                <p>~15 discovery-интервью, 3 сегмента в&nbsp;работу, messaging и&nbsp;product tools по&nbsp;результатам custdev. Тесты paid context, SEO-приток, B2B outreach в&nbsp;LinkedIn (с&nbsp;агентством). Развернула Amplitude и&nbsp;GA как базу аналитики.</p>
+              <p class="case__company">It's AI · AI-стартап · US / UK / UAE</p>
+              <h3 class="case__title">Нашла рабочие сегменты и&nbsp;проверила GTM до&nbsp;масштабирования</h3>
+              <div class="case__flow">
+                <div class="case-block">
+                  <span class="case-block__label">Задача</span>
+                  <p>Вывести early-stage AI-продукт на&nbsp;новые рынки, найти первые рабочие сегменты и&nbsp;получить платящих пользователей.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Решение</span>
+                  <p>Провела ~15 discovery-интервью, сформировала 3&nbsp;ICP и&nbsp;на&nbsp;их&nbsp;основе разработала messaging и&nbsp;product tools. Протестировала paid context, SEO и&nbsp;B2B outreach в&nbsp;LinkedIn, SMM, развернула Amplitude и&nbsp;GA для оценки воронки.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Результат</span>
+                  <p>3&nbsp;сегмента выведены в&nbsp;работу. Paid дал регистрации, но&nbsp;не&nbsp;конвертировался в&nbsp;сделки&nbsp;— масштабирование остановили из-за не&nbsp;сходящейся unit-экономики; SEO привёл первых подписчиков, LinkedIn&nbsp;— несколько B2B-встреч. Инсайты CustDev передала в&nbsp;продукт.</p>
+                </div>
+                <div class="case-block case-block--learn">
+                  <span class="case-block__label">Вывод</span>
+                  <p>Задача PMM&nbsp;— быстро понять, где экономика сходится, а&nbsp;где нет, и&nbsp;куда компании стоит направить следующий ресурс.</p>
+                </div>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Результат</span>
-                <p>3 сегмента выведены в&nbsp;работу; paid context дал регистрации, но&nbsp;не&nbsp;конвертился в&nbsp;сделку — unit-экономику остановили. Подписчики пошли с&nbsp;SEO; LinkedIn outreach (с&nbsp;агентством) — несколько B2B-встреч. В&nbsp;product ушли тулы по&nbsp;результатам custdev; подняла Amplitude и&nbsp;GA как базу учёта.</p>
-              </div>
-              <div class="case-block case-block--learn">
-                <span class="case-block__label">Вывод</span>
-                <p>Своевременный стоп экономит больше ресурсов, чем масштабирование неподтверждённой идеи.</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="case reveal">
-            <div class="case__meta">
-              <span class="case__num">03</span>
-              <span class="case__domain">PMM Lead · Two-sided · Multi-market</span>
-            </div>
-            <p class="case__company">Colife · аренда недвижимости · Стамбул &amp; Дубай</p>
-            <h3 class="case__title">0→1 маркетинг и&nbsp;рост two-sided платформы на&nbsp;двух рынках</h3>
-            <div class="case__flow">
-              <div class="case-block">
-                <span class="case-block__label">Задача</span>
-                <p>Запустить маркетинг с&nbsp;нуля в&nbsp;Стамбуле и&nbsp;усилить спрос в&nbsp;Дубае: гости, владельцы объектов и&nbsp;партнёры — разные стратегии и&nbsp;KPI.</p>
+            <article class="case reveal">
+              <div class="case__meta">
+                <span class="case__num">03</span>
+                <span class="case__domain">PMM Lead · Two-sided · Multi-market</span>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Решение</span>
-                <p>Собрала команду из&nbsp;5 человек, выстроила процессы. Лидген: таргет, посевы, Instagram. CRO сайта, гипотезы каналов, сквозная аналитика и&nbsp;коммуникационная стратегия под сегменты.</p>
+              <p class="case__company">Colife · аренда недвижимости · Стамбул &amp; Дубай</p>
+              <h3 class="case__title">Запустила маркетинг 0→1 и&nbsp;сократила процент простоя</h3>
+              <div class="case__flow">
+                <div class="case-block">
+                  <span class="case-block__label">Задача</span>
+                  <p>Запустить маркетинг с&nbsp;нуля в&nbsp;Стамбуле, усилить спрос в&nbsp;Дубае и&nbsp;сократить простой объектов.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Решение</span>
+                  <p>Собрала команду из&nbsp;5&nbsp;человек и&nbsp;выстроила процессы. Разделила стратегии для арендаторов, владельцев и&nbsp;партнёров; запустила лидген, CRO, работу с&nbsp;листингами, новые каналы и&nbsp;сквозную аналитику.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Результат</span>
+                  <p>Стамбул: простой объектов снизился с&nbsp;~95% до&nbsp;~15%, конверсия сайта выросла в&nbsp;2&nbsp;раза. Дубай: поток лидов вырос в&nbsp;2&nbsp;раза, вместе с&nbsp;командой обеспечили рост выручки в&nbsp;несезон.</p>
+                </div>
+                <div class="case-block case-block--learn">
+                  <span class="case-block__label">Вывод</span>
+                  <p>В&nbsp;two-sided бизнесе оптимизация только со&nbsp;стороны спроса не&nbsp;даст результата. Рост требует баланса demand и&nbsp;supply: разных GTM, KPI и&nbsp;механик для каждой стороны.</p>
+                </div>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Результат</span>
-                <p>Стамбул: простой объектов упал с&nbsp;~95% до&nbsp;~15%; конверсия сайта выросла примерно в&nbsp;2&nbsp;раза; маркетинг и&nbsp;продажи собраны с&nbsp;0 (команда 5 человек). Дубай: поток лидов вырос примерно в&nbsp;3&nbsp;раза; вместе с&nbsp;командой — рост выручки в&nbsp;несезон; сквозная аналитика и&nbsp;коммуникационная стратегия.</p>
-              </div>
-              <div class="case-block case-block--learn">
-                <span class="case-block__label">Вывод</span>
-                <p>На two-sided рынке нельзя масштабировать обе стороны одинаково. Разные сегменты требуют отдельных GTM-стратегий, KPI и&nbsp;коммуникаций.</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="case reveal">
-            <div class="case__meta">
-              <span class="case__num">04</span>
-              <span class="case__domain">CRO · A/B · Post-click</span>
-            </div>
-            <p class="case__company">Remont.io · design &amp; repair</p>
-            <h3 class="case__title">Увеличение CR в&nbsp;2&nbsp;раза через улучшение пользовательского пути</h3>
-            <div class="case__flow">
-              <div class="case-block">
-                <span class="case-block__label">Задача</span>
-                <p>Повысить конверсию сайта в&nbsp;целевой лид и&nbsp;снизить стоимость привлечения.</p>
+            <article class="case reveal">
+              <div class="case__meta">
+                <span class="case__num">04</span>
+                <span class="case__domain">CRO · A/B · Post-click</span>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Решение</span>
-                <p>Провела анализ воронки, разработала гипотезы и&nbsp;кампании, запустила A/B-тесты в&nbsp;течение 3&nbsp;месяцев, работала с&nbsp;креативами и&nbsp;колл-центром.</p>
+              <p class="case__company">Remont.io · design &amp; repair</p>
+              <h3 class="case__title">Удвоили конверсию и&nbsp;снизили стоимость привлечения через CRO</h3>
+              <div class="case__flow">
+                <div class="case-block">
+                  <span class="case-block__label">Задача</span>
+                  <p>Снизить ДРР и&nbsp;повысить конверсию сайта в&nbsp;целевой лид.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Решение</span>
+                  <p>Проанализировала воронку, сформировала гипотезы и&nbsp;запустила серию A/B-тестов. Работала одновременно с&nbsp;сайтом, рекламными креативами и&nbsp;колл-центром.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Результат</span>
+                  <p>CR в&nbsp;квалифицированный лид вырос с&nbsp;2,3% до&nbsp;4,6%, ДРР снизился на&nbsp;5&nbsp;п.п. за&nbsp;3&nbsp;месяца тестирования.</p>
+                </div>
+                <div class="case-block case-block--learn">
+                  <span class="case-block__label">Вывод</span>
+                  <p>Постклик нельзя оптимизировать изолированно от&nbsp;рекламы и&nbsp;продаж. Рост конверсии появляется там, где весь пользовательский путь работает как единая система.</p>
+                </div>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Результат</span>
-                <p>CR в&nbsp;квал лид вырос примерно в&nbsp;2&nbsp;раза (с&nbsp;2,3% до&nbsp;4,6%), ДРР снизился на&nbsp;5&nbsp;п.п. за&nbsp;3&nbsp;месяца A/B-тестов.</p>
-              </div>
-              <div class="case-block case-block--learn">
-                <span class="case-block__label">Вывод</span>
-                <p>Конверсия растёт, когда каждое следующее касание подтверждает ожидания пользователя, сформированные предыдущим.</p>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="case reveal">
-            <div class="case__meta">
-              <span class="case__num">05</span>
-              <span class="case__domain">0-to-1 · Entrepreneurship</span>
-            </div>
-            <p class="case__company">Pet projects · e-commerce · lifestyle brands</p>
-            <h3 class="case__title">Запуск продуктов с&nbsp;нуля</h3>
-            <div class="case__flow">
-              <div class="case-block">
-                <span class="case-block__label">Задача</span>
-                <p>Проверить бизнес-гипотезы и&nbsp;создать продукт без готовой аудитории.</p>
+            <article class="case reveal">
+              <div class="case__meta">
+                <span class="case__num">05</span>
+                <span class="case__domain">0-to-1 · Entrepreneurship</span>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Решение</span>
-                <p>Проводила исследование рынка, создавала бренд, продуктовую упаковку и&nbsp;первые каналы продаж.</p>
+              <p class="case__company">Pet projects · e-commerce · lifestyle brands</p>
+              <h3 class="case__title">Запустила собственные продукты и&nbsp;проверила бизнес-модели на&nbsp;практике</h3>
+              <div class="case__flow">
+                <div class="case-block">
+                  <span class="case-block__label">Задача</span>
+                  <p>Проверить несколько бизнес-гипотез и&nbsp;вывести продукты на&nbsp;рынок без готовой аудитории.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Решение</span>
+                  <p>Исследовала рынок, собирала продукт и&nbsp;партнёров, создавала бренд и&nbsp;упаковку, запускала первые каналы продаж и&nbsp;проверяла спрос на&nbsp;практике.</p>
+                </div>
+                <div class="case-block">
+                  <span class="case-block__label">Результат</span>
+                  <p>Запустила первые продажи и&nbsp;прошла полный цикл 0→1&nbsp;— от&nbsp;идеи до&nbsp;первых клиентов. На&nbsp;практике увидела ограничения выбранных рынков и&nbsp;бизнес-моделей.</p>
+                </div>
+                <div class="case-block case-block--learn">
+                  <span class="case-block__label">Вывод</span>
+                  <p>Предпринимательский опыт научил меня оценивать не&nbsp;только привлекательность идеи, но&nbsp;и&nbsp;рынок, спрос, экономику и&nbsp;качество партнёрства до&nbsp;того, как компания начинает масштабировать инвестиции.</p>
+                </div>
               </div>
-              <div class="case-block">
-                <span class="case-block__label">Результат</span>
-                <p>Запустила первые продажи и&nbsp;прошла полный цикл от&nbsp;идеи до&nbsp;первых клиентов. Увидела ограничения бизнес-модели.</p>
-              </div>
-              <div class="case-block case-block--learn">
-                <span class="case-block__label">Вывод</span>
-                <p>Предпринимательский опыт научил сначала валидировать рынок и&nbsp;спрос, а&nbsp;уже потом инвестировать время, деньги и&nbsp;ресурсы в&nbsp;развитие продукта.</p>
-              </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
 
         <p class="cases__more reveal">
@@ -315,10 +321,9 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow reveal">// track record</p>
-          <h2 class="section__title section__title--ink reveal">Опыт и зоны ответственности</h2>
+          <h2 class="section__title section__title--ink reveal">Где я это делала</h2>
           <p class="section__sub reveal">
-            8+ лет в&nbsp;Product Marketing и&nbsp;Growth. Запуск новых рынков, GTM-стратегии,
-            маркетинг недвижимости и&nbsp;AI-продуктов. Команды до&nbsp;15 человек (in-house + подрядчики).
+            Продукты, рынки и&nbsp;команды, с&nbsp;которыми работала.
           </p>
         </div>
 
@@ -328,9 +333,9 @@
               <span class="timeline__when">2025–2026</span>
               <span class="timeline__niche">Агентство недвижимости</span>
             </div>
-            <h3 class="timeline__role">Marketing / Growth Lead</h3>
-            <p class="timeline__org">Apart Homes · Phuket remote</p>
-            <p class="timeline__desc">Маркетинговая стратегия, новые каналы привлечения, сегментация аудитории, SEO и&nbsp;альтернативная лидогенерация.</p>
+            <h3 class="timeline__role">Product Marketing &amp; Growth Lead</h3>
+            <p class="timeline__org">Apart Homes · Phuket · remote</p>
+            <p class="timeline__desc">Отвечала за&nbsp;маркетинговую стратегию и&nbsp;рост: сегментация, новые каналы привлечения, контент и&nbsp;SEO, lifecycle-коммуникации, аналитика и&nbsp;команда до&nbsp;15&nbsp;человек.</p>
           </article>
           <article class="timeline__item">
             <div class="timeline__top">
@@ -338,8 +343,8 @@
               <span class="timeline__niche">AI-стартап</span>
             </div>
             <h3 class="timeline__role">Product Marketing Manager</h3>
-            <p class="timeline__org">It's AI · US / UK / UAE remote</p>
-            <p class="timeline__desc">GTM, market research, ICP, positioning, messaging, customer discovery, первые платящие пользователи.</p>
+            <p class="timeline__org">It's AI · US / UK / UAE · remote</p>
+            <p class="timeline__desc">Отвечала за&nbsp;GTM и&nbsp;поиск PMF: market research, ICP, positioning, messaging, customer discovery, тестирование каналов и&nbsp;продуктовых гипотез.</p>
           </article>
           <article class="timeline__item">
             <div class="timeline__top">
@@ -347,17 +352,17 @@
               <span class="timeline__niche">EdTech</span>
             </div>
             <h3 class="timeline__role">Lead of Marketing</h3>
-            <p class="timeline__org">Brainhub · онлайн-школа для детей</p>
-            <p class="timeline__desc">Acquisition, CRO, рост ключевых метрик продукта.</p>
+            <p class="timeline__org">Brainhub · РФ / СНГ · remote</p>
+            <p class="timeline__desc">Разработала стратегию привлечения, исследовала рынок и&nbsp;пользователей, переупаковала продукт и&nbsp;организовала работу команды и&nbsp;подрядчиков вокруг ключевых маркетинговых задач.</p>
           </article>
           <article class="timeline__item">
             <div class="timeline__top">
               <span class="timeline__when">2023</span>
-              <span class="timeline__niche">Сервис по недвижимости</span>
+              <span class="timeline__niche">Сервис аренды недвижимости</span>
             </div>
             <h3 class="timeline__role">Product Marketing Manager</h3>
-            <p class="timeline__org">Colife · аренда · Стамбул &amp; Дубай</p>
-            <p class="timeline__desc">Two-sided marketplace, supply &amp; demand, custdev, CRO, команда, новые рынки.</p>
+            <p class="timeline__org">Colife · Стамбул &amp; Дубай · remote</p>
+            <p class="timeline__desc">Отвечала за&nbsp;рост двухсторонней платформы на&nbsp;двух рынках: demand &amp; supply, GTM, CRO, аналитика и&nbsp;команда; CR сайта ×2, простой объектов ~95% → ~15%, лиды в&nbsp;Дубае ×2.</p>
           </article>
           <article class="timeline__item">
             <div class="timeline__top">
@@ -366,7 +371,7 @@
             </div>
             <h3 class="timeline__role">PMM / Project Marketing Manager</h3>
             <p class="timeline__org">Remont.io · De Club · Москва / Дубай</p>
-            <p class="timeline__desc">GTM нового рынка, CRO, pricing, A/B testing.</p>
+            <p class="timeline__desc">Отвечала за&nbsp;GTM новых продуктов и&nbsp;рынка, CRO, pricing и&nbsp;A/B-тестирование; CR 2,3% → 4,6%, ДРР −5&nbsp;п.п., средний чек +50%.</p>
           </article>
           <article class="timeline__item">
             <div class="timeline__top">
@@ -374,9 +379,9 @@
               <span class="timeline__niche">E-commerce · marketplace</span>
             </div>
             <h3 class="timeline__role">Marketing Project Manager</h3>
-            <p class="timeline__org">GdeMaterial · маркетплейс стройматериалов · Москва remote</p>
+            <p class="timeline__org">GdeMaterial · маркетплейс стройматериалов · Москва · remote</p>
             <p class="timeline__desc">
-              Работа с&nbsp;командой, email, запуск рассрочки, +5 товарных категорий.
+              Координировала маркетинг и&nbsp;команду, развивала retention и&nbsp;коммерческие механики: email, рассрочка и&nbsp;запуск 5&nbsp;новых товарных категорий.
             </p>
           </article>
         </div>
@@ -400,63 +405,66 @@
         </div>
 
         <div class="exp-panel exp-panel--skills reveal">
-          <h3>Компетенции</h3>
-          <div class="skill-cols">
-            <div>
-              <h4>Product Marketing</h4>
-              <ul>
-                <li>Go-to-Market</li>
-                <li>Positioning &amp; Messaging</li>
-                <li>Value Proposition</li>
-                <li>Product Launches</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Research</h4>
-              <ul>
-                <li>Market Research</li>
-                <li>Competitive Analysis</li>
-                <li>CustDev / JTBD</li>
-                <li>ICP / Segmentation</li>
-                <li>CJM</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Growth</h4>
-              <ul>
-                <li>AARRR</li>
-                <li>Growth Strategy</li>
-                <li>Growth Experiments</li>
-                <li>Funnel Optimization</li>
-                <li>CRO · A/B</li>
-                <li>Lifecycle Marketing</li>
-                <li>E-commerce</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Analytics</h4>
-              <ul>
-                <li>GA4</li>
-                <li>Yandex Metrica</li>
-                <li>Google Sheets</li>
-                <li>SQL (basic)</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Leadership</h4>
-              <ul>
-                <li>Cross-functional</li>
-                <li>Team Leadership</li>
-                <li>Agency Management</li>
-              </ul>
-            </div>
-            <div>
-              <h4>AI</h4>
-              <ul>
-                <li>ChatGPT</li>
-                <li>Claude</li>
-                <li>No-code</li>
-              </ul>
+          <h3>Умею</h3>
+          <p class="h-scroll-hint" aria-hidden="true">← листай навыки →</p>
+          <div class="h-scroll h-scroll--skills" data-h-scroll>
+            <div class="h-scroll__track skill-cols">
+              <div class="skill-col">
+                <h4>Product Marketing</h4>
+                <ul>
+                  <li>Go-to-Market</li>
+                  <li>Positioning &amp; Messaging</li>
+                  <li>Value Proposition</li>
+                  <li>Product Launches</li>
+                </ul>
+              </div>
+              <div class="skill-col">
+                <h4>Research</h4>
+                <ul>
+                  <li>Market Research</li>
+                  <li>Competitive Analysis</li>
+                  <li>CustDev / JTBD</li>
+                  <li>ICP / Segmentation</li>
+                  <li>CJM</li>
+                </ul>
+              </div>
+              <div class="skill-col">
+                <h4>Growth</h4>
+                <ul>
+                  <li>AARRR</li>
+                  <li>Growth Strategy</li>
+                  <li>Growth Experiments</li>
+                  <li>Funnel Optimization</li>
+                  <li>CRO · A/B</li>
+                  <li>Lifecycle Marketing</li>
+                  <li>E-commerce</li>
+                </ul>
+              </div>
+              <div class="skill-col">
+                <h4>Analytics</h4>
+                <ul>
+                  <li>GA4</li>
+                  <li>Yandex Metrica</li>
+                  <li>Google Sheets</li>
+                  <li>SQL (basic)</li>
+                </ul>
+              </div>
+              <div class="skill-col">
+                <h4>Leadership</h4>
+                <ul>
+                  <li>Cross-functional</li>
+                  <li>Team Leadership</li>
+                  <li>Agency Management</li>
+                </ul>
+              </div>
+              <div class="skill-col">
+                <h4>AI</h4>
+                <ul>
+                  <li>ChatGPT</li>
+                  <li>Claude</li>
+                  <li>No-code</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -470,7 +478,7 @@
           <p class="eyebrow reveal">// operating system</p>
           <h2 class="section__title section__title--green reveal">«Какую проблему пользователя и&nbsp;бизнеса мы&nbsp;решаем?»</h2>
           <p class="section__sub reveal">
-            Немного о&nbsp;подходе, как я&nbsp;мыслю
+            Вопрос, который я&nbsp;держу в&nbsp;голове, когда принимаю решения.
           </p>
         </div>
 
@@ -514,11 +522,9 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow reveal">// open toolkit</p>
-          <h2 class="section__title section__title--gradient reveal">Инструменты</h2>
+          <h2 class="section__title section__title--gradient reveal">Как я работаю</h2>
           <p class="section__sub reveal">
-            За годы работы я&nbsp;собрала набор шаблонов, которые использую почти в&nbsp;каждом
-            проекте — от&nbsp;исследования рынка до&nbsp;запуска GTM. Делюсь ими открыто:
-            все файлы обезличены и&nbsp;подготовлены специально для портфолио.
+            Шаблоны и&nbsp;инструменты, которыми пользуюсь сама и&nbsp;делюсь с&nbsp;другими.
           </p>
         </div>
 
@@ -730,7 +736,7 @@
       <div class="container">
         <div class="section__head about__head">
           <p class="eyebrow reveal">// beyond work</p>
-          <h2 class="section__title section__title--ink reveal">Обо мне</h2>
+          <h2 class="section__title section__title--ink reveal">Живу жизнь</h2>
           <p class="section__sub reveal">
             Мне нравится запускать новые проекты, исследовать неизвестное и&nbsp;разбираться,
             как устроены сложные системы — кажется, поэтому я&nbsp;одинаково люблю
@@ -772,7 +778,7 @@
         </div>
 
         <div class="about__learn-card about__learn-card--edu reveal">
-          <h3>Обучение</h3>
+          <h3>Желание учиться — один из лучших навыков</h3>
           <ul>
             <li><strong>ЮФУ</strong> — бизнес-информатика, 2019</li>
             <li><strong>GoPractice</strong> — Activation Framework, 2025</li>
@@ -785,130 +791,137 @@
         <div class="about__books reveal">
           <header class="about__books-head">
             <h3>Очень люблю читать</h3>
-            <p>Книги, которые вдохновили и&nbsp;повлияли на&nbsp;многие решения в&nbsp;жизни</p>
+            <p>Книги, которые вдохновили и&nbsp;повлияли на&nbsp;многие решения в&nbsp;жизни.</p>
           </header>
-          <div class="books-grid">
-            <article class="book-card">
-              <h4>Н. Эяль · «На крючке»</h4>
-              <p>Как быть «помощником» и&nbsp;формировать полезные привычки у&nbsp;пользователей.</p>
-            </article>
-            <article class="book-card">
-              <h4>Э. Голдратт · «Цель»</h4>
-              <p>Процесс непрерывного улучшения — и&nbsp;как видеть ограничения системы.</p>
-            </article>
-            <article class="book-card">
-              <h4>Р. Фитцпатрик · «Спроси маму»</h4>
-              <p>Спасибо этой книге за&nbsp;умение задавать правильные вопросы.</p>
-            </article>
-            <article class="book-card">
-              <h4>Э. Рис · «Бизнес с&nbsp;нуля»</h4>
-              <p>Lean Startup: проверять гипотезы до&nbsp;того, как вложить всё.</p>
-            </article>
-            <article class="book-card">
-              <h4>Д. Норман · «Дизайн привычных вещей»</h4>
-              <p>Основы дизайна и&nbsp;роль психологии в&nbsp;проектировании.</p>
-            </article>
-            <article class="book-card">
-              <h4>Ф. Барден · «Взлом маркетинга»</h4>
-              <p>Как маркетинг влияет на&nbsp;продажи и&nbsp;покупателей — и&nbsp;почему берут именно этот продукт.</p>
-            </article>
-            <article class="book-card">
-              <h4>Д. Огилви · «О&nbsp;рекламе»</h4>
-              <p>Основные принципы рекламы. Как сделать рекламу, которая работает.</p>
-            </article>
-            <article class="book-card">
-              <h4>И. Бирман · «Пользовательский интерфейс»</h4>
-              <p>Ясность, иерархия и&nbsp;забота о&nbsp;человеке на&nbsp;экране.</p>
-            </article>
+          <p class="h-scroll-hint" aria-hidden="true">← листай книги →</p>
+          <div class="h-scroll h-scroll--books" data-h-scroll>
+            <div class="h-scroll__track books-grid">
+              <article class="book-card">
+                <h4>Н. Эяль · «На крючке»</h4>
+                <p>Как быть «помощником» и&nbsp;формировать полезные привычки у&nbsp;пользователей.</p>
+              </article>
+              <article class="book-card">
+                <h4>Э. Голдратт · «Цель»</h4>
+                <p>Процесс непрерывного улучшения — и&nbsp;как видеть ограничения системы.</p>
+              </article>
+              <article class="book-card">
+                <h4>Р. Фитцпатрик · «Спроси маму»</h4>
+                <p>Спасибо этой книге за&nbsp;умение задавать правильные вопросы.</p>
+              </article>
+              <article class="book-card">
+                <h4>Э. Рис · «Бизнес с&nbsp;нуля»</h4>
+                <p>Lean Startup: проверять гипотезы до&nbsp;того, как вложить всё.</p>
+              </article>
+              <article class="book-card">
+                <h4>Д. Норман · «Дизайн привычных вещей»</h4>
+                <p>Основы дизайна и&nbsp;роль психологии в&nbsp;проектировании.</p>
+              </article>
+              <article class="book-card">
+                <h4>Ф. Барден · «Взлом маркетинга»</h4>
+                <p>Как маркетинг влияет на&nbsp;продажи и&nbsp;покупателей — и&nbsp;почему берут именно этот продукт.</p>
+              </article>
+              <article class="book-card">
+                <h4>Д. Огилви · «О&nbsp;рекламе»</h4>
+                <p>Основные принципы рекламы. Как сделать рекламу, которая работает.</p>
+              </article>
+              <article class="book-card">
+                <h4>И. Бирман · «Пользовательский интерфейс»</h4>
+                <p>Ясность, иерархия и&nbsp;забота о&nbsp;человеке на&nbsp;экране.</p>
+              </article>
+            </div>
           </div>
         </div>
 
-        <p class="about__blog-lead reveal">
-          <strong class="about__blog-lead-title">Проявляюсь в&nbsp;блоге</strong>
-          — делюсь кадрами, маршрутами и&nbsp;мыслями. Так выглядит жизнь,
-          когда я&nbsp;не&nbsp;в&nbsp;таблице гипотез. Дальше мне бы хотелось
-          выходить к&nbsp;людям шире: нетворкинг и&nbsp;выступления, в&nbsp;том числе
-          про продукт и&nbsp;команду, с&nbsp;которыми работаю.
-        </p>
-
-        <div class="about__previews reveal">
-          <!-- Instagram phone mock -->
-          <article class="device device--ig">
-            <header class="device__bar">
-              <div class="device__profile">
-                <img class="device__avatar" src="assets/feed/avatar-ig.jpg" alt="" width="40" height="40" />
-                <div>
-                  <strong>veronikakeys</strong>
-                  <span>Дневник воспоминаний</span>
-                </div>
-              </div>
-              <a class="device__follow" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">Открыть</a>
-            </header>
-            <p class="device__bio">
-              Творчество, природа, путешествия и&nbsp;движение.
+        <div class="blog-block reveal">
+          <header class="blog-block__head">
+            <p class="eyebrow">// social</p>
+            <h3 class="blog-block__title">Проявляюсь в&nbsp;блоге</h3>
+            <p class="blog-block__sub">
+              Делюсь кадрами, маршрутами и&nbsp;мыслями. Дальше хочу выходить
+              к&nbsp;людям шире: нетворкинг и&nbsp;выступления — в&nbsp;том числе
+              про продукт и&nbsp;команду.
             </p>
-            <div class="device__grid">
-              <img src="assets/feed/ig-1.jpg" alt="" loading="lazy" />
-              <img src="assets/feed/ig-2.jpg" alt="" loading="lazy" />
-              <img src="assets/feed/ig-3.jpg" alt="" loading="lazy" />
-              <img src="assets/feed/ig-4.jpg" alt="" loading="lazy" />
-              <img src="assets/feed/ig-5.jpg" alt="" loading="lazy" />
-              <img src="assets/feed/ig-6.jpg" alt="" loading="lazy" />
-            </div>
-            <a class="device__link" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">
-              instagram.com/veronikakeys →
-            </a>
-          </article>
+          </header>
 
-          <!-- Telegram phone mock -->
-          <article class="device device--tg">
-            <header class="device__bar">
-              <div class="device__profile">
-                <img class="device__avatar" src="assets/feed/avatar-tg.jpg" alt="" width="40" height="40" />
-                <div>
-                  <strong>Заметки о важном</strong>
-                  <span>@notesandminds</span>
+          <div class="about__previews">
+            <!-- Instagram phone mock -->
+            <article class="device device--ig">
+              <header class="device__bar">
+                <div class="device__profile">
+                  <img class="device__avatar" src="assets/feed/avatar-ig.jpg" alt="" width="40" height="40" />
+                  <div>
+                    <strong>veronikakeys</strong>
+                    <span>Дневник воспоминаний</span>
+                  </div>
                 </div>
+                <a class="device__follow" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">Открыть</a>
+              </header>
+              <p class="device__bio">
+                Творчество, природа, путешествия и&nbsp;движение.
+              </p>
+              <div class="device__grid">
+                <img src="assets/feed/ig-1.jpg" alt="" loading="lazy" />
+                <img src="assets/feed/ig-2.jpg" alt="" loading="lazy" />
+                <img src="assets/feed/ig-3.jpg" alt="" loading="lazy" />
+                <img src="assets/feed/ig-4.jpg" alt="" loading="lazy" />
+                <img src="assets/feed/ig-5.jpg" alt="" loading="lazy" />
+                <img src="assets/feed/ig-6.jpg" alt="" loading="lazy" />
               </div>
-              <a class="device__follow" href="https://t.me/notesandminds" target="_blank" rel="noopener">Читать</a>
-            </header>
-            <p class="device__bio">
-              Пространство, в&nbsp;котором делюсь своим путём и&nbsp;мыслями
-            </p>
-
-            <div class="device__posts">
-              <a class="tg-post" href="https://t.me/notesandminds/35" target="_blank" rel="noopener">
-                <div class="tg-post__media">
-                  <img src="assets/feed/tg-thach-1.jpg" alt="" loading="lazy" />
-                  <img src="assets/feed/tg-thach-2.jpg" alt="" loading="lazy" />
-                  <img src="assets/feed/tg-thach-3.jpg" alt="" loading="lazy" />
-                </div>
-                <h3 class="tg-post__title">Большой Тхач · 40&nbsp;км за&nbsp;3&nbsp;дня</h3>
-                <p class="tg-post__text">
-                  Поход случился — и&nbsp;это было незабываемо. Ливень, грязь, 40&nbsp;км
-                  и&nbsp;виды, которые хочется запомнить навсегда.
-                </p>
-                <span class="tg-post__meta">t.me/notesandminds/35</span>
+              <a class="device__link" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">
+                instagram.com/veronikakeys →
               </a>
+            </article>
 
-              <a class="tg-post" href="https://t.me/notesandminds/39" target="_blank" rel="noopener">
-                <div class="tg-post__media tg-post__media--3">
-                  <img src="assets/feed/tg-summer-1.jpg" alt="" loading="lazy" />
-                  <img src="assets/feed/tg-summer-2.jpg" alt="" loading="lazy" />
-                  <img src="assets/feed/tg-summer-3.jpg" alt="" loading="lazy" />
+            <!-- Telegram phone mock -->
+            <article class="device device--tg">
+              <header class="device__bar">
+                <div class="device__profile">
+                  <img class="device__avatar" src="assets/feed/avatar-tg.jpg" alt="" width="40" height="40" />
+                  <div>
+                    <strong>Заметки о важном</strong>
+                    <span>@notesandminds</span>
+                  </div>
                 </div>
-                <h3 class="tg-post__title">Лето в&nbsp;городе&nbsp;Т. 🤍</h3>
-                <p class="tg-post__text">
-                  Подборка кадров — свет, улицы, пауза между маршрутами.
-                </p>
-                <span class="tg-post__meta">t.me/notesandminds/39</span>
-              </a>
-            </div>
+                <a class="device__follow" href="https://t.me/notesandminds" target="_blank" rel="noopener">Читать</a>
+              </header>
+              <p class="device__bio">
+                Пространство, в&nbsp;котором делюсь своим путём и&nbsp;мыслями.
+              </p>
 
-            <a class="device__link" href="https://t.me/notesandminds" target="_blank" rel="noopener">
-              t.me/notesandminds →
-            </a>
-          </article>
+              <div class="device__posts">
+                <a class="tg-post" href="https://t.me/notesandminds/35" target="_blank" rel="noopener">
+                  <div class="tg-post__media">
+                    <img src="assets/feed/tg-thach-1.jpg" alt="" loading="lazy" />
+                    <img src="assets/feed/tg-thach-2.jpg" alt="" loading="lazy" />
+                    <img src="assets/feed/tg-thach-3.jpg" alt="" loading="lazy" />
+                  </div>
+                  <h3 class="tg-post__title">Большой Тхач · 40&nbsp;км за&nbsp;3&nbsp;дня</h3>
+                  <p class="tg-post__text">
+                    Поход случился — и&nbsp;это было незабываемо. Ливень, грязь, 40&nbsp;км
+                    и&nbsp;виды, которые хочется запомнить навсегда.
+                  </p>
+                  <span class="tg-post__meta">t.me/notesandminds/35</span>
+                </a>
+
+                <a class="tg-post" href="https://t.me/notesandminds/39" target="_blank" rel="noopener">
+                  <div class="tg-post__media tg-post__media--3">
+                    <img src="assets/feed/tg-summer-1.jpg" alt="" loading="lazy" />
+                    <img src="assets/feed/tg-summer-2.jpg" alt="" loading="lazy" />
+                    <img src="assets/feed/tg-summer-3.jpg" alt="" loading="lazy" />
+                  </div>
+                  <h3 class="tg-post__title">Лето в&nbsp;городе&nbsp;Т. 🤍</h3>
+                  <p class="tg-post__text">
+                    Подборка кадров — свет, улицы, пауза между маршрутами.
+                  </p>
+                  <span class="tg-post__meta">t.me/notesandminds/39</span>
+                </a>
+              </div>
+
+              <a class="device__link" href="https://t.me/notesandminds" target="_blank" rel="noopener">
+                t.me/notesandminds →
+              </a>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -931,6 +944,20 @@
           <a href="https://www.linkedin.com/in/vovchinnikova/" class="btn btn--ghost btn--lg magnetic" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://docs.google.com/document/d/186_F0vFzyyZfhhmtcUOD5nr6pTt9tPfh/edit?usp=sharing" class="btn btn--ghost btn--lg magnetic" target="_blank" rel="noopener">Резюме</a>
         </div>
+
+        <div class="like-widget reveal" id="likeWidget">
+          <p class="like-widget__text">Если тут было интересно — дай знать.</p>
+          <button type="button" class="like-btn" id="likeBtn" aria-pressed="false" aria-label="Поставить лайк">
+            <span class="like-btn__heart" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.3l7.8-7.9 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+              </svg>
+            </span>
+            <span class="like-btn__label">Нравится</span>
+            <span class="like-btn__count" id="likeCount">0</span>
+          </button>
+          <p class="like-widget__thanks" id="likeThanks" hidden>Спасибо 💚</p>
+        </div>
       </div>
     </section>
   </main>
@@ -941,7 +968,6 @@
         <img src="assets/brand/logo-nav.png" alt="" width="28" height="28" />
         <span>© <span id="year"></span> Veronika PMM</span>
       </a>
-      <span class="footer__tag">Build systems. Run experiments. Scale what works.</span>
     </div>
   </footer>
 
