@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "root-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5175"],
+      "port": 5175
+    },
+    {
+      "name": "v2-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5174", "--directory", "versions/v2"],
+      "port": 5174
+    }
+  ]
+}

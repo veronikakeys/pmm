@@ -99,7 +99,23 @@
   );
   onParallax();
 
-  // Reveal on scroll — staggered for siblings in groups
+  // Stagger children before observing reveals
+  const staggerGroups = document.querySelectorAll(
+    ".cases-list, .method-cycle, .tools-grid, .timeline--cards, .about__trio, .books-grid"
+  );
+  if (!prefersReduced) {
+    staggerGroups.forEach((group) => {
+      const kids = group.querySelectorAll(
+        ":scope > .case, :scope > .method-node, :scope > .tool-card, :scope > .timeline__item, :scope > .about-card, :scope > .book-card"
+      );
+      kids.forEach((kid, i) => {
+        kid.classList.add("reveal");
+        kid.style.transitionDelay = `${Math.min(i * 0.07, 0.5)}s`;
+      });
+    });
+  }
+
+  // Reveal on scroll
   const revealEls = document.querySelectorAll(".reveal");
   if (prefersReduced) {
     revealEls.forEach((el) => el.classList.add("visible"));
@@ -118,21 +134,21 @@
     revealEls.forEach((el) => revealObserver.observe(el));
   }
 
-  // Stagger children inside visible groups (cases, method, tools)
-  const staggerGroups = document.querySelectorAll(
-    ".cases-list, .method-cycle, .tools-grid, .timeline--cards, .about__trio, .books-grid"
-  );
+  // Soft parallax only for section banners
   if (!prefersReduced) {
-    staggerGroups.forEach((group) => {
-      const kids = group.querySelectorAll(
-        ":scope > .case, :scope > .method-node, :scope > .tool-card, :scope > .timeline__item, :scope > .about-card, :scope > .book-card"
-      );
-      kids.forEach((kid, i) => {
-        if (!kid.classList.contains("reveal")) {
-          kid.style.transitionDelay = `${Math.min(i * 0.06, 0.42)}s`;
-        }
+    const banners = document.querySelectorAll(".section-banner img");
+    const onBannerScroll = () => {
+      const vh = window.innerHeight;
+      banners.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const mid = rect.top + rect.height / 2;
+        const offset = ((mid - vh / 2) / vh) * -14;
+        img.style.transform = `scale(1.08) translateY(${offset}px)`;
       });
-    });
+    };
+    window.addEventListener("scroll", onBannerScroll, { passive: true });
+    onBannerScroll();
   }
 
   // Competency bars
@@ -199,44 +215,84 @@
     });
   });
 
-  // Like button — shared count via localStorage + optional shared seed
+  // Case modals
+  const openCaseModal = (id) => {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.hidden = false;
+    requestAnimationFrame(() => {
+      modal.classList.add("is-open");
+    });
+    document.body.classList.add("case-modal-open");
+    const closeBtn = modal.querySelector(".case-modal__close");
+    if (closeBtn) closeBtn.focus({ preventScroll: true });
+  };
+
+  const closeCaseModal = (modal) => {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    document.body.classList.remove("case-modal-open");
+    const onEnd = () => {
+      modal.hidden = true;
+      modal.removeEventListener("transitionend", onEnd);
+    };
+    modal.addEventListener("transitionend", onEnd);
+    // fallback if transitionend doesn't fire
+    setTimeout(() => {
+      if (!modal.classList.contains("is-open")) modal.hidden = true;
+    }, 400);
+  };
+
+  document.querySelectorAll("[data-case-open]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openCaseModal(btn.getAttribute("data-case-open"));
+    });
+  });
+
+  document.querySelectorAll(".case-modal").forEach((modal) => {
+    modal.querySelectorAll("[data-case-close]").forEach((el) => {
+      el.addEventListener("click", () => closeCaseModal(modal));
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const open = document.querySelector(".case-modal.is-open");
+    if (open) closeCaseModal(open);
+  });
+
+  // Like counter — local per-visitor (CounterAPI v1 shut down permanently, HTTP 410)
   const likeBtn = document.getElementById("likeBtn");
   const likeCountEl = document.getElementById("likeCount");
   const likeThanks = document.getElementById("likeThanks");
-  const LIKE_KEY = "vpm_liked";
-  const COUNT_KEY = "vpm_like_count";
-  const BASE_LIKES = 47; // seed so the counter doesn't start empty
+  const LIKE_KEY = "vpm_liked_v2";
+  const BASE_LIKES = 20;
 
   if (likeBtn && likeCountEl) {
-    const storedCount = parseInt(localStorage.getItem(COUNT_KEY) || "", 10);
-    let count = Number.isFinite(storedCount) ? storedCount : BASE_LIKES;
     let liked = localStorage.getItem(LIKE_KEY) === "1";
 
     const renderLike = () => {
-      likeCountEl.textContent = String(count);
+      likeCountEl.textContent = String(BASE_LIKES + (liked ? 1 : 0));
       likeBtn.classList.toggle("is-liked", liked);
       likeBtn.setAttribute("aria-pressed", liked ? "true" : "false");
-      likeBtn.setAttribute("aria-label", liked ? "Убрать лайк" : "Поставить лайк");
+      likeBtn.setAttribute("aria-label", liked ? "Уже понравилось" : "Поставить лайк");
+      likeBtn.disabled = liked;
       if (likeThanks) likeThanks.hidden = !liked;
     };
 
     renderLike();
 
     likeBtn.addEventListener("click", () => {
-      if (liked) {
-        liked = false;
-        count = Math.max(BASE_LIKES - 1, count - 1);
-        localStorage.setItem(LIKE_KEY, "0");
-      } else {
-        liked = true;
-        count += 1;
-        localStorage.setItem(LIKE_KEY, "1");
-        // confetti-like burst via brief re-trigger of animation
-        likeBtn.classList.remove("is-liked");
-        void likeBtn.offsetWidth;
-      }
-      localStorage.setItem(COUNT_KEY, String(count));
+      if (liked) return;
+      liked = true;
+      localStorage.setItem(LIKE_KEY, "1");
       renderLike();
+
+      try {
+        if (typeof ym === "function") ym(69183895, "reachGoal", "site_like");
+      } catch (_) {}
     });
   }
 

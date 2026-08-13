@@ -242,7 +242,7 @@ Lifecycle Marketing
 
 Analytics
 GA4
-Yandex Metrica
+Yandex Metrika
 Google Sheets
 SQL (basic)
 

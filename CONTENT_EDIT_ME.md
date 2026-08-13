@@ -460,7 +460,7 @@ id: experience
 
  A/B Testing
 
- GA / Metrica / Sheets
+ GA / Metrika / Sheets
 
  SQL (базовый)
 
