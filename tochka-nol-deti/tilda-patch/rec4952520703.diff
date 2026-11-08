@@ -1,0 +1,26 @@
+--- backup/live-2026-11-08/rec4952520703.t123.html
++++ tilda-patch/rec4952520703.new.html
+@@ -101,4 +101,23 @@
+   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+ })();
+ 
++(function(){
++  var root=document.querySelector('.tz-sched');
++  if(!root||root.getAttribute('data-sched-ready'))return;
++  root.setAttribute('data-sched-ready','1');
++  var want=root.querySelector('#tz-s4');
++  var radios=[].slice.call(root.querySelectorAll('input[name="tz-sched"]'));
++  if(!want||!radios.length)return;
++  var desktop=window.matchMedia('(min-width:960px)');
++  var picked=false;
++  radios.forEach(function(r){r.addEventListener('change',function(){picked=true;});});
++  function apply(){
++    if(picked||desktop.matches)return;
++    if(!want.checked)want.checked=true;
++  }
++  apply();
++  if(desktop.addEventListener)desktop.addEventListener('change',apply);
++  else if(desktop.addListener)desktop.addListener(apply);
++})();
++
+ </script> 
