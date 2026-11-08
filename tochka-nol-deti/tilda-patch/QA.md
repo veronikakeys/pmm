@@ -155,3 +155,25 @@ Headless Chrome on `preview/index.html`. Non-GET aborted. `pageerror`: 0 in ever
 Extra, 1280 only: `navigator.connection.saveData=true` (defined before load). Before click: `paused=true`, 0 sources, 1 button. After click: `paused=false`, `readyState=4`, 1 source, 0 buttons. `pageerror` 0. Not repeated at 375.
 
 Not tested: a real phone, iOS `playsinline` playback, and a hung `window.load` on the live page (the new script does not wait for `load`).
+
+## Schedule: «7–9 лет» open on mobile (rec4952520703)
+
+Status: **written and checked in the local preview. Not pasted into Tilda. Not published.**
+
+Base is the live T123 fetched 08.11 23:19 MSK (`uploads` file, saved as `backup/live-2026-11-08/rec4952520703.t123.html`). There was no older per-record backup. The inner HTML already inside `backup/live-2026-11-08/index.html` is the same bytes, so nothing was overwritten.
+
+The mobile UI is a radio group inside `.tz-sched__tabs`. The block’s own CSS shows that group below 960px and the full table from `min-width:960px`. Default checked radio was `#tz-s1` («3–4 года»). The patch does not move `checked` in the HTML. A short script, once, checks `#tz-s4` («7–9 лет») only when `matchMedia('(min-width:960px)')` is false and the user has not yet changed the group. A later `change` (click or arrow keys) is kept across resizes. Desktop does not rewrite the radio.
+
+`node --check` on the block script passed. The tabs have no `aria-selected`, `aria-expanded`, or `aria-pressed`. Selection is the radio `checked` state, and the visible list is the panel whose `display` is `block`. Those two stay in agreement. `aria-hidden` on the desktop «нет занятий» dashes was not edited.
+
+Headless Chrome. Non-GET aborted. `pageerror`: 0. Duplicate ids: none. Overflow: 0 at 375 and 1280.
+
+| Check | Result |
+|---|---|
+| 375 on load, patched | `#tz-s4` checked (1 of 6). Label «7–9 лет». Only panel `data-p=4` is `display:block`. Tabs `display:block`, table `display:none`. Times: Пн 17:00–18:00, Пт 17:00–18:30, Сб 12:00–13:30. |
+| 375 baseline | `#tz-s1` «3–4 года», panel 1, Вт/Чт 17:30–18:30. |
+| Keyboard at 375 | Focus started on `#tz-s4`. ArrowRight moved to `#tz-s5` «11–13 лет», panel 5 only. The matching label outline was `solid 2px rgb(184, 147, 90)`. Click «3–4 года» selected `#tz-s1`. Click «14–18 лет» selected `#tz-s6`. |
+| 1280 on load, patched and baseline | Both `#tz-s1`, tabs `display:none`, table `display:block`. The two screenshots are byte-identical. |
+| Resize | Loaded at 1280: `#tz-s1`. Narrowed to 375: `#tz-s4`, panel 4. Chose «5–6 лет · I» (`#tz-s2`). Widened to 1280: table visible, radio stayed `#tz-s2`. Narrowed again: still `#tz-s2`, panel 2. At 959px the tabs are shown; at 960px the table is shown. |
+
+Screenshots: `tilda-patch/screenshots/sched-before-375.jpeg`, `sched-after-375.jpeg`, `sched-before-1280.jpeg`, `sched-after-1280.jpeg`.
