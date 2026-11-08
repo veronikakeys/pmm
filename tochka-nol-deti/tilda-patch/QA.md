@@ -135,3 +135,23 @@ Pairs are in `tilda-patch/screenshots/` (`before-*` / `after-*` at 375, 768, 128
    - rec4983233203
 3. Do not replace rec4952540703, rec4958844703, or rec4960398603. They were not changed.
 4. Full fetched pages: `backup/live-2026-11-08/index.html` and `spasibo.html`.
+
+## Hero video init (rec4952454803)
+
+Status: **written and checked in the local preview. Not pasted into Tilda. Not published.** No form was submitted.
+
+Paste file: `tilda-patch/rec4952454803.video-fix.html`. Diff against the current messenger patch: `rec4952454803.video-fix.diff`. `rec4952454803.new.html` is unchanged. `node --check` on the extracted `<script>` passed.
+
+The source is attached immediately (the script sits after the `<video>`). `muted`, `defaultMuted`, and `playsInline` are set before `play()`. `prefers-reduced-motion` and `saveData` do not attach the source and do not autoplay; they show one `<button type="button" class="tz-hero__play" aria-label="Включить видео">` (56×56, absolutely centered on the media). A rejected `play()`, or still paused 2.5s after the attempt / `canplay`, shows the same button. `playing` removes it. The intersection observer is created once, on the first `playing`, and under reduced-motion or saveData it resumes only after the user started the video.
+
+Headless Chrome on `preview/index.html`. Non-GET aborted. `pageerror`: 0 in every case. Console errors: 0. Duplicate ids: none. Overflow: 0.
+
+| Case | 375 | 1280 |
+|---|---|---|
+| Normal autoplay | `paused=false`, `readyState=4`, 1 `<source>`, 0 buttons, `muted`/`defaultMuted`/`playsInline` true, both attributes set. mp4 requested once. | Same. |
+| Autoplay blocked | Chrome flag `--autoplay-policy=document-user-activation-required` still autoplayed this muted video (`paused=false`, `readyState=4`, no button). The blocked case used an override: `HTMLMediaElement.prototype.play` rejects unless `navigator.userActivation.isActive`. Button appeared (56×56, label «Включить видео», `type=button`). Focused: `outline solid 2px rgb(184, 147, 90)`, offset 3px. Click played; button removed; `paused=false`, `readyState=4`. | Same override. Enter on the focused button played; button removed; `paused=false`, `readyState=4`. |
+| `prefers-reduced-motion: reduce` | Before activation: `calm=true`, `paused=true`, `readyState=0`, 0 sources, 0 mp4 requests, 1 button. Enter attached one source and played (`readyState=4`, `paused=false`, button gone, 1 mp4 request). | Same before activation. Click played (`readyState=4`, `paused=false`, button gone, 1 mp4 request). |
+
+Extra, 1280 only: `navigator.connection.saveData=true` (defined before load). Before click: `paused=true`, 0 sources, 1 button. After click: `paused=false`, `readyState=4`, 1 source, 0 buttons. `pageerror` 0. Not repeated at 375.
+
+Not tested: a real phone, iOS `playsinline` playback, and a hung `window.load` on the live page (the new script does not wait for `load`).
