@@ -3,34 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veronika Ovchinnikova — Product Marketing Manager</title>
-  <meta name="description" content="Product Marketing Manager. Нахожу точки роста продукта, превращаю их в решения и довожу до измеримого бизнес-результата." />
+  <title>Вероника Овчинникова: маркетинг для создателей пространств</title>
+  <meta name="description" content="Маркетинг для студий, агентств недвижимости, бюро интерьеров и ремонта: запуски, сайты, консультации. Цель в цифрах с первого дня и путь к ней на виду." />
+  <!-- canonical / og:url: домен v11, подтвердить перед выкладкой -->
+  <link rel="canonical" href="https://vovchinnikova.ru/" />
   <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Вероника Овчинникова" />
+  <meta property="og:url" content="https://vovchinnikova.ru/" />
+  <meta property="og:title" content="Вероника Овчинникова: маркетинг для создателей пространств" />
+  <meta property="og:description" content="Маркетинг для студий, агентств недвижимости, бюро интерьеров и ремонта: запуски, сайты, консультации. Цель в цифрах с первого дня и путь к ней на виду." />
+  <meta property="og:image" content="https://vovchinnikova.ru/assets/og/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Вероника Овчинникова. Маркетинг для создателей пространств: KPI на старте, система до результата" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" type="image/webp" href="assets/media/hero-bg.webp" imagesrcset="assets/media/hero-bg-600.webp 600w, assets/media/hero-bg.webp 900w" imagesizes="(max-width: 900px) 92vw, 420px" fetchpriority="high" />
+  <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Yandex.Metrika counter -->
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/draft.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <!-- Yandex.Metrika counter (тот же счётчик, что на главной) -->
   <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
-      m[i] =
-        m[i] ||
-        function () {
-          (m[i].a = m[i].a || []).push(arguments);
-        };
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
       m[i].l = 1 * new Date();
       for (var j = 0; j < document.scripts.length; j++) {
-        if (document.scripts[j].src === r) {
-          return;
-        }
+        if (document.scripts[j].src === r) { return; }
       }
-      (k = e.createElement(t)),
-        (a = e.getElementsByTagName(t)[0]),
-        (k.async = 1),
-        (k.src = r),
-        a.parentNode.insertBefore(k, a);
+      (k = e.createElement(t)), (a = e.getElementsByTagName(t)[0]), (k.async = 1), (k.src = r), a.parentNode.insertBefore(k, a);
     })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
     ym(69183895, "init", {
@@ -44,1160 +50,381 @@
   </script>
   <!-- /Yandex.Metrika counter -->
 </head>
-<body>
-  <noscript
-    ><div>
-      <img
-        src="https://mc.yandex.ru/watch/69183895"
-        style="position: absolute; left: -9999px"
-        alt=""
-      /></div
-  ></noscript>
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<body class="sv-page dz">
+  <noscript><div><img src="https://mc.yandex.ru/watch/69183895" style="position: absolute; left: -9999px" alt="" /></div></noscript>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <svg class="sv-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></symbol>
+  </svg>
 
-  <!-- NAV -->
+  <!-- 0. ШАПКА -->
   <header class="nav" id="nav">
-    <a href="#hero" class="nav__logo">
+    <a href="#top" class="nav__logo">
       <img class="nav__mark-img" src="assets/brand/logo-nav.png" alt="" width="32" height="32" />
-      <span class="nav__name">Veronika PMM</span>
+      <span class="nav__name"><span class="dz-logo-full">Вероника: маркетинг для создателей пространств</span><span class="dz-logo-short">Вероника</span></span>
     </a>
-    <nav class="nav__links">
+    <nav class="nav__links" aria-label="Основное меню">
       <a href="#cases">Кейсы</a>
-      <a href="#experience">Опыт</a>
-      <a href="#method">Подход</a>
-      <a href="#ai-lab">Как я работаю</a>
-      <a href="#about">Живу жизнь</a>
-      <a href="#contact">Контакты</a>
+      <a href="#formats">Форматы</a>
+      <a href="#how">Как работаем</a>
+      <a href="#why">Обо мне</a>
     </nav>
-    <a href="#contact" class="btn btn--sm magnetic">Связаться</a>
-    <button class="nav__burger" id="burger" aria-label="Меню">
-      <span></span><span></span>
-    </button>
+    <a data-goal="tg_header" href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary btn--sm sv-nav-cta" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a>
+    <button class="nav__burger" id="burger" type="button" aria-label="Меню" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span></button>
   </header>
-
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Меню для телефона">
     <a href="#cases">Кейсы</a>
-    <a href="#experience">Опыт</a>
-    <a href="#method">Подход</a>
-    <a href="#ai-lab">Как я работаю</a>
-    <a href="#about">Живу жизнь</a>
-    <a href="#contact" class="btn">Связаться</a>
-  </div>
+    <a href="#formats">Форматы</a>
+    <a href="#how">Как работаем</a>
+    <a href="#why">Обо мне</a>
+  </nav>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero__grid parallax" data-speed="0.1"></div>
-      <div class="container hero__inner">
-        <div class="hero__layout">
-          <div class="hero__copy">
-            <div class="hero__badge reveal">
-              <span class="pulse"></span>
-              Open to Product Marketing Manager · Growth Marketing · Head of Marketing
-            </div>
-            <p class="hero__hello reveal">Привет, я Вероника!</p>
-            <p class="hero__role reveal delay-1">Product Marketing Manager</p>
-            <h1 class="hero__title">
-              <span class="word-reveal">Нахожу</span>
-              <span class="word-reveal">точки</span>
-              <span class="word-reveal accent">роста,</span>
-              <span class="word-reveal">превращаю</span>
-              <span class="word-reveal">их</span>
-              <span class="word-reveal">в</span>
-              <span class="word-reveal accent">решения</span>
-              <span class="word-reveal">и</span>
-              <span class="word-reveal">довожу</span>
-              <span class="word-reveal">до</span>
-              <span class="word-reveal accent">измеримого</span>
-              <span class="word-reveal accent">бизнес-результата</span>
-            </h1>
-            <p class="hero__lead reveal delay-2">
-              Быстро загораюсь новыми идеями, иду за&nbsp;интересом, ценю свободу думать, сильных людей рядом и&nbsp;возможность действительно что-то менять.
-            </p>
-            <div class="hero__meta reveal delay-3">
-              <div class="stat">
-                <strong data-count="8" data-suffix="+">8+</strong>
-                <span>лет в маркетинге</span>
-              </div>
-              <div class="stat">
-                <strong data-count="5">5</strong>
-                <span>рынков</span>
-              </div>
-              <div class="stat">
-                <strong>до 15</strong>
-                <span>человек в команде</span>
-              </div>
-            </div>
-            <div class="hero__cta reveal delay-4">
-              <a href="#cases" class="btn btn--primary magnetic">Смотреть кейсы</a>
-              <a href="#method" class="btn btn--ghost magnetic">Мой подход</a>
-            </div>
-            <div class="hero__tags reveal delay-5">
-              <span>Product Discovery</span>
-              <span>Positioning</span>
-              <span>Growth</span>
-              <span>Analytics</span>
-              <span>GTM</span>
-              <span>AI</span>
-            </div>
+  <main class="sv" id="main" tabindex="-1">
+
+    <!-- 1. ПЕРВЫЙ ЭКРАН -->
+    <section class="sv-hero dz-hero" id="top" aria-labelledby="sv-h1">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="sv-hero__inner">
+        <div class="sv-hero__copy">
+          <p class="dz-eyebrow sv-in" style="--d: 0ms">Маркетинг для студий, агентств недвижимости, бюро интерьеров и ремонта</p>
+          <h1 class="sv-h1 dz-h1" id="sv-h1">
+            <span class="sv-h1__line"><span style="--d: 0ms">Маркетинг для создателей пространств:</span></span>
+            <span class="sv-h1__line"><span style="--d: 70ms">KPI на старте,</span></span>
+            <span class="sv-h1__line sv-h1__line--accent"><span class="sv-h1__mark" style="--d: 140ms"><span class="sv-accent">система до результата</span><svg class="sv-h1__ridge" viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 18 L34 9 L52 14 L84 3 L112 13 L140 7 L170 15 L198 10"/></svg></span></span>
+          </h1>
+          <p class="sv-hero__lead sv-in" style="--d: 300ms">Запускаю, делаю сайты и собираю маркетинг целиком. Тестирую, усиливаю то, что окупается, и веду работу к цифре, о которой договорились.</p>
+          <div class="sv-cta sv-hero__cta sv-in" style="--d: 340ms">
+            <a data-goal="tg_hero" href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a>
+            <p class="sv-note dz-hero__note">Отвечаю в течение дня. Можно текстом, без созвона.</p>
           </div>
-
-          <figure class="hero__photo reveal delay-2">
-            <img
-              src="assets/veronika-hero.jpg"
-              alt="Вероника — Product Marketing Manager"
-              width="900"
-              height="1200"
-              decoding="async"
-              fetchpriority="high"
-            />
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASES -->
-    <section class="section cases" id="cases">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow reveal">// case studies</p>
-          <h2 class="section__title section__title--gradient reveal">Сделала</h2>
-          <p class="section__sub reveal">
-            От&nbsp;бизнес-задачи до&nbsp;результата и&nbsp;следующего решения.
-          </p>
-        </div>
-
-        <p class="h-scroll-hint reveal" aria-hidden="true">← листай кейсы →</p>
-        <div class="h-scroll h-scroll--cases" data-h-scroll>
-          <div class="h-scroll__track cases-list">
-            <!-- 01 Apart Homes -->
-            <article class="case case--impact reveal">
-              <div class="case__meta">
-                <span class="case__num">01</span>
-                <span class="case__domain">PMM Lead · Growth · Real Estate</span>
-              </div>
-              <p class="case__company">Apart Homes · недвижимость · Пхукет</p>
-              <h3 class="case__title">Построила систему привлечения и&nbsp;прогрева, запустила новые источники спроса</h3>
-              <div class="case__task">
-                <span class="case__label">Задача бизнеса</span>
-                <p>Снять зависимость от&nbsp;узкого набора каналов и&nbsp;построить систему коммуникации на&nbsp;длинном цикле сделки.</p>
-              </div>
-              <div class="case__result-block">
-                <span class="case__label">Результат</span>
-                <ul class="case__metrics">
-                  <li><strong>+3</strong><span>новых канала</span></li>
-                  <li><strong>×3</strong><span>SEO-трафик</span></li>
-                  <li><strong>×2</strong><span>аудитория Telegram</span></li>
-                  <li><strong>×2</strong><span>RR в рассылках</span></li>
-                </ul>
-              </div>
-              <div class="case__ownership">
-                <span class="case__label">Ownership</span>
-                <p>Новые источники лидов, коммуникация по&nbsp;CJM, аналитика воронки, команда до&nbsp;15&nbsp;человек; работа напрямую с&nbsp;CMO&nbsp;/ сооснователем.</p>
-              </div>
-              <button type="button" class="case__more" data-case-open="case-01">Узнать как сделала</button>
-            </article>
-
-            <!-- 02 It's AI -->
-            <article class="case case--impact reveal">
-              <div class="case__meta">
-                <span class="case__num">02</span>
-                <span class="case__domain">PMM · Discovery · GTM · AI</span>
-              </div>
-              <p class="case__company">It's AI · AI-стартап · US / UK / UAE</p>
-              <h3 class="case__title">Вывела AI-продукт 0→1: от&nbsp;исследования рынка до&nbsp;первых GTM-гипотез</h3>
-              <div class="case__task">
-                <span class="case__label">Задача бизнеса</span>
-                <p>Найти рабочие сегменты на&nbsp;новых рынках и&nbsp;понять, куда направлять ограниченный ресурс до&nbsp;масштабирования.</p>
-              </div>
-              <div class="case__result-block">
-                <span class="case__label">Результат</span>
-                <ul class="case__metrics case__metrics--3">
-                  <li><strong>3</strong><span>ICP в работу</span></li>
-                  <li><strong>~15</strong><span>CustDev-интервью</span></li>
-                  <li><strong>0→1</strong><span>первые B2C и B2B клиенты</span></li>
-                </ul>
-              </div>
-              <div class="case__ownership">
-                <span class="case__label">Ownership</span>
-                <p>Market discovery, ICP, positioning, GTM и&nbsp;проверка каналов; стык маркетинга и&nbsp;продукта.</p>
-              </div>
-              <button type="button" class="case__more" data-case-open="case-02">Посмотреть подробнее</button>
-            </article>
-
-            <!-- 03 Colife -->
-            <article class="case case--impact reveal">
-              <div class="case__meta">
-                <span class="case__num">03</span>
-                <span class="case__domain">PMM Lead · Two-sided · Multi-market</span>
-              </div>
-              <p class="case__company">Colife · аренда · Стамбул &amp; Дубай</p>
-              <h3 class="case__title">Запустила маркетинг 0→1 и&nbsp;сократила простой объектов с&nbsp;95% до&nbsp;15%</h3>
-              <div class="case__task">
-                <span class="case__label">Задача бизнеса</span>
-                <p>В&nbsp;Стамбуле&nbsp;— создать маркетинг и&nbsp;спрос с&nbsp;нуля и&nbsp;снизить простой объектов; в&nbsp;Дубае&nbsp;— ускорить рост спроса в&nbsp;несезон.</p>
-              </div>
-              <div class="case__result-block">
-                <span class="case__label">Результат</span>
-                <ul class="case__metrics case__metrics--3">
-                  <li><strong>95%→15%</strong><span>простой объектов</span></li>
-                  <li><strong>×2</strong><span>CR сайта</span></li>
-                  <li><strong>×2</strong><span>лиды в Дубае</span></li>
-                </ul>
-              </div>
-              <div class="case__ownership">
-                <span class="case__label">Ownership</span>
-                <p>Маркетинг на&nbsp;двух рынках, команда из&nbsp;5&nbsp;человек, demand generation, CRO и&nbsp;обе стороны marketplace.</p>
-              </div>
-              <button type="button" class="case__more" data-case-open="case-03">Читать детали</button>
-            </article>
-
-            <!-- 04 Remont.io -->
-            <article class="case case--impact reveal">
-              <div class="case__meta">
-                <span class="case__num">04</span>
-                <span class="case__domain">CRO · A/B · Post-click</span>
-              </div>
-              <p class="case__company">Remont.io · design &amp; repair</p>
-              <h3 class="case__title">Удвоила конверсию и&nbsp;снизила стоимость привлечения через CRO</h3>
-              <div class="case__task">
-                <span class="case__label">Задача бизнеса</span>
-                <p>Снизить стоимость привлечения: сайт терял значительную часть потенциальных клиентов до&nbsp;целевого действия.</p>
-              </div>
-              <div class="case__result-block">
-                <span class="case__label">Результат</span>
-                <ul class="case__metrics case__metrics--3">
-                  <li><strong>2,3%→4,6%</strong><span>CR в квал. лид</span></li>
-                  <li><strong>−5 п.п.</strong><span>ДРР</span></li>
-                  <li><strong>×2</strong><span>конверсия</span></li>
-                </ul>
-              </div>
-              <div class="case__ownership">
-                <span class="case__label">Ownership</span>
-                <p>Точки роста в&nbsp;post-click воронке: связала сайт, рекламные креативы и&nbsp;продажи в&nbsp;единую систему экспериментов.</p>
-              </div>
-              <button type="button" class="case__more" data-case-open="case-04">Узнать как сделала</button>
-            </article>
-
-            <!-- 05 Pet projects -->
-            <article class="case case--impact reveal">
-              <div class="case__meta">
-                <span class="case__num">05</span>
-                <span class="case__domain">0-to-1 · Entrepreneurship</span>
-              </div>
-              <p class="case__company">Pet projects · e-commerce · lifestyle</p>
-              <h3 class="case__title">Запустила собственные продукты 0→1 и&nbsp;проверила бизнес-модели на&nbsp;практике</h3>
-              <div class="case__task">
-                <span class="case__label">Задача бизнеса</span>
-                <p>Проверить бизнес-гипотезы и&nbsp;вывести продукты на&nbsp;рынок без готовой аудитории, команды и&nbsp;спроса.</p>
-              </div>
-              <div class="case__result-block">
-                <span class="case__label">Результат</span>
-                <ul class="case__metrics case__metrics--3">
-                  <li><strong>2</strong><span>продукта 0→1</span></li>
-                  <li><strong>Full cycle</strong><span>идея → клиент</span></li>
-                  <li><strong>PMF</strong><span>проверка моделей</span></li>
-                </ul>
-              </div>
-              <div class="case__ownership">
-                <span class="case__label">Ownership</span>
-                <p>Весь цикл 0→1: исследование рынка, партнёры, продукт, бренд, каналы продаж и&nbsp;первые клиенты.</p>
-              </div>
-              <button type="button" class="case__more" data-case-open="case-05">Посмотреть подробнее</button>
-            </article>
-          </div>
-        </div>
-
-        <p class="cases__more reveal">
-          Больше кейсов —
-          <a href="https://app.notion.com/p/463a8a0d267b4720846f46f5f70a8349" target="_blank" rel="noopener">в&nbsp;Notion</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Case modals -->
-    <div class="case-modal" id="case-01" role="dialog" aria-modal="true" aria-labelledby="case-01-title" hidden>
-      <div class="case-modal__backdrop" data-case-close></div>
-      <div class="case-modal__panel">
-        <button type="button" class="case-modal__close" data-case-close aria-label="Закрыть">×</button>
-        <p class="case-modal__eyebrow">01 · Apart Homes · Пхукет</p>
-        <h3 class="case-modal__title" id="case-01-title">Построила систему привлечения и&nbsp;прогрева, запустила новые источники спроса</h3>
-
-        <section class="case-modal__block case-modal__block--task">
-          <h4>Задача бизнеса</h4>
-          <p>Бизнес зависел от&nbsp;ограниченного числа источников трафика, а&nbsp;длинный цикл сделки требовал отдельной системы коммуникации и&nbsp;прогрева.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--ownership">
-          <h4>Ownership</h4>
-          <p>Поиск новых источников лидов, построение коммуникации по&nbsp;CJM, аналитика воронки и&nbsp;организация команды до&nbsp;15&nbsp;человек; напрямую работала с&nbsp;CMO&nbsp;/ сооснователем.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--solution">
-          <h4>Решение</h4>
-          <p>На&nbsp;основе сегментации и&nbsp;CJM определила точки роста и&nbsp;собрала multi-channel систему: Telegram, бот, закупы, email, CRM- и&nbsp;мессенджер-маркетинг, SEO, SMM и&nbsp;вебинары. Запустила 3&nbsp;новых канала и&nbsp;протестировала 2&nbsp;альтернативные воронки&nbsp;— через вебинар и&nbsp;аренду.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--result">
-          <h4>Результат</h4>
-          <ul class="case-modal__stats">
-            <li><strong>3</strong> новых канала</li>
-            <li><strong>~40%</strong> CR в квалификацию</li>
-            <li><strong>×3</strong> SEO-трафик</li>
-            <li><strong>×2</strong> Telegram / RR рассылок</li>
+          <ul class="sv-stats dz-stats sv-in" style="--d: 400ms">
+            <li><strong>10 лет</strong><span>в маркетинге</span></li>
+            <li><strong>×6</strong><span>к выручке за 3 месяца, аренда</span></li>
+            <li><strong>+50%</strong><span>к среднему чеку за 9 месяцев, интерьеры</span></li>
           </ul>
-          <p>Новые каналы привели целевых лидов с&nbsp;конверсией в&nbsp;квалификацию около 40%, стоимость лида была сопоставима с&nbsp;основным каналом. SEO-трафик вырос в&nbsp;3&nbsp;раза, аудитория Telegram&nbsp;— в&nbsp;2&nbsp;раза, RR в&nbsp;рассылках&nbsp;— в&nbsp;2&nbsp;раза. Гипотеза по&nbsp;конверсии в&nbsp;продажу не&nbsp;подтвердилась&nbsp;— масштабирование остановили.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--learn">
-          <h4>Чему научило</h4>
-          <p>Если вижу ограничение в&nbsp;воронке, моя задача&nbsp;— не&nbsp;просто обозначить риск, а&nbsp;довести аргументацию до&nbsp;решения и&nbsp;внедрения. Здесь я&nbsp;недостаточно настояла на&nbsp;изменении нижней части воронки&nbsp;— и&nbsp;это стало одной из&nbsp;причин, почему экономика не&nbsp;сошлась.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--next">
-          <h4>Следующее решение</h4>
-          <p>В&nbsp;следующий раз закладываю адаптацию воронки продаж в&nbsp;саму GTM-гипотезу: заранее фиксирую необходимые изменения на&nbsp;этапе квалификации и&nbsp;продажи и&nbsp;добиваюсь их&nbsp;внедрения вместе с&nbsp;sales/операционной командой.</p>
-        </section>
-      </div>
-    </div>
-
-    <div class="case-modal" id="case-02" role="dialog" aria-modal="true" aria-labelledby="case-02-title" hidden>
-      <div class="case-modal__backdrop" data-case-close></div>
-      <div class="case-modal__panel">
-        <button type="button" class="case-modal__close" data-case-close aria-label="Закрыть">×</button>
-        <p class="case-modal__eyebrow">02 · It's AI · US / UK / UAE</p>
-        <h3 class="case-modal__title" id="case-02-title">Вывела AI-продукт 0→1: от&nbsp;исследования рынка до&nbsp;первых GTM-гипотез</h3>
-
-        <section class="case-modal__block case-modal__block--task">
-          <h4>Задача бизнеса</h4>
-          <p>Early-stage продукту нужно было выйти на&nbsp;новые рынки, определить рабочие сегменты и&nbsp;понять, куда направлять ограниченный ресурс до&nbsp;масштабирования.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--ownership">
-          <h4>Ownership</h4>
-          <p>Отвечала за&nbsp;market discovery, ICP, positioning, GTM и&nbsp;проверку каналов; работала на&nbsp;стыке маркетинга и&nbsp;продукта.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--solution">
-          <h4>Решение</h4>
-          <p>Провела конкурентный и&nbsp;рыночный анализ, ~15 CustDev-интервью и&nbsp;сформировала 3&nbsp;ICP. На&nbsp;основе исследований разработала positioning и&nbsp;messaging, сформулировала product tools и&nbsp;передала инсайты в&nbsp;продукт. Запустила тесты Paid, SEO, SMM и&nbsp;B2B outreach в&nbsp;LinkedIn, развернула Amplitude и&nbsp;GA для оценки воронки.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--result">
-          <h4>Результат</h4>
-          <ul class="case-modal__stats">
-            <li><strong>3</strong> ICP / сегмента</li>
-            <li><strong>~15</strong> CustDev</li>
-            <li><strong>Paid stop</strong> unit-экономика</li>
-            <li><strong>B2B</strong> встречи LinkedIn</li>
-          </ul>
-          <p>3&nbsp;сегмента выведены в&nbsp;работу. Paid дал регистрации, но&nbsp;не&nbsp;конвертировался в&nbsp;сделки&nbsp;— масштабирование остановили из-за не&nbsp;сходящейся unit-экономики. SEO привёл первых подписчиков, LinkedIn&nbsp;— несколько B2B-встреч. Исследования стали основой для продуктовых изменений и&nbsp;дальнейшего выбора сегментов.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--learn">
-          <h4>Чему научило</h4>
-          <p>На&nbsp;ранней стадии задача PMM&nbsp;— не&nbsp;доказать, что гипотеза работает, а&nbsp;как можно быстрее определить, где есть потенциал для бизнеса, а&nbsp;где дальнейшие инвестиции не&nbsp;оправданы.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--next">
-          <h4>Следующее решение</h4>
-          <p>Сместила фокус с&nbsp;масштабирования каналов на&nbsp;поиск product-market fit: сначала подтверждать сегмент, ценность и&nbsp;экономику, затем увеличивать инвестиции в&nbsp;привлечение.</p>
-        </section>
-      </div>
-    </div>
-
-    <div class="case-modal" id="case-03" role="dialog" aria-modal="true" aria-labelledby="case-03-title" hidden>
-      <div class="case-modal__backdrop" data-case-close></div>
-      <div class="case-modal__panel">
-        <button type="button" class="case-modal__close" data-case-close aria-label="Закрыть">×</button>
-        <p class="case-modal__eyebrow">03 · Colife · Стамбул &amp; Дубай</p>
-        <h3 class="case-modal__title" id="case-03-title">Запустила маркетинг 0→1 и&nbsp;сократила простой объектов с&nbsp;95% до&nbsp;15%</h3>
-
-        <section class="case-modal__block case-modal__block--task">
-          <h4>Задача бизнеса</h4>
-          <p>В&nbsp;Стамбуле нужно было с&nbsp;нуля создать маркетинг и&nbsp;спрос, одновременно решив проблему высокого простоя объектов; в&nbsp;Дубае&nbsp;— ускорить рост спроса в&nbsp;несезон.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--ownership">
-          <h4>Ownership</h4>
-          <p>Отвечала за&nbsp;маркетинг на&nbsp;двух рынках, команду из&nbsp;5&nbsp;человек, demand generation, CRO и&nbsp;работу с&nbsp;двумя сторонами marketplace&nbsp;— арендаторами, владельцами и&nbsp;партнёрами.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--solution">
-          <h4>Решение</h4>
-          <p>Разделила стратегии для demand и&nbsp;supply, собрала команду и&nbsp;процессы, запустила лидогенерацию, новые каналы, CRO сайта и&nbsp;работу с&nbsp;листингами. Выстроила сквозную аналитику и&nbsp;коммуникации под разные сегменты.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--result">
-          <h4>Результат</h4>
-          <ul class="case-modal__stats">
-            <li><strong>95%→15%</strong> простой</li>
-            <li><strong>×2</strong> CR сайта</li>
-            <li><strong>×2</strong> лиды Дубай</li>
-            <li><strong>5</strong> в команде</li>
-          </ul>
-          <p>В&nbsp;Стамбуле простой объектов снизился примерно с&nbsp;95% до&nbsp;15%, конверсия сайта выросла в&nbsp;2&nbsp;раза. В&nbsp;Дубае поток лидов вырос в&nbsp;2&nbsp;раза, вместе с&nbsp;командой обеспечили рост выручки в&nbsp;несезон.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--learn">
-          <h4>Чему научило</h4>
-          <p>В&nbsp;two-sided marketplace маркетинг нельзя оценивать только по&nbsp;объёму спроса: результат появляется, когда demand и&nbsp;supply сбалансированы и&nbsp;для каждой стороны есть собственная стратегия и&nbsp;метрики.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--next">
-          <h4>Следующее решение</h4>
-          <p>Разделять GTM, KPI и&nbsp;коммуникации по&nbsp;сторонам marketplace и&nbsp;связывать маркетинговые метрики с&nbsp;бизнес-метриками платформы&nbsp;— загрузкой, конверсией и&nbsp;выручкой.</p>
-        </section>
-      </div>
-    </div>
-
-    <div class="case-modal" id="case-04" role="dialog" aria-modal="true" aria-labelledby="case-04-title" hidden>
-      <div class="case-modal__backdrop" data-case-close></div>
-      <div class="case-modal__panel">
-        <button type="button" class="case-modal__close" data-case-close aria-label="Закрыть">×</button>
-        <p class="case-modal__eyebrow">04 · Remont.io</p>
-        <h3 class="case-modal__title" id="case-04-title">Удвоила конверсию и&nbsp;снизила стоимость привлечения через CRO</h3>
-
-        <section class="case-modal__block case-modal__block--task">
-          <h4>Задача бизнеса</h4>
-          <p>Стоимость привлечения была слишком высокой, а&nbsp;сайт терял значительную часть потенциальных клиентов до&nbsp;целевого действия.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--ownership">
-          <h4>Ownership</h4>
-          <p>Отвечала за&nbsp;поиск точек роста в&nbsp;post-click воронке и&nbsp;связала работу сайта, рекламных креативов и&nbsp;отдела продаж в&nbsp;единую систему экспериментов.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--solution">
-          <h4>Решение</h4>
-          <p>Проанализировала воронку, сформировала и&nbsp;приоритизировала гипотезы, запустила серию A/B-тестов и&nbsp;одновременно работала с&nbsp;сайтом, рекламными сообщениями и&nbsp;отделом продаж.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--result">
-          <h4>Результат</h4>
-          <ul class="case-modal__stats">
-            <li><strong>2,3%→4,6%</strong> CR в квал. лид</li>
-            <li><strong>−5 п.п.</strong> ДРР</li>
-            <li><strong>×2</strong> конверсия</li>
-            <li><strong>3 мес.</strong> A/B</li>
-          </ul>
-          <p>Конверсия в&nbsp;квалифицированный лид выросла с&nbsp;2,3% до&nbsp;4,6%, ДРР снизился на&nbsp;5&nbsp;п.п. за&nbsp;3&nbsp;месяца тестирования.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--learn">
-          <h4>Чему научило</h4>
-          <p>Post-click нельзя оптимизировать изолированно: ожидание пользователя формируется рекламой, подтверждается на&nbsp;сайте и&nbsp;заканчивается взаимодействием с&nbsp;продажами.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--next">
-          <h4>Следующее решение</h4>
-          <p>Оценивать не&nbsp;отдельные элементы воронки, а&nbsp;весь пользовательский путь от&nbsp;рекламного сообщения до&nbsp;целевого действия и&nbsp;связывать CRO с&nbsp;экономикой привлечения.</p>
-        </section>
-      </div>
-    </div>
-
-    <div class="case-modal" id="case-05" role="dialog" aria-modal="true" aria-labelledby="case-05-title" hidden>
-      <div class="case-modal__backdrop" data-case-close></div>
-      <div class="case-modal__panel">
-        <button type="button" class="case-modal__close" data-case-close aria-label="Закрыть">×</button>
-        <p class="case-modal__eyebrow">05 · Pet projects</p>
-        <h3 class="case-modal__title" id="case-05-title">Запустила собственные продукты 0→1 и&nbsp;проверила бизнес-модели на&nbsp;практике</h3>
-
-        <section class="case-modal__block case-modal__block--task">
-          <h4>Задача бизнеса</h4>
-          <p>Нужно было проверить бизнес-гипотезы и&nbsp;вывести продукты на&nbsp;рынок без готовой аудитории, команды и&nbsp;существующего спроса.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--ownership">
-          <h4>Ownership</h4>
-          <p>Отвечала за&nbsp;весь цикл&nbsp;— от&nbsp;исследования рынка и&nbsp;поиска партнёров до&nbsp;продукта, бренда, каналов продаж и&nbsp;первых клиентов.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--solution">
-          <h4>Решение</h4>
-          <p>Запустила два продукта: eco-проект и&nbsp;бренд одежды. Исследовала рынок, собирала продукт и&nbsp;партнёрства, создавала бренд и&nbsp;упаковку, тестировала онлайн-продажи, участвовала в&nbsp;локальных фестивалях и&nbsp;выводила продукты в&nbsp;локальные магазины.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--result">
-          <h4>Результат</h4>
-          <ul class="case-modal__stats">
-            <li><strong>2</strong> продукта</li>
-            <li><strong>0→1</strong> полный цикл</li>
-            <li><strong>1-е</strong> продажи</li>
-            <li><strong>PMF</strong> проверка</li>
-          </ul>
-          <p>Получила первые продажи и&nbsp;прошла полный цикл 0→1&nbsp;— от&nbsp;идеи и&nbsp;проверки спроса до&nbsp;первых клиентов. На&nbsp;практике выявила ограничения выбранных рынков и&nbsp;бизнес-моделей.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--learn">
-          <h4>Чему научило</h4>
-          <p>Предпринимательский опыт научил смотреть на&nbsp;идею не&nbsp;только через привлекательность продукта, но&nbsp;и&nbsp;через размер рынка, реальный спрос, экономику и&nbsp;качество партнёрств.</p>
-        </section>
-
-        <section class="case-modal__block case-modal__block--next">
-          <h4>Следующее решение</h4>
-          <p>Сначала валидировать рынок, спрос и&nbsp;экономику минимальными ресурсами и&nbsp;только после этого принимать решение о&nbsp;масштабировании.</p>
-        </section>
-      </div>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <section class="section experience" id="experience">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow reveal">// track record</p>
-          <h2 class="section__title section__title--ink reveal">Где я это делала</h2>
-          <p class="section__sub reveal">
-            Продукты, рынки и&nbsp;команды, с&nbsp;которыми работала.
-          </p>
+          <p class="dz-markets sv-in" style="--d: 460ms"><span class="dz-markets__label">Рынки, где я работала:</span> <span class="dz-markets__list">Россия · MENA · Азия · ЕС · США</span></p>
         </div>
 
-        <div class="timeline timeline--cards reveal">
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2025–2026</span>
-              <span class="timeline__niche">Агентство недвижимости</span>
+        <!-- Медиа v11: фото, горы, маршрут; плашки Conversion Rate и CRM как графика -->
+        <div class="sv-scene dz-scene" id="svStage">
+          <div class="sv-scene__frame">
+            <div class="sv-layer sv-layer--plate" style="--depth: 3">
+              <img class="sv-scene__bg dz-drift-bg" src="assets/media/hero-bg.webp" srcset="assets/media/hero-bg-600.webp 600w, assets/media/hero-bg.webp 900w" sizes="(max-width: 900px) 92vw, 420px" width="900" height="1200" alt="Вероника Овчинникова; за спиной нарисованы горы" />
             </div>
-            <h3 class="timeline__role">Product Marketing &amp; Growth Lead</h3>
-            <p class="timeline__org">Apart Homes · Phuket · remote</p>
-            <p class="timeline__desc">Отвечала за&nbsp;маркетинговую стратегию и&nbsp;рост: сегментация, новые каналы привлечения, контент и&nbsp;SEO, lifecycle-коммуникации, аналитика и&nbsp;команда до&nbsp;15&nbsp;человек.</p>
-          </article>
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2024–2025</span>
-              <span class="timeline__niche">AI-стартап</span>
-            </div>
-            <h3 class="timeline__role">Product Marketing Manager</h3>
-            <p class="timeline__org">It's AI · US / UK / UAE · remote</p>
-            <p class="timeline__desc">Отвечала за&nbsp;GTM и&nbsp;поиск PMF: market research, ICP, positioning, messaging, customer discovery, тестирование каналов и&nbsp;продуктовых гипотез.</p>
-          </article>
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2023–2024</span>
-              <span class="timeline__niche">EdTech</span>
-            </div>
-            <h3 class="timeline__role">Lead of Marketing</h3>
-            <p class="timeline__org">Brainhub · РФ / СНГ · remote</p>
-            <p class="timeline__desc">Разработала стратегию привлечения, исследовала рынок и&nbsp;пользователей, переупаковала продукт и&nbsp;организовала работу команды и&nbsp;подрядчиков вокруг ключевых маркетинговых задач.</p>
-          </article>
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2023</span>
-              <span class="timeline__niche">Сервис аренды недвижимости</span>
-            </div>
-            <h3 class="timeline__role">Product Marketing Manager</h3>
-            <p class="timeline__org">Colife · Стамбул &amp; Дубай · remote</p>
-            <p class="timeline__desc">Отвечала за&nbsp;рост двухсторонней платформы на&nbsp;двух рынках: demand &amp; supply, GTM, CRO, аналитика и&nbsp;команда; CR сайта ×2, простой объектов ~95% → ~15%, лиды в&nbsp;Дубае ×2.</p>
-          </article>
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2019–2022</span>
-              <span class="timeline__niche">Дизайн и ремонт интерьера</span>
-            </div>
-            <h3 class="timeline__role">PMM / Project Marketing Manager</h3>
-            <p class="timeline__org">Remont.io · De Club · Москва / Дубай</p>
-            <p class="timeline__desc">Отвечала за&nbsp;GTM новых продуктов и&nbsp;рынка, CRO, pricing и&nbsp;A/B-тестирование; CR 2,3% → 4,6%, ДРР −5&nbsp;п.п., средний чек +50%.</p>
-          </article>
-          <article class="timeline__item">
-            <div class="timeline__top">
-              <span class="timeline__when">2019</span>
-              <span class="timeline__niche">E-commerce · marketplace</span>
-            </div>
-            <h3 class="timeline__role">Marketing Project Manager</h3>
-            <p class="timeline__org">GdeMaterial · маркетплейс стройматериалов · Москва · remote</p>
-            <p class="timeline__desc">
-              Координировала маркетинг и&nbsp;команду, развивала retention и&nbsp;коммерческие механики: email, рассрочка и&nbsp;запуск 5&nbsp;новых товарных категорий.
-            </p>
-          </article>
-        </div>
-
-        <div class="exp-markets reveal">
-          <h3>Продукты и рынки</h3>
-          <div class="chip-cloud chip-cloud--wide">
-            <span>Недвижимость</span>
-            <span>Аренда</span>
-            <span>Ремонт и дизайн</span>
-            <span>E-commerce</span>
-            <span>Travel</span>
-            <span>EdTech</span>
-            <span>AI</span>
-            <span>РФ</span>
-            <span>ОАЭ</span>
-            <span>Турция</span>
-            <span>Таиланд</span>
-            <span>UK / USA</span>
-          </div>
-        </div>
-
-        <div class="exp-panel exp-panel--skills reveal">
-          <h3>Умею</h3>
-          <p class="h-scroll-hint" aria-hidden="true">← листай навыки →</p>
-          <div class="h-scroll h-scroll--skills" data-h-scroll>
-            <div class="h-scroll__track skill-cols">
-              <div class="skill-col">
-                <h4>Product Marketing</h4>
-                <ul>
-                  <li>Go-to-Market</li>
-                  <li>Positioning &amp; Messaging</li>
-                  <li>Value Proposition</li>
-                  <li>Product Launches</li>
-                </ul>
-              </div>
-              <div class="skill-col">
-                <h4>Research</h4>
-                <ul>
-                  <li>Market Research</li>
-                  <li>Competitive Analysis</li>
-                  <li>CustDev / JTBD</li>
-                  <li>ICP / Segmentation</li>
-                  <li>CJM</li>
-                </ul>
-              </div>
-              <div class="skill-col">
-                <h4>Growth</h4>
-                <ul>
-                  <li>AARRR</li>
-                  <li>Growth Strategy</li>
-                  <li>Growth Experiments</li>
-                  <li>Funnel Optimization</li>
-                  <li>CRO · A/B</li>
-                  <li>Lifecycle Marketing</li>
-                </ul>
-              </div>
-              <div class="skill-col">
-                <h4>Analytics</h4>
-                <ul>
-                  <li>GA4</li>
-                  <li>Yandex Metrika</li>
-                  <li>Amplitude</li>
-                  <li>Google Sheets</li>
-                  <li>SQL (basic)</li>
-                </ul>
-              </div>
-              <div class="skill-col">
-                <h4>Leadership</h4>
-                <ul>
-                  <li>Cross-functional</li>
-                  <li>Team Leadership</li>
-                  <li>Agency Management</li>
-                </ul>
-              </div>
-              <div class="skill-col">
-                <h4>AI</h4>
-                <ul>
-                  <li>ChatGPT</li>
-                  <li>Claude</li>
-                  <li>Gemini</li>
-                  <li>Higgsfield / NanoBanana</li>
-                  <li>No-code</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METHOD -->
-    <section class="section method" id="method">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow reveal">// operating system</p>
-          <h2 class="section__title section__title--green reveal">«Какую проблему пользователя и&nbsp;бизнеса мы&nbsp;решаем?»</h2>
-          <p class="section__sub reveal">
-            Вопрос, который я&nbsp;держу в&nbsp;голове, когда принимаю решения.
-          </p>
-        </div>
-
-        <div class="method-cycle reveal">
-          <div class="method-node">
-            <span class="method-node__n">01</span>
-            <h3>Понять рынок</h3>
-            <p>Исследую пользователей, рынок и&nbsp;конкурентов.</p>
-          </div>
-          <div class="method-node">
-            <span class="method-node__n">02</span>
-            <h3>Найти возможность</h3>
-            <p>Определяю сегменты, инсайты и&nbsp;точки роста.</p>
-          </div>
-          <div class="method-node">
-            <span class="method-node__n">03</span>
-            <h3>Сформулировать гипотезу</h3>
-            <p>Определяю, что должно повлиять на&nbsp;продуктовую или бизнес-метрику.</p>
-          </div>
-          <div class="method-node">
-            <span class="method-node__n">04</span>
-            <h3>Проверить</h3>
-            <p>Запускаю минимальный эксперимент и&nbsp;собираю обратную связь.</p>
-          </div>
-          <div class="method-node">
-            <span class="method-node__n">05</span>
-            <h3>Измерить</h3>
-            <p>Оцениваю влияние на&nbsp;ключевые метрики и&nbsp;принимаю решение на&nbsp;основе данных.</p>
-          </div>
-          <div class="method-node method-node--accent">
-            <span class="method-node__n">06</span>
-            <h3>Масштабировать</h3>
-            <p>Развиваю решения, которые доказали ценность для пользователей и&nbsp;бизнеса.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI LAB -->
-    <section class="section ai-lab" id="ai-lab">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow reveal">// open toolkit</p>
-          <h2 class="section__title section__title--gradient reveal">Как я работаю</h2>
-          <p class="section__sub reveal">
-            Шаблоны и&nbsp;инструменты, которыми пользуюсь сама и&nbsp;делюсь с&nbsp;другими.
-          </p>
-        </div>
-
-        <!-- CJM preview -->
-        <article class="cjm-preview reveal">
-          <header class="cjm-preview__head">
-            <div>
-              <span class="cjm-preview__id">Tool #06 · CJM</span>
-              <h3>Customer Journey Map</h3>
-              <p>
-                Путь клиента для premium overseas real estate: ICP → стадии →
-                вопросы → точки контакта → действия команды. Структура из рабочей
-                Miro-карты; бренд обезличен.
-              </p>
-            </div>
-            <a
-              class="btn btn--primary magnetic cjm-preview__download"
-              href="assets/lab/06_cjm_customer_journey_template.xlsx"
-              download
-            >Скачать .xlsx</a>
-          </header>
-
-          <div class="cjm-funnel" aria-label="Слои воронки">
-            <div class="cjm-funnel__item">
-              <strong>Охват</strong>
-              <span>Внимание к бренду · метрика: охваты</span>
-            </div>
-            <div class="cjm-funnel__item">
-              <strong>Вовлечение</strong>
-              <span>Доверие + база · подписки, ER</span>
-            </div>
-            <div class="cjm-funnel__item">
-              <strong>Продажа</strong>
-              <span>Тур / подборка / бронь · CR в лида</span>
-            </div>
-          </div>
-
-          <div class="cjm-stages" role="list">
-            <div class="cjm-stage" role="listitem">
-              <span class="cjm-stage__num">01</span>
-              <h4>Осознание</h4>
-              <p class="cjm-stage__job">Сохранить капитал / жить или отдыхать на destination</p>
-              <p class="cjm-stage__signal">Увидел оффер → save / подписка</p>
-              <ul class="cjm-stage__list">
-                <li>Как купить зарубежную недвигу?</li>
-                <li>Риски и легальность</li>
-                <li>Доходность vs другие инвестиции</li>
-              </ul>
-            </div>
-            <div class="cjm-stage" role="listitem">
-              <span class="cjm-stage__num">02</span>
-              <h4>Выбор</h4>
-              <p class="cjm-stage__job">Изучает рынок, районы, налоги, игроков</p>
-              <p class="cjm-stage__signal">Коммент, директ, deep content</p>
-              <ul class="cjm-stage__list">
-                <li>Где и что купить</li>
-                <li>Инфраструктура локации</li>
-                <li>Подводные камни</li>
-              </ul>
-            </div>
-            <div class="cjm-stage" role="listitem">
-              <span class="cjm-stage__num">03</span>
-              <h4>Изучение</h4>
-              <p class="cjm-stage__job">Уже был на месте / есть зарубежный опыт</p>
-              <p class="cjm-stage__signal">Бот, каталог, email/WA opt-in</p>
-              <ul class="cjm-stage__list">
-                <li>Район и тип объекта</li>
-                <li>Lifestyle + must-see</li>
-                <li>Старты продаж</li>
-              </ul>
-            </div>
-            <div class="cjm-stage" role="listitem">
-              <span class="cjm-stage__num">04</span>
-              <h4>Решение</h4>
-              <p class="cjm-stage__job">Хочет работать с нами · диалог</p>
-              <p class="cjm-stage__signal">Заявка · подборка · тур</p>
-              <ul class="cjm-stage__list">
-                <li>Сделка и документы</li>
-                <li>Персональный тур</li>
-                <li>Квалификация ОП</li>
-              </ul>
-            </div>
-            <div class="cjm-stage" role="listitem">
-              <span class="cjm-stage__num">05</span>
-              <h4>Лояльность</h4>
-              <p class="cjm-stage__job">Покупка → рекомендации</p>
-              <p class="cjm-stage__signal">Реферал, UGC, повтор</p>
-              <ul class="cjm-stage__list">
-                <li>Управление объектом</li>
-                <li>Реферальная программа</li>
-                <li>Комьюнити</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cjm-meta-row">
-            <div class="cjm-meta">
-              <span class="cjm-meta__label">ICP (demo)</span>
-              <p>High-income lifestyle · семья · частые перелёты · предприниматели и топ-менеджмент · крупные города</p>
-            </div>
-            <div class="cjm-meta">
-              <span class="cjm-meta__label">Контент-система</span>
-              <p>~2 единицы / день · бот + IG база · CTA: консультация / подборка / тур · фидбек из ОП</p>
-            </div>
-            <div class="cjm-meta">
-              <span class="cjm-meta__label">В xlsx</span>
-              <p>7 листов: overview, funnel, journey matrix, touchpoints, questions bank, content system, how to use</p>
-            </div>
-          </div>
-        </article>
-
-        <div class="tools-grid">
-          <a
-            class="tool-card tilt reveal"
-            href="assets/lab/01_backlog_hypotheses_template.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #01 · xlsx</span>
-            <h3>Backlog &amp; гипотезы роста</h3>
-            <p>
-              IF–THEN гипотезы, статусы, метрики C0/C1/RR/CR, next actions
-              и&nbsp;owner — каркас sprint-бэклога.
-            </p>
-            <span class="tool-card__meta">Шаблон · 2 листа</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-          <a
-            class="tool-card tilt reveal delay-1"
-            href="assets/lab/02_channel_analytics_demo.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #02 · xlsx</span>
-            <h3>Marketing Analytics Dashboard</h3>
-            <p>
-              Демо-дашборд каналов (TG, email, SEO, paid) + воронка
-              lead → meeting → close. Все цифры вымышленные.
-            </p>
-            <span class="tool-card__meta">Demo data · 3 листа</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-          <a
-            class="tool-card tilt reveal delay-2"
-            href="assets/lab/03_gtm_template.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #03 · xlsx</span>
-            <h3>GTM-шаблон</h3>
-            <p>
-              Каркас go-to-market: ICP и&nbsp;сегменты, positioning, каналы,
-              гипотезы запуска, метрики, риски и&nbsp;чеклист перед scale.
-            </p>
-            <span class="tool-card__meta">Шаблон · 4 листа</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-          <a
-            class="tool-card tilt reveal delay-3"
-            href="assets/lab/04_content_positioning_segments_template.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #04 · xlsx</span>
-            <h3>Контент &amp; позиционирование</h3>
-            <p>
-              Messaging по сегментам (JTBD → pain → message → channel),
-              SEO IA и&nbsp;message house на&nbsp;одной странице.
-            </p>
-            <span class="tool-card__meta">Шаблон · 3 листа</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-          <a
-            class="tool-card tilt reveal"
-            href="assets/lab/05_team_capacity_template.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #05 · xlsx</span>
-            <h3>Team capacity &amp; RACI</h3>
-            <p>
-              Роли, FTE, KPI и&nbsp;RACI по ключевым процессам маркетинга —
-              как собрать lean growth-команду без хаоса ownership.
-            </p>
-            <span class="tool-card__meta">Шаблон · 3 листа</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-          <a
-            class="tool-card tilt reveal delay-1"
-            href="assets/lab/06_cjm_customer_journey_template.xlsx"
-            download
-          >
-            <span class="tool-card__id">Tool #06 · xlsx</span>
-            <h3>CJM · путь клиента</h3>
-            <p>
-              Полная матрица: воронка, 5 стадий, touchpoints, банк вопросов
-              и&nbsp;контент-система. Тот&nbsp;же CJM, что в&nbsp;превью выше.
-            </p>
-            <span class="tool-card__meta">Шаблон · 7 листов</span>
-            <span class="tool-card__cta">Скачать .xlsx →</span>
-          </a>
-        </div>
-
-        <p class="lab-tools-note reveal">
-          Файлы обезличены: без клиентских названий, CRM-ссылок и&nbsp;реальных бюджетов.
-          Структура из рабочих документов; цифры и&nbsp;рынок — portfolio demo.
-          Сырые Miro PDF на&nbsp;сайт не&nbsp;выкладываются.
-        </p>
-      </div>
-    </section>
-
-    <!-- ABOUT / PERSONALITY -->
-    <section class="section about" id="about">
-      <div class="container">
-        <div class="section__head about__head">
-          <p class="eyebrow reveal">// beyond work</p>
-          <h2 class="section__title section__title--ink reveal">Живу жизнь</h2>
-          <p class="section__sub reveal">
-            Мне нравится запускать новые проекты, исследовать неизвестное и&nbsp;разбираться,
-            как устроены сложные системы — кажется, поэтому я&nbsp;одинаково люблю
-            и&nbsp;продуктовый маркетинг, и&nbsp;путешествия.
-          </p>
-        </div>
-
-        <!-- 3 columns: photo + caption under each -->
-        <div class="about__trio reveal">
-          <article class="about-card">
-            <figure class="about-shot about-shot--a">
-              <img src="assets/feed/about-me-5.jpg" alt="Сноуборд" loading="lazy" />
-            </figure>
-            <p class="about-card__text">
-              В&nbsp;свободное время чаще всего меня можно встретить в&nbsp;горах, в&nbsp;походе,
-              на&nbsp;доске или с&nbsp;рюкзаком в&nbsp;новой стране.
-            </p>
-          </article>
-
-          <article class="about-card">
-            <figure class="about-shot about-shot--d">
-              <img src="assets/feed/about-me-3.jpg" alt="" loading="lazy" />
-            </figure>
-            <p class="about-card__text">
-              Практикую йогу и&nbsp;медитацию, люблю природу, фотографию, танец и&nbsp;движение.
-            </p>
-          </article>
-
-          <article class="about-card">
-            <figure class="about-shot about-shot--e">
-              <img src="assets/feed/about-me-4.jpg" alt="" loading="lazy" />
-            </figure>
-            <p class="about-card__text">
-              Верю, что любопытство, открытость новому и&nbsp;постоянное обучение помогают
-              принимать более сильные продуктовые решения.
-            </p>
-          </article>
-        </div>
-
-        <div class="about__learn-card about__learn-card--edu reveal">
-          <h3>Желание учиться — один из лучших навыков</h3>
-          <ul>
-            <li><strong>ЮФУ</strong> — бизнес-информатика, бакалавриат, красный диплом, 2019</li>
-            <li><strong>GoPractice</strong> — Activation Framework, 2025</li>
-            <li><strong>Product University</strong> — Product Management, 2020</li>
-            <li><strong>Google Academy</strong> — Ads &amp; Analytics, 2019</li>
-          </ul>
-        </div>
-
-        <div class="about__books reveal">
-          <header class="about__books-head">
-            <h3>Очень люблю читать</h3>
-            <p>Книги, которые вдохновили и&nbsp;повлияли на&nbsp;многие решения в&nbsp;жизни.</p>
-          </header>
-          <p class="h-scroll-hint" aria-hidden="true">← листай книги →</p>
-          <div class="h-scroll h-scroll--books" data-h-scroll>
-            <div class="h-scroll__track books-grid">
-              <article class="book-card">
-                <h4>Н. Эяль · «На крючке»</h4>
-                <p>Как быть «помощником» и&nbsp;формировать полезные привычки у&nbsp;пользователей.</p>
-              </article>
-              <article class="book-card">
-                <h4>Э. Голдратт · «Цель»</h4>
-                <p>Процесс непрерывного улучшения — и&nbsp;как видеть ограничения системы.</p>
-              </article>
-              <article class="book-card">
-                <h4>Р. Фитцпатрик · «Спроси маму»</h4>
-                <p>Спасибо этой книге за&nbsp;умение задавать правильные вопросы.</p>
-              </article>
-              <article class="book-card">
-                <h4>Э. Рис · «Бизнес с&nbsp;нуля»</h4>
-                <p>Lean Startup: проверять гипотезы до&nbsp;того, как вложить всё.</p>
-              </article>
-              <article class="book-card">
-                <h4>Д. Норман · «Дизайн привычных вещей»</h4>
-                <p>Основы дизайна и&nbsp;роль психологии в&nbsp;проектировании.</p>
-              </article>
-              <article class="book-card">
-                <h4>Ф. Барден · «Взлом маркетинга»</h4>
-                <p>Как маркетинг влияет на&nbsp;продажи и&nbsp;покупателей — и&nbsp;почему берут именно этот продукт.</p>
-              </article>
-              <article class="book-card">
-                <h4>Д. Огилви · «О&nbsp;рекламе»</h4>
-                <p>Основные принципы рекламы. Как сделать рекламу, которая работает.</p>
-              </article>
-              <article class="book-card">
-                <h4>И. Бирман · «Пользовательский интерфейс»</h4>
-                <p>Ясность, иерархия и&nbsp;забота о&nbsp;человеке на&nbsp;экране.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div class="blog-block reveal">
-          <header class="blog-block__head">
-            <p class="eyebrow">// social</p>
-            <h3 class="blog-block__title">Проявляюсь в&nbsp;блоге</h3>
-            <p class="blog-block__sub">
-              Делюсь кадрами, маршрутами и&nbsp;мыслями. Дальше хочу выходить
-              к&nbsp;людям шире: нетворкинг и&nbsp;выступления — в&nbsp;том числе
-              про продукт и&nbsp;команду.
-            </p>
-          </header>
-
-          <div class="about__previews">
-            <!-- Instagram phone mock -->
-            <article class="device device--ig">
-              <header class="device__bar">
-                <div class="device__profile">
-                  <img class="device__avatar" src="assets/feed/avatar-ig.jpg" alt="" width="40" height="40" />
-                  <div>
-                    <strong>veronikakeys</strong>
-                    <span>Дневник воспоминаний</span>
-                  </div>
-                </div>
-                <a class="device__follow" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">Открыть</a>
-              </header>
-              <p class="device__bio">
-                Творчество, природа, путешествия и&nbsp;движение.
-              </p>
-              <div class="device__grid">
-                <img src="assets/feed/ig-1.jpg" alt="" loading="lazy" />
-                <img src="assets/feed/ig-2.jpg" alt="" loading="lazy" />
-                <img src="assets/feed/ig-3.jpg" alt="" loading="lazy" />
-                <img src="assets/feed/ig-4.jpg" alt="" loading="lazy" />
-                <img src="assets/feed/ig-5.jpg" alt="" loading="lazy" />
-                <img src="assets/feed/ig-6.jpg" alt="" loading="lazy" />
-              </div>
-              <a class="device__link" href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">
-                instagram.com/veronikakeys →
-              </a>
-            </article>
-
-            <!-- Telegram phone mock -->
-            <article class="device device--tg">
-              <header class="device__bar">
-                <div class="device__profile">
-                  <img class="device__avatar" src="assets/feed/avatar-tg.jpg" alt="" width="40" height="40" />
-                  <div>
-                    <strong>Заметки о важном</strong>
-                    <span>@notesandminds</span>
-                  </div>
-                </div>
-                <a class="device__follow" href="https://t.me/notesandminds" target="_blank" rel="noopener">Читать</a>
-              </header>
-              <p class="device__bio">
-                Пространство, в&nbsp;котором делюсь своим путём и&nbsp;мыслями.
-              </p>
-
-              <div class="device__posts">
-                <a class="tg-post" href="https://t.me/notesandminds/35" target="_blank" rel="noopener">
-                  <div class="tg-post__media">
-                    <img src="assets/feed/tg-thach-1.jpg" alt="" loading="lazy" />
-                    <img src="assets/feed/tg-thach-2.jpg" alt="" loading="lazy" />
-                    <img src="assets/feed/tg-thach-3.jpg" alt="" loading="lazy" />
-                  </div>
-                  <h3 class="tg-post__title">Большой Тхач · 40&nbsp;км за&nbsp;3&nbsp;дня</h3>
-                  <p class="tg-post__text">
-                    Поход случился — и&nbsp;это было незабываемо. Ливень, грязь, 40&nbsp;км
-                    и&nbsp;виды, которые хочется запомнить навсегда.
-                  </p>
-                  <span class="tg-post__meta">t.me/notesandminds/35</span>
-                </a>
-
-                <a class="tg-post" href="https://t.me/notesandminds/39" target="_blank" rel="noopener">
-                  <div class="tg-post__media tg-post__media--3">
-                    <img src="assets/feed/tg-summer-1.jpg" alt="" loading="lazy" />
-                    <img src="assets/feed/tg-summer-2.jpg" alt="" loading="lazy" />
-                    <img src="assets/feed/tg-summer-3.jpg" alt="" loading="lazy" />
-                  </div>
-                  <h3 class="tg-post__title">Лето в&nbsp;городе&nbsp;Т. 🤍</h3>
-                  <p class="tg-post__text">
-                    Подборка кадров — свет, улицы, пауза между маршрутами.
-                  </p>
-                  <span class="tg-post__meta">t.me/notesandminds/39</span>
-                </a>
-              </div>
-
-              <a class="device__link" href="https://t.me/notesandminds" target="_blank" rel="noopener">
-                t.me/notesandminds →
-              </a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="container contact__inner">
-        <p class="eyebrow reveal">// let's talk</p>
-        <h2 class="section__title section__title--green reveal">Буду рада познакомиться</h2>
-        <p class="section__sub reveal">
-          Если вам близок мой подход — давайте обсудим, чем можем быть полезны друг другу.<br />
-          Готова к&nbsp;удаленке и&nbsp;оффлайн-встречам с&nbsp;командой.
-        </p>
-        <div class="contact__actions reveal">
-          <a href="mailto:veronikasergeevna17@yandex.ru" class="btn btn--primary btn--lg magnetic">Написать на email</a>
-          <a href="https://t.me/veronikakeys" class="btn btn--primary btn--lg magnetic" target="_blank" rel="noopener">Telegram</a>
-        </div>
-        <div class="contact__secondary reveal">
-          <a href="https://www.linkedin.com/in/vovchinnikova/" class="btn btn--ghost btn--lg magnetic" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://docs.google.com/document/d/186_F0vFzyyZfhhmtcUOD5nr6pTt9tPfh/edit?usp=sharing" class="btn btn--ghost btn--lg magnetic" target="_blank" rel="noopener">Резюме</a>
-        </div>
-
-        <div class="like-widget reveal" id="likeWidget">
-          <p class="like-widget__text">Если тут было интересно — дай знать.</p>
-          <button type="button" class="like-btn" id="likeBtn" aria-pressed="false" aria-label="Поставить лайк">
-            <span class="like-btn__heart" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.3l7.8-7.9 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+            <div class="sv-layer sv-layer--ridge dz-drift-ridge" style="--depth: 9" aria-hidden="true">
+              <svg class="sv-ridge" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+                <path class="sv-ridge__back dz-ridge-back" pathLength="1" d="M-4 196 L26 168 L50 178 L78 138 L102 156 L128 120 L154 146 L182 124 L212 152 L244 120 L270 142 L304 128"/>
+                <path class="sv-ridge__front" pathLength="1" d="M-4 240 L34 204 L58 214 L94 150 L120 186 L150 168 L178 198 L212 172 L242 204 L270 182 L304 200"/>
+                <path class="sv-ridge__snow" pathLength="1" d="M82 170 L94 150 L106 168 M200 182 L212 172 L222 182"/>
+                <path class="sv-ridge__route" pathLength="1" d="M14 372 C 30 330, 48 300, 56 268 S 70 210, 94 150"/>
+                <path class="dz-route-flow" d="M14 372 C 30 330, 48 300, 56 268 S 70 210, 94 150"/>
+                <circle class="sv-ridge__ring" cx="94" cy="150" r="7"/>
+                <g class="sv-ridge__flag"><path d="M94 150 V126"/><path d="M94 126 L110 131 L94 137 Z"/></g>
+                <g class="dz-climber" transform="translate(94 150)"><circle r="7" class="dz-climber__halo"/><circle r="3.4"/></g>
               </svg>
-            </span>
-            <span class="like-btn__label">Нравится</span>
-            <span class="like-btn__count" id="likeCount">0</span>
-          </button>
-          <p class="like-widget__thanks" id="likeThanks" hidden>Спасибо 💚</p>
+            </div>
+            <div class="sv-layer sv-mist" style="--depth: 12" aria-hidden="true"><i></i><i></i></div>
+            <div class="sv-layer sv-layer--plate" style="--depth: 3">
+              <img class="sv-scene__person" src="assets/media/hero-person.webp" srcset="assets/media/hero-person-600.webp 600w, assets/media/hero-person.webp 900w" sizes="(max-width: 900px) 92vw, 420px" width="900" height="1200" alt="" />
+            </div>
+            <div class="sv-sheen" aria-hidden="true"></div>
+          </div>
+
+          <div class="sv-hcard sv-hcard--cr dz-hcard-rev" style="--d: 900ms" aria-hidden="true">
+            <div class="sv-hcard__px"><div class="sv-hcard__body" style="--float: 7s; --phase: -1.2s">
+              <div class="sv-hcard__head"><span>Рост выручки</span><svg class="dz-up" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></div>
+              <svg class="sv-spark dz-rev" viewBox="0 0 160 52" preserveAspectRatio="none">
+                <defs><linearGradient id="revFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CB342" stop-opacity=".30"/><stop offset="1" stop-color="#7CB342" stop-opacity="0"/></linearGradient></defs>
+                <g class="dz-rev__bars"><rect x="6" y="40" width="14" height="12" rx="3"/><rect x="30" y="36" width="14" height="16" rx="3"/><rect x="54" y="30" width="14" height="22" rx="3"/><rect x="78" y="26" width="14" height="26" rx="3"/><rect x="102" y="18" width="14" height="34" rx="3"/><rect x="126" y="10" width="14" height="42" rx="3"/></g>
+                <path class="sv-spark__area" d="M13 40 L37 35 L61 30 L85 25 L109 17 L133 9 L133 52 L13 52Z" fill="url(#revFill)"/>
+                <path class="sv-spark__line" pathLength="1" d="M13 40 L37 35 L61 30 L85 25 L109 17 L133 9" fill="none" stroke="#518233" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                <circle class="dz-rev__dot" cx="133" cy="9" r="3.5"/>
+              </svg>
+            </div></div>
+          </div>
+          <div class="sv-hcard dz-hcard-pay" style="--d: 1050ms" aria-hidden="true">
+            <div class="sv-hcard__px"><div class="sv-hcard__body" style="--float: 6.4s; --phase: -2.6s">
+              <div class="sv-hcard__head"><span>Окупаемость</span></div>
+              <svg class="dz-pay" viewBox="0 0 160 56" preserveAspectRatio="none">
+                <line class="dz-pay__zero" x1="0" y1="30" x2="160" y2="30"/>
+                <path class="dz-pay__minus" d="M4 30 C 20 48, 44 50, 66 40 S 84 32, 92 30" pathLength="1"/>
+                <path class="dz-pay__plus" d="M92 30 C 108 24, 128 14, 156 6" pathLength="1"/>
+                <circle class="dz-pay__dot" cx="92" cy="30" r="4"/>
+              </svg>
+              <div class="dz-pay__cap"><span>2 месяца</span></div>
+            </div></div>
+          </div>
+          <div class="sv-hcard sv-hcard--crm" style="--d: 1200ms" aria-hidden="true">
+            <div class="sv-hcard__px"><div class="sv-hcard__body" style="--float: 7.6s; --phase: -4.5s">
+              <div class="sv-hcard__head"><span>CRM · заявки</span><span class="sv-dot-live"></span></div>
+              <ul class="sv-crm">
+                <li style="--i: 0"><span><b>Просмотр апартаментов</b><small>Сайт · 2 мин</small></span><em>Новая</em></li>
+                <li style="--i: 1"><span><b>Аренда виллы</b><small>Telegram · 9 мин</small></span><em>Новая</em></li>
+                <li style="--i: 2"><span><b>Дизайн-проект</b><small>Instagram · 14 мин</small></span><em>Новая</em></li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ЧЕМ Я МОГУ БЫТЬ ПОЛЕЗНА: асимметрия, типографский список с тонкими линиями -->
+    <section class="section dz-use" id="use" aria-labelledby="use-title">
+      <div class="container dz-use__grid">
+        <div class="dz-use__head">
+          <h2 class="dz-h2" id="use-title">Чем я могу быть полезна вашему бизнесу</h2>
+          <p class="dz-lead">С этими задачами ко мне приходят студии, агентства недвижимости, бюро ремонта и интерьеров.</p>
+          <a href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="dz-textlink" target="_blank" rel="noopener">Обсудить задачу <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="dz-use__list">
+          <li><h3>Один ответственный за весь путь</h3><p>Веду путь от первого касания до клиента целиком. Вам не нужно сводить подрядчиков между собой.</p></li>
+          <li><h3>Видно, что окупается</h3><p>Цена клиента и окупаемость каждого канала на виду. Вкладываем в то, что приносит продажи.</p></li>
+          <li><h3>Запуск пространства или рынка</h3><p>Открываете новое место или выходите на новый рынок: проверяю спрос и запускаю первые каналы.</p></li>
+          <li><h3>Свой поток заявок</h3><p>Собираю каналы заявок, чтобы бизнес меньше зависел от сарафана и сезона.</p></li>
+          <li><h3>Заявка доходит до продажи</h3><p>Договариваюсь с отделом продаж и веду лид дальше заявки, чтобы он не терялся по дороге.</p></li>
+          <li><h3>Команда под задачу</h3><p>Подбираю подрядчиков и людей под цель и отвечаю за их работу.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. КЕЙСЫ: горизонтальная лента на scroll-snap, карточки на цифре -->
+    <section class="section dz-cases" id="cases" aria-labelledby="cases-title">
+      <svg class="dz-cases__ridge" viewBox="0 0 1600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L0 86 L140 54 L230 70 L360 26 L450 52 L600 14 L700 44 L820 30 L950 62 L1080 22 L1190 48 L1320 10 L1430 40 L1600 28 L1600 120 Z"/></svg>
+      <div class="container dz-cases__head">
+        <div>
+          <h2 class="dz-h2" id="cases-title">Результат, за который я отвечала</h2>
+          <p class="dz-lead">Шесть проектов, где маркетинг был на мне целиком. Включая тот, где продажи не сошлись.</p>
+        </div>
+        <div class="dz-rail-nav">
+          <button type="button" class="dz-rail-btn" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="dz-rail-btn" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="dz-rail" id="dzRail" tabindex="0" aria-label="Кейсы, листаются горизонтально">
+        <article class="dz-case dz-case--lead" id="case-01">
+          <p class="dz-case__tags">Россия · офлайн-студия · 2026</p>
+          <h3 class="dz-case__title">Запуск окупился, студия в прибыли</h3>
+          <p class="dz-case__hero"><strong>2 месяца</strong><span>до окупаемости</span></p>
+          <p class="dz-case__did">До меня было 10 учеников во всех группах. Открыта новая группа, почти все группы заполнены до окупаемости.</p>
+          <ul class="dz-case__props"><li><strong>~30%</strong><span>ДРР, LTV пока не посчитан</span></li><li><strong>0 подрядчиков</strong><span>ИИ-агенты, съёмка тоже</span></li><li><strong>ещё 2 группы</strong><span>добирают учеников</span></li></ul>
+          
+          <p class="dz-case__cat">студия танца · маркетинг на ИИ-агентах, расходы ниже</p>
+        </article>
+        <article class="dz-case" id="case-02">
+          <p class="dz-case__tags">Турция · 2023</p>
+          <h3 class="dz-case__title">Выручка ×6 на рынке, где объекты простаивали</h3>
+          <p class="dz-case__hero"><strong>×6</strong><span>к выручке за 3 месяца</span></p>
+          <p class="dz-case__did">Вывела сервис на новый рынок с нуля: простой объектов упал с 95% до 15%, выручка выросла в 6 раз.</p>
+          <ul class="dz-case__props"><li><strong>95→15%</strong><span>простой объектов</span></li><li><strong>×2</strong><span>конверсия сайта</span></li><li><strong>5 человек</strong><span>команда, которую собрала</span></li></ul>
+          
+          <p class="dz-case__cat">сервис аренды жилья · запуск рынка</p>
+        </article>
+        <article class="dz-case" id="case-03">
+          <p class="dz-case__tags">Россия · 2020-2022</p>
+          <h3 class="dz-case__title">Конверсия ×2 за 3 месяца при том же бюджете</h3>
+          <p class="dz-case__hero"><strong>×2</strong><span>к конверсии в квалифицированный лид за 3 месяца</span></p>
+          <p class="dz-case__did">Разобрала воронку от клика до сделки и провела A/B-тесты сайта, креативов и отдела продаж: конверсия выросла вдвое.</p>
+          <ul class="dz-case__props"><li><strong>2,3→4,6%</strong><span>конверсия в квалифицированный лид</span></li><li><strong>−5 п.п.</strong><span>ДРР</span></li><li><strong>1 млн ₽</strong><span>бюджет в месяц, тот же</span></li></ul>
+          
+          <p class="dz-case__cat">ремонт квартир · воронка и A/B-тесты</p>
+        </article>
+        <article class="dz-case" id="case-04">
+          <p class="dz-case__tags">ОАЭ · MENA · запуск рынка</p>
+          <h3 class="dz-case__title">Первая продажа на новом рынке за 2 месяца</h3>
+          <p class="dz-case__hero"><strong>за 2 месяца</strong><span>первая продажа с привлечённого трафика</span></p>
+          <p class="dz-case__did">Исследовала рынок и конкурентов, собрала GTM-стратегию и запустила маркетинг и продажи с нуля.</p>
+          <ul class="dz-case__props"><li><strong>3 новых продукта</strong><span>и премиальная линейка</span></li><li><strong>✓</strong><span>юнит-экономика сошлась</span></li></ul>
+          
+          <p class="dz-case__cat">ремонт квартир и вилл · запуск рынка</p>
+        </article>
+        <article class="dz-case" id="case-05">
+          <p class="dz-case__tags">Россия · премиум · 2019-2020</p>
+          <h3 class="dz-case__title">Средний чек +50% после перепозиционирования</h3>
+          <p class="dz-case__hero"><strong>+50%</strong><span>к среднему чеку за 9 месяцев</span></p>
+          <p class="dz-case__did">Пересобрала позиционирование и сайт под премиум: клиенты пришли за проектами дороже, средний чек вырос наполовину.</p>
+          <ul class="dz-case__props"><li><strong>+10%</strong><span>лиды за те же 9 месяцев</span></li><li><strong>19%</strong><span>конверсия в заявку из Директа</span></li></ul>
+          
+          <p class="dz-case__cat">студия дизайна интерьеров · позиционирование и сайт</p>
+        </article>
+        <article class="dz-case dz-case--honest" id="case-06">
+          <p class="dz-case__tags">Таиланд · Азия · 2025-2026</p>
+          <h3 class="dz-case__title">Новые каналы дали лиды. Продажи не сошлись</h3>
+          <p class="dz-case__hero"><strong>40%</strong><span>новых лидов квалифицированные за год</span></p>
+          <p class="dz-case__did">Запустила новые каналы и прогрев на длинной сделке: поток квалифицированных лидов вырос, но в продажи он не перешёл.</p>
+          <ul class="dz-case__props"><li><strong>700→1 500</strong><span>аудитория Telegram</span></li><li><strong>×3</strong><span>SEO-трафик</span></li><li><strong>5 + 7</strong><span>команда в штате и подрядчики</span></li></ul>
+          <div class="dz-case__fail"><p><b>Что не получилось.</b> Каналы дали лиды, но продажи не были к ним готовы. Я отдала эту зону коллегам и не удержала контроль. Результата в деньгах нет, ответственность моя.</p><p><b>Что теперь делаю иначе.</b> Договариваюсь с отделом продаж и контролирую лиды дальше.</p></div>
+          <p class="dz-case__cat">агентство недвижимости · новые каналы и команда</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. ФОРМАТЫ РАБОТЫ: строки-таблица с тонкими линиями, основной формат на полосе -->
+    <section class="section dz-formats" id="formats" aria-labelledby="formats-title">
+      <div class="container">
+        <div class="dz-formats__head">
+          <h2 class="dz-h2 dz-h2--xl" id="formats-title">Форматы работы</h2>
+          <p class="dz-lead">Четыре формата: от разовой консультации до маркетинга целиком.</p>
+        </div>
+        <div class="dz-plans" id="dzPlans" tabindex="0" aria-label="Форматы работы">
+          <article class="sv-plan dz-plan" id="format-launch">
+            <h3 class="sv-plan__name">Запуск:</h3>
+            <p class="sv-plan__price"><strong>от 100 000 ₽</strong></p>
+            <p class="dz-plan__extra">Рекламный бюджет и подрядчики оплачиваются отдельно</p>
+            <p class="dz-plan__if"><b>Если…</b> Открываете новое пространство, услугу или рынок и хотите проверить спрос без большой команды.</p>
+            <div class="dz-plan__block dz-plan__get"><p class="dz-plan__label">На руках</p><ul><li>исследование рынка и конкурентов</li><li>настроенная реклама и аналитика</li><li>первые лиды и их разбор: что работает, что отключаем</li><li>план следующего шага на цифрах</li></ul></div>
+            <div class="dz-plan__foot"><a class="dz-textlink dz-plan__case" href="#case-01">Кейс: запуск окупился за 2 месяца →</a><a href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a></div>
+          </article>
+          <article class="sv-plan dz-plan" id="format-site">
+            <h3 class="sv-plan__name">Сайт:</h3>
+            <p class="sv-plan__price"><strong>50 000 ₽</strong></p>
+            <span class="dz-plan__extra dz-plan__extra--none" aria-hidden="true"></span>
+            <p class="dz-plan__if"><b>Если…</b> Сайт выглядит как у всех и клиенты сравнивают вас по цене. Или сайта нет совсем.</p>
+            <div class="dz-plan__block dz-plan__get"><p class="dz-plan__label">На руках</p><ul><li>готовый сайт или лендинг с вашими смыслами</li><li>тексты, которые объясняют ценность</li><li>подключённая аналитика и заявки в CRM</li></ul></div>
+            <div class="dz-plan__foot"><a class="dz-textlink dz-plan__case" href="#case-05">Кейс: средний чек +50% после перепозиционирования →</a><a href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a></div>
+          </article>
+          <article class="sv-plan dz-plan" id="format-consult">
+            <h3 class="sv-plan__name">Консультация:</h3>
+            <p class="sv-plan__price"><strong>10 000 ₽</strong></p>
+            <span class="dz-plan__extra dz-plan__extra--none" aria-hidden="true"></span>
+            <p class="dz-plan__if"><b>Если…</b> Хотите понять, где теряются деньги, прежде чем что-то менять. Или дальше планируете делать сами.</p>
+            <div class="dz-plan__block dz-plan__get"><p class="dz-plan__label">На руках</p><ul><li>план действий, который остаётся у вас, и вы можете его реализовать сами</li></ul></div>
+            <div class="dz-plan__foot"><a href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a></div>
+          </article>
+          <article class="sv-plan sv-plan--accent dz-plan" id="format-system">
+            <span class="sv-plan__badge dz-plan__badge">Основной формат</span>
+            <h3 class="sv-plan__name">Система маркетинга:</h3>
+            <p class="sv-plan__price"><strong>от 150 000 ₽</strong><span>от 3 месяцев</span></p>
+            <p class="dz-plan__extra">Рекламный бюджет и подрядчики оплачиваются отдельно</p>
+            <p class="dz-plan__if"><b>Если…</b> Маркетинг держится на вас или на разрозненных подрядчиках, а за результат не отвечает никто.</p>
+            <div class="dz-plan__block dz-plan__get"><p class="dz-plan__label">На руках</p><ul><li>план и KPI, зафиксированные на старте</li><li>аналитика, где видна цена клиента по каждому каналу</li><li>цифры в общем пространстве: видно, что усиливаем и что отключили</li><li>команда, которая знает, что делать дальше</li><li>план, документы и доступы остаются у вас</li></ul></div>
+            <div class="dz-plan__foot"><a href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. КАК РАБОТАЕМ: маршрут по горе + полоса «Это не найм» -->
+    <section class="section dz-how" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <h2 class="dz-h2 dz-h2--xl" id="how-title">Как мы работаем</h2>
+        <div class="dz-route">
+          <svg class="dz-route__svg" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
+            <path class="dz-route__far" d="M0 150 L0 120 L80 96 L150 108 L240 66 L310 86 L420 40 L500 70 L600 46 L700 78 L790 34 L880 56 L1000 20 L1000 150 Z"/>
+            <path class="dz-route__near" d="M0 150 L0 138 L120 122 L210 130 L330 100 L420 114 L540 82 L640 98 L760 64 L860 80 L1000 44 L1000 150 Z"/>
+            <path class="dz-route__line" d="M8 136 L208 116 L408 96 L608 76 L808 56"/>
+            <g class="dz-route__camps"><circle cx="8" cy="136" r="6"/><circle cx="208" cy="116" r="6"/><circle cx="408" cy="96" r="6"/><circle cx="608" cy="76" r="6"/><circle cx="808" cy="56" r="6"/></g>
+            <g class="dz-route__flag"><path d="M808 56 V24"/><path d="M808 24 L834 31 L808 38 Z"/></g>
+          </svg>
+          <ol class="dz-route__steps">
+            <li><b>1. Сообщение.</b> Вы описываете задачу и задаёте вопрос, я отвечаю в течение дня.</li>
+            <li><b>2. Формат.</b> Говорю прямо, возьмусь ли, и предлагаю формат: консультация, запуск, сайт или система маркетинга.</li>
+            <li><b>3. План.</b> Фиксируем цель, KPI, бюджет и условия в договоре.</li>
+            <li><b>4. Работа.</b> Разбираю цифры и воронку, запускаю и тестирую. Усиливаю то, что окупается, отключаю то, что не работает.</li>
+            <li><b>5. Итоги.</b> В конце периода решаем вместе: продолжаем, меняем условия или завершаем.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="dz-band">
+        <div class="container dz-band__grid">
+          <h3 class="dz-band__title">Это не найм, а работа вместе</h3>
+          <ul class="dz-band__list">
+            <li>Работаем по договору: без оформления по ТК, налогов и взносов сверху и должностных инструкций.</li>
+            <li>Погружаюсь в ваш бизнес и иду к цели в цифрах вместе с вами.</li>
+            <li>Часть оплаты это процент от продаж, поэтому я зарабатываю вместе с вами.</li>
+            <li>Штатный маркетолог хорош для задач в одной специализации. Я подключаюсь, когда маркетинг нужно собрать целиком.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="dz-rules">
+          <li>На связи в рабочие дни в Telegram</li>
+          <li>Цифры, план и доступы в общем пространстве: видны в любой момент и остаются у вас</li>
+          <li>Раз в неделю короткий отчёт: цена заявки по каналам и следующий шаг</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. ОБО МНЕ: полоса гор и коллаж из похода (v11) -->
+    <section class="section sv-why dz-why" id="why" aria-labelledby="why-title">
+      <div class="sv-why__band" aria-hidden="true">
+        <img src="assets/media/mountains-rays.webp" width="1600" height="700" alt="" />
+        <svg class="sv-why__ridge" viewBox="0 0 1600 200" preserveAspectRatio="none"><path pathLength="1" d="M0 170 L120 120 L210 140 L330 70 L420 110 L560 40 L660 90 L780 60 L900 110 L1040 50 L1150 90 L1290 30 L1400 80 L1600 60"/></svg>
+      </div>
+      <div class="container sv-why__grid">
+        <div class="sv-why__media">
+          <figure class="sv-why__ph sv-why__ph--main"><img src="assets/media/me-trek.webp" width="720" height="960" alt="Вероника в походе с рюкзаком и треккинговыми палками на фоне скал" /></figure>
+          <figure class="sv-why__ph sv-why__ph--snow"><img src="assets/media/me-snowboard.webp" width="640" height="800" alt="Вероника на сноуборде на склоне" /></figure>
+          <figure class="sv-why__ph sv-why__ph--goggles"><img src="assets/media/me-goggles.webp" width="640" height="800" alt="Вероника в горнолыжной маске на фоне скал" /></figure>
+          <figure class="sv-why__ph sv-why__ph--hike"><img src="assets/media/remote-park.webp" width="640" height="800" alt="Вероника работает с ноутбуком в парке" /></figure>
+        </div>
+        <div class="sv-why__copy">
+          <h2 class="dz-h2 dz-h2--xl" id="why-title">Помогаю <span class="sv-accent">бизнесам расти</span></h2>
+          <div class="sv-why__text">
+            <p>Мне нравится запускать новые проекты, исследовать неизвестное и разбираться, как устроены сложные системы. Кажется, поэтому я одинаково люблю и продуктовый маркетинг, и путешествия.</p>
+            <p>В свободное время чаще всего меня можно встретить в горах, в походе, на доске или с рюкзаком в новой стране.</p>
+            <p>Практикую йогу и медитацию, люблю природу, фотографию, танец и движение.</p>
+            <p>Верю, что любопытство, открытость новому и постоянное обучение помогают принимать более сильные продуктовые решения.</p>
+          </div>
+          <p class="dz-lead">Учиться: один из лучших навыков</p>
+          <ul class="dz-principles">
+            <li><b>ЮФУ.</b> Бизнес-информатика, бакалавриат, красный диплом, 2019</li>
+            <li><b>GoPractice.</b> Activation Framework, 2025</li>
+            <li><b>Product University.</b> Product Management, 2020</li>
+            <li><b>Google Academy.</b> Ads &amp; Analytics, 2019</li>
+          </ul>
+          <p class="dz-quote">Я хочу, чтобы в ваших пространствах были ваши люди. Ради этого и работаю.</p>
+          <ul class="dz-facts">
+            <li><b>10 лет</b> в маркетинге</li>
+            <li><b>8 лет</b> на удалёнке</li>
+            <li>работаю с <b>ИИ-инструментами</b></li>
+          </ul>
+          <ul class="dz-principles">
+            <li><b>Говорю прямо.</b> Если формат не подойдёт, скажу до начала работы.</li>
+            <li>KPI фиксируем на старте, цифры видны в любой момент.</li>
+            <li><b>Считаю, а не предполагаю.</b> Решения принимаем по данным.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. ФИНАЛ -->
+    <section class="section contact sv-final dz-final" id="contact" aria-labelledby="final-title">
+      <img class="sv-final__bg" src="assets/media/mountains-trail.webp" width="1280" height="800" alt="" />
+      <div class="container dz-final__card">
+        <h2 class="dz-h2 dz-h2--xl" id="final-title">Расскажите, что вы создаёте</h2>
+        <p class="dz-lead">Опишите задачу и задайте вопрос. Отвечу в течение дня и скажу прямо, смогу ли помочь. Можно текстом.</p>
+        <div class="dz-final__hints">
+          <p class="dz-final__label">О чём можно написать:</p>
+          <ul><li>где сейчас теряются заявки</li><li>какой запуск планируете</li><li>что не так с сайтом</li></ul>
+        </div>
+        <p class="dz-final__next">Дальше предложу формат: консультацию, запуск, сайт или систему маркетинга.</p>
+        <div class="dz-final__cta">
+          <a data-goal="tg_final" href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу</a>
+          <p class="sv-note">Беру 2-3 проекта одновременно</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- 9. ФУТЕР -->
+  <footer class="footer sv-footer">
     <div class="container footer__inner">
-      <a href="#hero" class="footer__brand">
-        <img src="assets/brand/logo-nav.png" alt="" width="28" height="28" />
-        <span>© <span id="year"></span> Veronika PMM</span>
-      </a>
+      <a href="#top" class="footer__brand"><img src="assets/brand/logo-nav.png" alt="" width="28" height="28" /><span>© 2026 Вероника Овчинникова</span></a>
+      <ul class="sv-footer__links">
+        <li><a href="https://t.me/veronikakeys" target="_blank" rel="noopener">Telegram @veronikakeys</a></li>
+        <li><a href="https://wa.me/79034354284" target="_blank" rel="noopener">WhatsApp +7 903 435-42-84</a></li>
+        <li><a href="https://www.instagram.com/veronikakeys/" target="_blank" rel="noopener">Instagram*</a></li>
+      </ul>
+      <p class="sv-footnote sv-footnote--footer">* Instagram принадлежит компании Meta, которая признана экстремистской организацией и запрещена в России.</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Панель на телефоне -->
+  <div class="sv-sticky dz-sticky" id="svSticky">
+    <a data-goal="tg_sticky" href="https://t.me/veronikakeys?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%92%D0%B5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D1%83" class="btn btn--primary sv-btn" target="_blank" rel="noopener"><svg class="sv-ico" aria-hidden="true"><use href="#i-tg"/></svg>Обсудить задачу (Telegram)</a>
+  </div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/home.js" defer></script>
 </body>
 </html>
