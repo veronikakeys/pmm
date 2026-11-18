@@ -1,0 +1,28 @@
+/* Продакшен-сборка главной (18.11.2026): поверх draft.css v5. Только то, чего нет в макете. */
+
+/* Форматы: блок «Что делаю» убран, в карточке 6 строк сетки вместо 7
+   (название, цена, бюджет/подрядчики, «Если…», «На руках», ссылки и кнопка). */
+@media (min-width: 901px) {
+  .dz-plans { grid-template-rows: repeat(6, auto); }
+  .dz-plan { grid-row: span 6; }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .dz-plans { grid-template-rows: repeat(12, auto); }
+}
+
+/* Телефон: та же лента со свайпом (80vw, scroll-snap), но строки карточек на общей сетке,
+   чтобы цена, «Если…», «На руках» и кнопка стояли на одной линии во всех карточках. */
+@media (max-width: 900px) {
+  .dz-plans { display: grid; grid-auto-flow: column; grid-auto-columns: 80vw; grid-template-columns: none; grid-template-rows: repeat(6, auto); row-gap: 0; }
+  .dz-plan { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .dz-plan__foot { align-self: end; margin-top: 0; }
+}
+
+/* Доступность: ссылка «К содержанию» видна только при фокусе с клавиатуры */
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 1000;
+  padding: 10px 16px; border-radius: var(--radius-sm, 10px);
+  background: #fff; color: var(--sv-ink, #1B140D); font-weight: 600; box-shadow: var(--shadow-md);
+}
+.skip-link:focus { top: 12px; }
+main:focus { outline: none; }

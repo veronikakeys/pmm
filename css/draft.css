@@ -1,0 +1,574 @@
+/* Черновик главной v2 (17.11.2026). База: styles.css + services.css из v11 без изменений.
+   Здесь только раскладки и анимации на токенах v11. Префикс dz-. */
+
+/* ——— Общие ——— */
+.dz { --dz-line: rgba(107, 63, 35, 0.14); --dz-deep: #2F4A1F; }
+/* Без моноширинного шрифта в метках: всё на Inter */
+.dz .sv-label, .dz .sv-num, .dz .sv-hcard__head, .dz .sv-chip-up, .dz .sv-crm small,
+.dz .sv-footnote, .dz .sv-note { font-family: var(--font); letter-spacing: 0; text-transform: none; }
+.dz .noise, .dz .cursor-glow, .dz .scroll-progress { display: none; }
+.dz-h2 {
+  margin: 0;
+  font-size: clamp(1.875rem, 3.4vw, 2.875rem);
+  line-height: 1.06;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--sv-ink);
+  text-wrap: balance;
+}
+.dz-h2--xl { font-size: clamp(2.125rem, 4.4vw, 3.75rem); letter-spacing: -0.045em; }
+.dz-lead { margin: 14px 0 0; max-width: 560px; font-size: 1.0625rem; line-height: 1.55; color: var(--sv-text); }
+.dz-textlink {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.9375rem; font-weight: 600; color: var(--accent-hover);
+  border-bottom: 1px solid var(--accent-border); padding-bottom: 2px;
+}
+.dz-textlink:hover { border-bottom-color: var(--accent); }
+
+/* ——— Шапка ——— */
+.dz-logo-short { display: none; }
+.dz .nav__name { white-space: nowrap; }
+@media (max-width: 1180px) { .dz .nav__name { font-size: 0.875rem; } }
+@media (max-width: 900px) {
+  .dz-logo-full { display: none; }
+  .dz-logo-short { display: inline; }
+}
+
+/* ——— 1. Первый экран ——— */
+.dz-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 18px; font-size: 0.9375rem; line-height: 1.4; color: var(--sv-muted);
+}
+.dz-eyebrow::before { content: ""; flex: none; width: 28px; height: 1.5px; background: var(--accent); }
+.dz-h1 { font-size: clamp(2.125rem, 3.2vw, 2.875rem); }
+.dz-hero .sv-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.dz-hero__note { margin: 0; max-width: 220px; font-size: 0.8125rem; line-height: 1.4; }
+.dz-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.dz-stats strong { font-size: clamp(1.375rem, 2vw, 1.75rem); }
+.dz-markets {
+  margin: 16px 0 0; padding-top: 12px; width: 100%;
+  border-top: 1px dashed var(--dz-line);
+  font-size: 0.875rem; line-height: 1.5; color: var(--sv-muted);
+}
+.dz-markets__list { color: var(--sv-ink); font-weight: 500; word-spacing: 0.15em; }
+.dz-scene .sv-hcard--cr { top: 6%; }
+.dz-scene .sv-hcard--crm { bottom: 8%; }
+
+/* Анимация первого экрана (CSS). Плавание плашек, прорисовка графика и поочерёдные заявки
+   уже есть в v11 (sv-float, sv-draw, sv-row-in); ниже добавлены маршрут и горы. */
+.dz-route-flow {
+  fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round;
+  stroke-dasharray: 2 10; opacity: 0.85;
+  animation: dz-flow 2.4s linear 2.2s infinite;
+}
+.dz-climber { animation: sv-fade 0.5s ease 2s both; }
+.dz-climber circle:last-child { fill: #fff; }
+.dz-climber__halo { fill: rgba(255,255,255,0.35); transform-box: fill-box; transform-origin: center; animation: dz-pulse 2.6s ease-in-out 2.4s infinite; }
+.dz-drift-ridge { animation: dz-drift 16s ease-in-out infinite alternate; }
+.dz-ridge-back { animation: sv-draw 1.4s ease 150ms both, dz-drift-x 22s ease-in-out 1.6s infinite alternate !important; }
+.dz-drift-bg { animation: dz-zoom 24s ease-in-out infinite alternate; transform-origin: 50% 70%; }
+@keyframes dz-flow { to { stroke-dashoffset: -24; } }
+@keyframes dz-pulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.8); opacity: 0; } }
+@keyframes dz-drift { from { transform: translate3d(-4px, 0, 0); } to { transform: translate3d(5px, -3px, 0); } }
+@keyframes dz-drift-x { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
+@keyframes dz-zoom { from { transform: scale(1); } to { transform: scale(1.04); } }
+@media (prefers-reduced-motion: reduce) {
+  .dz-hero *, .dz-hero *::before, .dz-hero *::after { animation: none !important; transition: none !important; }
+}
+
+/* ——— 2. Чем я могу быть полезна: асимметрия + типографский список ——— */
+.dz-use__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.dz-use__head { position: sticky; top: calc(var(--nav-h) + 32px); }
+.dz-use__head .dz-textlink { margin-top: 26px; }
+.dz-use__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--dz-line); }
+.dz-use__list li {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 8px 32px;
+  padding: 22px 0; border-bottom: 1px solid var(--dz-line);
+}
+.dz-use__list h3 { margin: 0; font-size: 1.25rem; line-height: 1.25; font-weight: 600; letter-spacing: -0.02em; color: var(--sv-ink); }
+.dz-use__list p { margin: 0; font-size: 0.9875rem; line-height: 1.55; color: var(--sv-text); }
+
+/* ——— 3. Кейсы: кремовая полоса с силуэтом гор, лента scroll-snap ——— */
+.dz-cases { position: relative; background: var(--sv-cream); overflow: hidden; }
+.dz-cases__ridge { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px; }
+.dz-cases__ridge path { fill: var(--bg-soft); opacity: 0.55; }
+.dz-cases__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.dz-rail-nav { display: flex; gap: 8px; flex: none; }
+.dz-rail-btn {
+  width: 46px; height: 46px; display: grid; place-items: center; cursor: pointer;
+  border-radius: 50%; border: 1px solid var(--border-strong); background: #fff; color: var(--sv-ink);
+}
+.dz-rail-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dz-rail-btn:hover { border-color: var(--accent); color: var(--accent); }
+.dz-rail {
+  position: relative; z-index: 1;
+  display: flex; gap: 20px; align-items: stretch;
+  margin-top: 32px;
+  padding: 4px max(24px, calc((100vw - var(--container)) / 2)) 28px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(24px, calc((100vw - var(--container)) / 2));
+  scrollbar-width: none;
+}
+.dz-rail::-webkit-scrollbar { display: none; }
+.dz-case {
+  flex: 0 0 clamp(288px, 30vw, 372px); scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 26px 26px 22px; border-radius: 6px;
+  background: #fff; border-top: 3px solid var(--accent);
+  box-shadow: 0 1px 0 var(--dz-line);
+}
+.dz-case__tags { margin: 0; font-size: 0.8125rem; font-weight: 500; color: var(--accent-hover); }
+.dz-case__title { margin: 0; font-size: 1.1875rem; line-height: 1.28; font-weight: 600; letter-spacing: -0.02em; color: var(--sv-ink); }
+.dz-case__hero { margin: 6px 0 0; display: flex; flex-direction: column; gap: 6px; }
+.dz-case__hero strong { font-size: clamp(2.75rem, 4.2vw, 3.75rem); line-height: 0.95; font-weight: 700; letter-spacing: -0.05em; color: var(--sv-green-num); }
+.dz-case__hero span { font-size: 0.9375rem; line-height: 1.35; color: var(--sv-ink); }
+.dz-case__did { margin: 0; font-size: 0.9375rem; line-height: 1.55; color: var(--sv-text); }
+.dz-case__props { list-style: none; margin: auto 0 0; padding: 0; border-top: 1px solid var(--dz-line); }
+.dz-case__props li { display: flex; align-items: baseline; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--dz-line); }
+.dz-case__props strong { flex: none; min-width: 6.4em; font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.02em; color: var(--sv-ink); }
+.dz-case__props span { font-size: 0.8125rem; line-height: 1.35; color: var(--sv-muted); }
+.dz-case__cat { margin: 2px 0 0; font-size: 0.75rem; line-height: 1.4; color: var(--text-faint); }
+/* первый кейс тёмный, последний честный: ритм ленты */
+.dz-case--lead { background: var(--dz-deep); border-top-color: var(--accent-bright); }
+.dz-case--lead .dz-case__tags { color: #b9d99a; }
+.dz-case--lead .dz-case__title, .dz-case--lead .dz-case__hero span, .dz-case--lead .dz-case__props strong { color: #fff; }
+.dz-case--lead .dz-case__hero strong { color: #cfe8b0; }
+.dz-case--lead .dz-case__did, .dz-case--lead .dz-case__props span, .dz-case--lead .dz-case__cat { color: rgba(255,255,255,0.72); }
+.dz-case--lead .dz-case__props, .dz-case--lead .dz-case__props li { border-color: rgba(255,255,255,0.16); }
+.dz-case--honest { flex-basis: clamp(300px, 34vw, 430px); border-top-color: var(--accent-brown); }
+.dz-case--honest .dz-case__hero strong { color: var(--accent-brown); }
+.dz-case__fail { display: grid; gap: 10px; padding: 14px 0 0; border-top: 1px solid var(--accent-brown-border); }
+.dz-case__fail p { margin: 0; font-size: 0.875rem; line-height: 1.55; color: var(--sv-ink); }
+.dz-case__fail b { color: var(--accent-brown); font-weight: 600; }
+
+/* ——— 4. Форматы работы: строки с тонкими линиями ——— */
+.dz-formats__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: end; }
+.dz-formats__head .dz-lead { justify-self: end; margin: 0; }
+.dz-formats__list { margin-top: clamp(28px, 4vw, 48px); border-top: 1.5px solid var(--sv-ink); }
+.dz-format {
+  display: grid; grid-template-columns: minmax(0, 2.6fr) minmax(0, 3fr) minmax(0, 3.4fr) minmax(0, 3.4fr);
+  gap: 20px clamp(20px, 2.6vw, 36px);
+  padding: 30px 0; border-bottom: 1px solid var(--dz-line);
+}
+.dz-format--main {
+  position: relative; padding: 34px 0; border-bottom: 0;
+  background: var(--sv-result);
+  box-shadow: 0 0 0 100vmax var(--sv-result); clip-path: inset(0 -100vmax);
+}
+.dz-format__badge { margin: 0 0 6px; font-size: 0.8125rem; font-weight: 600; color: var(--accent); }
+.dz-format__name { margin: 0; font-size: 1.125rem; font-weight: 600; color: var(--sv-ink); }
+.dz-format__sum { margin: 4px 0 0; font-size: clamp(1.75rem, 2.6vw, 2.25rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.045em; color: var(--sv-green-num); white-space: nowrap; }
+.dz-format__term { display: block; margin-top: 4px; font-size: 0.875rem; color: var(--sv-muted); }
+.dz-format__extra { margin: 12px 0 0; padding-top: 10px; border-top: 1px dashed var(--dz-line); font-size: 0.8125rem; line-height: 1.4; color: var(--sv-muted); max-width: 230px; }
+.dz-format__label { margin: 0 0 8px; font-size: 0.8125rem; font-weight: 600; color: var(--accent-brown); }
+.dz-format__text { margin: 0; font-size: 1rem; line-height: 1.5; color: var(--sv-ink); }
+.dz-format__case { margin-top: 14px; font-size: 0.875rem; }
+.dz-format ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.dz-format li { position: relative; padding-left: 16px; font-size: 0.9375rem; line-height: 1.45; color: var(--sv-text); }
+.dz-format__do li::before { content: "—"; position: absolute; left: 0; color: var(--text-faint); }
+.dz-format__get li::before { content: ""; position: absolute; left: 1px; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.dz-formats__cta { margin-top: 36px; display: flex; justify-content: flex-start; }
+
+/* ——— 5. Как работаем: маршрут на горе, тёмная полоса «Это не найм» ——— */
+.dz-how { padding-bottom: 0; }
+.dz-route { margin-top: clamp(24px, 3vw, 40px); }
+.dz-route__svg { display: block; width: 100%; height: 150px; overflow: visible; }
+.dz-route__far { fill: var(--bg-elevated); }
+.dz-route__near { fill: var(--bg-soft); opacity: 0.7; }
+.dz-route__line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 7 7; vector-effect: non-scaling-stroke; }
+.dz-route__camps circle { fill: #fff; stroke: var(--accent); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.dz-route__flag path:first-child { stroke: var(--accent-hover); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.dz-route__flag path:last-child { fill: var(--accent-bright); }
+.dz-route__steps { list-style: none; margin: 0; padding: 18px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--dz-line); }
+.dz-route__steps li { font-size: 0.9375rem; line-height: 1.5; color: var(--sv-text); }
+.dz-route__steps b { display: block; margin-bottom: 4px; font-size: 1.0625rem; color: var(--sv-ink); }
+.dz-band { margin-top: clamp(48px, 6vw, 80px); padding: clamp(40px, 5vw, 64px) 0; background: var(--dz-deep); color: #fff; position: relative; overflow: hidden; }
+.dz-band::after { content: ""; position: absolute; right: -40px; bottom: -10px; width: 520px; height: 140px; opacity: 0.12;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 140'%3E%3Cpath d='M0 140 L80 70 L130 96 L220 20 L290 74 L360 40 L440 90 L520 50 V140Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center / contain; }
+.dz-band__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.dz-band__title { margin: 0; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.08; font-weight: 600; letter-spacing: -0.035em; color: #fff; }
+.dz-band__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.dz-band__list li { padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.22); font-size: 1rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
+.dz-rules { list-style: none; margin: 0; padding: 22px 0 clamp(40px, 5vw, 64px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+.dz-rules li { padding: 0 24px; border-left: 1px solid var(--dz-line); font-size: 0.875rem; line-height: 1.5; color: var(--sv-muted); }
+.dz-rules li:first-child { padding-left: 0; border-left: 0; }
+
+/* ——— 6. Обо мне ——— */
+.dz-why .sv-why__copy .dz-h2 { margin-bottom: 18px; }
+.dz-quote { margin: 22px 0 0; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.3; font-weight: 500; letter-spacing: -0.02em; color: var(--accent-hover); }
+.dz-facts { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--dz-line); border-bottom: 1px solid var(--dz-line); }
+.dz-facts li { padding: 14px 16px; border-left: 1px solid var(--dz-line); font-size: 0.875rem; line-height: 1.35; color: var(--sv-text); }
+.dz-facts li:first-child { padding-left: 0; border-left: 0; }
+.dz-facts b { display: block; font-size: 1.375rem; font-weight: 700; letter-spacing: -0.03em; color: var(--sv-green-num); }
+.dz-facts li:last-child b { font-size: 1rem; letter-spacing: -0.01em; line-height: 1.6; }
+.dz-principles { list-style: none; margin: 22px 0 0; padding: 0; }
+.dz-principles li { padding: 12px 0 12px 22px; position: relative; border-bottom: 1px solid var(--dz-line); font-size: 0.9375rem; line-height: 1.5; color: var(--sv-text); }
+.dz-principles li::before { content: ""; position: absolute; left: 0; top: 1.15em; width: 12px; height: 1.5px; background: var(--accent); }
+.dz-principles b { color: var(--sv-ink); }
+
+/* ——— 8. Финал ——— */
+.dz-final__card {
+  max-width: 760px; padding: clamp(28px, 4vw, 48px);
+  background: rgba(255,255,255,0.94); border-radius: 4px; text-align: left;
+  backdrop-filter: blur(6px);
+}
+.dz-final__card .dz-lead { max-width: none; }
+.dz-final__hints { margin-top: 22px; }
+.dz-final__label { margin: 0 0 6px; font-size: 0.875rem; font-weight: 600; color: var(--accent-brown); }
+.dz-final__hints ul { list-style: none; margin: 0; padding: 0; }
+.dz-final__hints li { padding: 9px 0; border-bottom: 1px solid var(--dz-line); font-size: 1rem; color: var(--sv-ink); }
+.dz-final__hints li::before { content: "→ "; color: var(--accent); }
+.dz-final__next { margin: 16px 0 0; font-size: 0.9375rem; line-height: 1.5; color: var(--sv-text); }
+.dz-final__cta { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.dz-final__cta .sv-note { margin: 0; }
+
+/* ——— Адаптив ——— */
+@media (max-width: 1100px) {
+  .dz-format { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .dz-route__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .dz-use__grid, .dz-band__grid, .dz-formats__head { grid-template-columns: 1fr; }
+  .dz-use__head { position: static; }
+  .dz-formats__head .dz-lead { justify-self: start; }
+  .dz-use__list li { grid-template-columns: 1fr; }
+  .dz-band__list { grid-template-columns: 1fr; }
+  .dz-rules { grid-template-columns: 1fr; }
+  .dz-rules li { padding: 10px 0; border-left: 0; border-top: 1px solid var(--dz-line); }
+  .dz-markets { order: 3; }
+  .dz-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dz-cases__head { flex-direction: column; align-items: flex-start; }
+  .dz-rail-nav { display: none; }
+  .dz-case { flex-basis: 82vw; }
+  .dz-case--honest { flex-basis: 86vw; }
+  .dz-route__svg { height: 90px; }
+  .dz-route__steps { grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 640px) {
+  .dz-format { grid-template-columns: 1fr; padding: 26px 0; }
+  .dz-facts { grid-template-columns: 1fr; }
+  .dz-facts li { padding: 10px 0; border-left: 0; border-top: 1px solid var(--dz-line); }
+  .dz-facts li:first-child { border-top: 0; }
+  .dz-final__card { padding: 24px 20px; }
+}
+
+/* Правка после проверки превью */
+.dz .sv-hero__inner { width: min(100% - 48px, calc(var(--container) + 80px)); }
+@media (min-width: 901px) { .dz-final__card { margin-left: max(24px, calc((100vw - var(--container)) / 2)); } }
+@media (max-width: 900px) {
+  .dz-rail { align-items: flex-start; }
+  .dz-case { flex-basis: 78vw; }
+  .dz-case--honest { flex-basis: 84vw; }
+  .dz-case__props { margin-top: 6px; }
+}
+
+/* ============ v3 ============ */
+/* Hero: три факта в ряд, новые плашки */
+.dz-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dz-up { width: 16px; height: 16px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  padding: 2px; box-sizing: content-box; border-radius: 50%; background: var(--accent-soft); }
+.dz-rev { height: 52px; margin-top: 6px; }
+.dz-rev__bars rect { fill: var(--bg-soft); opacity: 0.8; transform-box: fill-box; transform-origin: bottom; animation: sv-scale-y 0.5s var(--ease) both; }
+.dz-rev__bars rect:nth-child(1) { animation-delay: 1100ms; } .dz-rev__bars rect:nth-child(2) { animation-delay: 1160ms; }
+.dz-rev__bars rect:nth-child(3) { animation-delay: 1220ms; } .dz-rev__bars rect:nth-child(4) { animation-delay: 1280ms; }
+.dz-rev__bars rect:nth-child(5) { animation-delay: 1340ms; } .dz-rev__bars rect:nth-child(6) { animation-delay: 1400ms; }
+.dz-rev__dot { fill: #fff; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; animation: sv-pop 0.4s var(--ease) 2.1s both; }
+.dz-hcard-pay { left: calc(var(--ph) * -0.2); bottom: 22%; width: clamp(150px, calc(var(--ph) * 0.44), 180px); }
+.dz-pay { display: block; width: 100%; height: 46px; margin-top: 6px; overflow: visible; }
+.dz-pay__zero { stroke: var(--border-strong); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
+.dz-pay__minus, .dz-pay__plus { fill: none; stroke-width: 2.2; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; }
+.dz-pay__minus { stroke: var(--text-faint); animation: sv-draw 0.8s var(--ease-out) 1.3s both; }
+.dz-pay__plus { stroke: var(--accent); animation: sv-draw 0.8s var(--ease-out) 2.05s both; }
+.dz-pay__dot { fill: #fff; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; animation: sv-pop 0.4s var(--ease) 2s both; }
+.dz-pay__cap { margin-top: 4px; font-size: 0.75rem; color: var(--sv-muted); }
+.dz-pay__cap span { font-weight: 600; color: var(--accent); }
+@media (max-width: 900px) {
+  .dz-hcard-pay { left: 10px; bottom: 30%; width: 150px; }
+  .dz-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+}
+
+/* 1. «Чем я могу быть полезна»: компактная сетка 3×2 */
+.dz-use { padding-top: clamp(3rem, 5vw, 4.5rem); padding-bottom: clamp(3rem, 5vw, 4.5rem); }
+.dz-use__grid { display: block; }
+.dz-use__head { position: static; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px 48px; align-items: end; }
+.dz-use__head .dz-h2 { font-size: clamp(1.625rem, 2.6vw, 2.25rem); }
+.dz-use__head .dz-lead { margin: 0; font-size: 0.9875rem; }
+.dz-use__head .dz-textlink { grid-column: 2; margin-top: 0; justify-self: start; font-size: 0.875rem; }
+.dz-use__list { margin-top: 28px; border-top: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
+.dz-use__list li { display: block; padding: 16px 0 18px; border-bottom: 0; border-top: 1px solid var(--dz-line); }
+.dz-use__list h3 { font-size: 1rem; margin-bottom: 6px; }
+.dz-use__list p { font-size: 0.875rem; line-height: 1.5; }
+@media (max-width: 900px) {
+  .dz-use__head { grid-template-columns: 1fr; }
+  .dz-use__head .dz-textlink { grid-column: 1; }
+  .dz-use__list { grid-template-columns: 1fr; margin-top: 18px; }
+  .dz-use__list li { padding: 12px 0 13px; }
+}
+
+/* 2. Результаты: светлая палитра, без тёмной карточки */
+.dz-case--lead { background: var(--sv-result); border-top-color: var(--accent); }
+.dz-case--lead .dz-case__tags { color: var(--accent-hover); }
+.dz-case--lead .dz-case__title, .dz-case--lead .dz-case__hero span, .dz-case--lead .dz-case__props strong { color: var(--sv-ink); }
+.dz-case--lead .dz-case__hero strong { color: var(--accent); }
+.dz-case--lead .dz-case__did, .dz-case--lead .dz-case__props span { color: var(--sv-text); }
+.dz-case--lead .dz-case__cat { color: var(--sv-muted); }
+.dz-case--lead .dz-case__props, .dz-case--lead .dz-case__props li { border-color: var(--sv-result-line); }
+.dz-case__hero strong { color: var(--accent); }
+.dz-case__cat { color: var(--sv-muted); }
+.dz-case { box-shadow: var(--shadow-sm); }
+
+/* 3. Форматы: карточки-тарифы v11 (sv-plan), 4 в ряд; на телефоне свайп */
+.dz-plans {
+  margin-top: clamp(24px, 3vw, 40px);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch;
+}
+.dz-plan { padding: 24px 20px 22px; gap: 0; }
+.dz-plan .sv-plan__name { font-size: 1.125rem; margin-bottom: 6px; }
+.dz-plan .sv-plan__price { margin-bottom: 10px; gap: 2px 8px; }
+.dz-plan .sv-plan__price strong { font-size: clamp(1.5rem, 2.1vw, 1.875rem); }
+.dz-plan .sv-plan__price span { font-size: 0.8125rem; }
+.dz-plan__badge { margin-bottom: 12px; }
+.dz-plan__extra { margin: 0 0 12px; padding: 8px 10px; border-radius: var(--radius-sm); background: var(--bg-elevated); font-size: 0.75rem; line-height: 1.4; color: var(--sv-muted); }
+.sv-plan--accent .dz-plan__extra { background: #fff; }
+.dz-plan__if { margin: 0 0 14px; font-size: 0.875rem; line-height: 1.5; color: var(--sv-ink); }
+.dz-plan__if b { font-weight: 600; color: var(--accent-hover); }
+.dz-plan__block { padding-top: 12px; border-top: 1px solid var(--sv-line); margin-bottom: 12px; }
+.dz-plan__label { margin: 0 0 6px; font-size: 0.75rem; font-weight: 600; color: var(--sv-muted); }
+.dz-plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.dz-plan li { position: relative; padding-left: 14px; font-size: 0.8125rem; line-height: 1.4; color: var(--sv-text); }
+.dz-plan li::before { content: ""; position: absolute; left: 1px; top: 0.55em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-bright); }
+.dz-plan__get li::before { background: var(--accent); }
+.dz-plan__foot { margin-top: auto; padding-top: 8px; display: grid; gap: 12px; justify-items: start; }
+.dz-plan__case { font-size: 0.8125rem; line-height: 1.35; }
+.dz-plan__foot .sv-btn { width: 100%; justify-content: center; }
+@media (max-width: 1100px) and (min-width: 901px) { .dz-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) {
+  .dz-plans {
+    display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin-inline: -24px; padding: 4px 24px 20px; scroll-padding-inline: 24px; scrollbar-width: none;
+  }
+  .dz-plans::-webkit-scrollbar { display: none; }
+  .dz-plan { flex: 0 0 80vw; scroll-snap-align: start; }
+}
+
+/* 4. Финал по центру, шире */
+.dz-final__card { max-width: 960px; margin-inline: auto !important; text-align: center; padding: clamp(28px, 4vw, 56px) clamp(24px, 5vw, 72px); border-radius: var(--radius-lg); }
+.dz-final__card .dz-lead { margin-inline: auto; max-width: 640px; }
+.dz-final__hints { margin-top: 26px; }
+.dz-final__hints ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0; }
+.dz-final__hints li { padding: 4px 18px; border-bottom: 0; border-left: 1px solid var(--dz-line); }
+.dz-final__hints li:first-child { border-left: 0; }
+.dz-final__hints li::before { content: none; }
+.dz-final__next { margin-inline: auto; max-width: 600px; }
+.dz-final__cta { justify-content: center; flex-direction: column; }
+@media (max-width: 640px) {
+  .dz-final__hints ul { flex-direction: column; }
+  .dz-final__hints li { border-left: 0; padding: 4px 0; }
+}
+/* v3 правки после проверки */
+.dz-plan__badge { align-self: flex-start; padding: 0; background: none; border-radius: 0; color: var(--accent); font-size: 0.8125rem; font-weight: 600; margin-bottom: 8px; }
+@media (max-width: 900px) {
+  .dz-hcard-pay { left: 6px; bottom: 5%; width: 112px; }
+  .dz-hcard-pay .sv-hcard__body { padding: 10px 11px 11px; }
+  .dz-pay { height: 36px; }
+}
+@media (max-width: 900px) { .dz-formats { overflow-x: clip; } }
+/* v4: светлая полоса «Это не найм» */
+.dz-band { background: var(--sv-result, #EDF2EA); color: #1B140D; border-top: 1px solid var(--dz-line); border-bottom: 1px solid var(--dz-line); }
+.dz-band__title { color: #1B140D; }
+.dz-band__list li { color: #4A3B28; border-top: 1px solid rgba(81,130,51,0.28); }
+.dz-band::after { opacity: 0.1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 140'%3E%3Cpath d='M0 140 L80 70 L130 96 L220 20 L290 74 L360 40 L440 90 L520 50 V140Z' fill='%23518233'/%3E%3C/svg%3E"); }
+.dz-band__list li { border-top: 2px solid rgba(81,130,51,0.55); }
+.dz-band::after { opacity: 0.07; }
+
+/* ============ v5 · полировка (18.11.2026) ============
+   Шкала шрифта: 13 / 14 / 16 / 18 / 22 / H3 28-40 / H2 32-50 / H1 44-64.
+   Отступы: 8 / 16 / 24 / 32 / 48 / 64 / 96 / 128. Линии 1px, акцентная черта 2px.
+   Радиусы: 14 (плашки, мелкие карточки), 22 (кейсы, тарифы, фото, финал). */
+.dz {
+  --fs-cap: 0.8125rem; --fs-sm: 0.875rem; --fs-body: 1rem; --fs-lead: 1.125rem; --fs-h4: 1.125rem; --fs-h4l: 1.375rem;
+  --fs-h3: clamp(1.75rem, 1.15rem + 1.7vw, 2.5rem);
+  --fs-h2: clamp(2rem, 1.25rem + 2.4vw, 3.125rem);
+  --fs-h2-final: clamp(2.25rem, 1.2rem + 3.4vw, 3.75rem);
+  --dash: 24px;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.dz .sv-stats strong, .dz .dz-case__hero strong, .dz .dz-case__props strong, .dz .sv-plan__price strong,
+.dz .dz-facts b, .dz .dz-pay__cap, .dz .sv-crm small { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Заголовки секций: одна шкала */
+.dz-h2, .dz-h2--xl { font-size: var(--fs-h2); line-height: 1.02; letter-spacing: -0.042em; text-wrap: balance; }
+.dz-final .dz-h2 { font-size: var(--fs-h2-final); }
+.dz-lead { font-size: var(--fs-lead); line-height: 1.5; max-width: 34em; text-wrap: pretty; }
+.dz p, .dz li { text-wrap: pretty; }
+
+/* Фокус и наведение */
+.dz a:focus-visible, .dz button:focus-visible, .dz [tabindex]:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px;
+}
+.dz .sv-btn:focus-visible { border-radius: var(--radius-full); outline-offset: 4px; }
+.dz .sv-btn { transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background-color 0.2s; }
+.dz .sv-btn:hover { transform: translateY(-1px); }
+.dz-textlink { transition: border-color 0.2s, color 0.2s; }
+.dz-textlink:hover { color: var(--accent); }
+
+/* ——— Первый экран ——— */
+.dz-hero.sv-hero { min-height: 0; }
+.dz .sv-hero__inner { padding-block: clamp(32px, 5vw, 64px) clamp(56px, 7vw, 96px); }
+.dz .sv-scene { --ph: 340px; }
+@media (min-width: 1400px) { .dz .sv-scene { --ph: 360px; } }
+.dz .sv-hero__copy { max-width: none; width: 100%; container-type: inline-size; }
+.dz-eyebrow { margin-bottom: 24px; font-size: var(--fs-sm); }
+.dz-eyebrow::before { width: var(--dash); height: 2px; }
+.dz-h1.sv-h1 { font-size: min(4rem, 9.1cqi); line-height: 0.98; letter-spacing: -0.045em; margin: 0; }
+.dz-h1 .sv-h1__line:first-child { font-size: 0.5em; line-height: 1.15; font-weight: 500; letter-spacing: -0.025em; color: var(--sv-text); margin-bottom: 0.35em; }
+.dz .sv-hero__lead { margin-top: 24px; font-size: var(--fs-lead); line-height: 1.5; max-width: 30em; }
+.dz .sv-hero__cta { margin-top: 32px; }
+.dz-stats { margin-top: 40px; padding-top: 20px; gap: 0 24px; }
+.dz-stats strong { font-size: 2rem; line-height: 1; letter-spacing: -0.04em; }
+.dz-stats span { margin-top: 6px; font-size: var(--fs-cap); line-height: 1.4; }
+.dz-markets { margin-top: 20px; padding-top: 14px; }
+.dz .sv-scene__frame { border-radius: var(--radius-lg); }
+
+/* ——— 2. Чем я могу быть полезна ——— */
+.dz-use { padding-block: clamp(72px, 8vw, 112px) clamp(64px, 7vw, 96px); }
+.dz-use__list li { position: relative; padding-top: 20px; }
+.dz-use__list li::before { content: ""; position: absolute; left: 0; top: -1px; width: var(--dash); height: 2px; background: var(--accent); }
+.dz-use__list h3 { font-size: var(--fs-h4); line-height: 1.3; letter-spacing: -0.015em; }
+.dz-use__list p { font-size: 0.9375rem; line-height: 1.55; }
+
+/* ——— 3. Результаты ——— */
+.dz-cases { padding-block: clamp(80px, 9vw, 128px) clamp(72px, 8vw, 112px); }
+.dz-rail { margin-top: 40px; gap: 20px; padding-bottom: 40px; }
+.dz-case {
+  border-radius: var(--radius-lg); border: 1px solid var(--sv-line); border-top: 1px solid var(--sv-line);
+  padding: 28px 28px 24px; gap: 14px; box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.dz-case:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.dz-case__tags { display: flex; align-items: center; gap: 10px; }
+.dz-case__tags::before { content: ""; flex: none; width: var(--dash); height: 2px; background: var(--accent); }
+.dz-case--honest .dz-case__tags::before { background: var(--accent-brown); }
+.dz-case--honest { border-top-color: var(--sv-line); }
+.dz-case--lead { border-color: var(--sv-result-line, rgba(81,130,51,0.18)); }
+.dz-case__title { font-size: 1.25rem; line-height: 1.25; }
+.dz-case__hero strong { font-size: clamp(3rem, 1.8rem + 3vw, 4rem); line-height: 0.92; letter-spacing: -0.055em; }
+.dz-case__props strong { font-size: 1rem; }
+.dz-rail-btn {
+  width: 48px; height: 48px; border: 1px solid var(--dz-line); background: #fff; box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+}
+.dz-rail-btn svg { width: 18px; height: 18px; stroke-width: 1.6; }
+.dz-rail-btn:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #fff; }
+.dz-rail-btn:disabled { opacity: 0.4; cursor: default; box-shadow: none; }
+
+/* ——— 4. Форматы: строки тарифов выровнены по сетке ——— */
+.dz-formats { padding-block: clamp(80px, 9vw, 128px) clamp(72px, 8vw, 112px); }
+.dz-formats__head { align-items: end; }
+.dz-plans { margin-top: 40px; padding-top: 34px; gap: 16px; }
+.dz-plan {
+  border-radius: var(--radius-lg); padding: 28px 22px 24px; box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.dz-plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.dz-plan .sv-plan__name { font-size: var(--fs-h4); line-height: 1.3; margin: 0 0 8px; }
+.dz-plan .sv-plan__price { margin: 0 0 16px; align-items: baseline; }
+.dz-plan .sv-plan__price strong { font-size: 1.875rem; line-height: 1; letter-spacing: -0.04em; white-space: nowrap; }
+.dz-plan__extra { margin: 0 0 16px; align-self: start; font-size: var(--fs-cap); line-height: 1.45; }
+.dz-plan__extra--none { display: block; margin: 0; }
+.dz-plan__if { margin: 0 0 16px; font-size: var(--fs-sm); line-height: 1.5; }
+.dz-plan__block { margin: 0 0 16px; padding-top: 14px; }
+.dz-plan__label { margin-bottom: 8px; font-size: var(--fs-cap); color: var(--accent-brown); }
+.dz-plan ul { gap: 6px; }
+.dz-plan li { font-size: var(--fs-sm); line-height: 1.45; padding-left: 15px; }
+.dz-plan li::before { top: 0.6em; }
+.dz-plan__foot { padding-top: 8px; gap: 14px; }
+.dz-plan__case { font-size: var(--fs-cap); }
+.dz-plan .sv-plan__badge.dz-plan__badge {
+  position: absolute; left: -1px; right: -1px; bottom: 100%; margin: 0; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: var(--accent-hover); color: #fff;
+  font-size: var(--fs-cap); font-weight: 600; letter-spacing: 0;
+}
+.dz-plan.sv-plan--accent { border-top-left-radius: 0; border-top-right-radius: 0; border-color: var(--accent-hover); }
+.dz-plan.sv-plan--accent:hover { transform: none; }
+@media (min-width: 901px) {
+  .dz-plans { grid-template-rows: repeat(7, auto); row-gap: 0; }
+  .dz-plan { display: grid; grid-row: span 7; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .dz-plan__foot { align-self: end; margin-top: 0; }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .dz-plans { grid-template-rows: repeat(14, auto); }
+  .dz-plan:nth-child(n+3) { margin-top: 50px; }
+}
+
+/* ——— 5. Как работаем ——— */
+.dz-how { padding-top: clamp(80px, 9vw, 128px); }
+.dz-route { margin-top: 40px; }
+.dz-route__steps { gap: 0; padding-top: 20px; }
+.dz-route__steps li { padding-right: 28px; font-size: 0.9375rem; }
+.dz-route__steps b { font-size: var(--fs-h4); letter-spacing: -0.015em; margin-bottom: 6px; }
+.dz-route__line, .dz-route__camps circle { stroke-width: 2; }
+.dz-band { margin-top: clamp(64px, 7vw, 96px); padding-block: clamp(56px, 6vw, 88px); }
+.dz-band__title { font-size: var(--fs-h3); line-height: 1.05; letter-spacing: -0.035em; }
+.dz-band__list li { position: relative; padding: 20px 0; border-top: 1px solid rgba(81,130,51,0.35); font-size: var(--fs-body); }
+.dz-band__list li::before { content: ""; position: absolute; left: 0; top: -1px; width: var(--dash); height: 2px; background: var(--accent); }
+.dz-rules { padding-block: 24px clamp(56px, 6vw, 88px); }
+.dz-rules li { font-size: 0.9375rem; color: var(--sv-text); }
+
+/* ——— 6. Обо мне ——— */
+.dz-facts b { font-size: 1.75rem; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 4px; }
+.dz-facts li:last-child b { font-size: 1.0625rem; line-height: 1.3; margin-top: 4px; }
+
+/* ——— 7. Финал ——— */
+.dz-final__card { box-shadow: var(--shadow-lg); }
+
+/* ——— Телефон ——— */
+@media (max-width: 900px) {
+  .dz .sv-hero__inner { padding-block: 16px 56px; gap: 40px; }
+  .dz-h1.sv-h1 { font-size: clamp(2.5rem, 11.4cqi, 3.5rem); }
+  .dz-h1 .sv-h1__line:first-child { font-size: 0.5em; }
+  .dz-stats { margin-top: 32px; gap: 0 16px; }
+  .dz-stats strong { font-size: 1.75rem; }
+  .dz-plans { padding-top: 40px; }
+  .dz-plan:hover, .dz-case:hover { transform: none; }
+  /* Как работаем: вертикальный маршрут вместо горизонтальной горы */
+  .dz-route__svg { display: none; }
+  .dz-route__steps { position: relative; grid-template-columns: 1fr; gap: 0; padding: 0; border-top: 0; }
+  .dz-route__steps::before { content: ""; position: absolute; left: 7px; top: 12px; bottom: 28px; border-left: 2px dashed var(--accent); opacity: 0.7; }
+  .dz-route__steps li { position: relative; padding: 0 0 24px 36px; }
+  .dz-route__steps li::before { content: ""; position: absolute; left: 0; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); }
+  .dz-route__steps li:last-child { padding-bottom: 0; }
+  .dz-route__steps li:last-child::before { background: var(--accent-bright); border-color: var(--accent-hover); }
+  .dz-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dz-facts li { padding: 14px 12px; border-top: 0; border-left: 1px solid var(--dz-line); }
+  .dz-facts li:first-child { padding-left: 0; border-left: 0; }
+  .dz-facts b { font-size: 1.5rem; }
+  .dz-facts li:last-child b { font-size: 0.9375rem; }
+}
+@media (max-width: 640px) {
+  .dz-plan .sv-plan__price strong { font-size: 1.75rem; }
+  .dz-case { padding: 24px 22px 20px; }
+}
+.dz-plan__extra.dz-plan__extra--none { background: none; padding: 0; border: 0; }
+.dz .sv-hcard--crm { width: 214px; }
+.dz-principles li::before { height: 2px; width: 14px; }
+@media (max-width: 900px) { .dz .sv-hcard--crm { width: 196px; } }
+.dz-band__title { text-wrap: balance; }
+@media (max-width: 900px) {
+  .dz-facts { grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.5fr); }
+  .dz .sv-hcard--crm { width: 206px; right: 6px; }
+  .dz .sv-crm b { font-size: 0.75rem; }
+}
+.dz .sv-crm b { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.2; }
+@media (max-width: 900px) { .dz .sv-hero__inner { padding-bottom: 40px; } }
+.dz .sv-crm b { white-space: nowrap; overflow: hidden; text-overflow: clip; }
+@media (max-width: 900px) { .dz .sv-hcard--crm { width: 214px; } .dz .sv-crm b { font-size: 0.6875rem; } .dz .sv-crm em { padding-inline: 6px; } .dz-facts li { padding-inline: 10px; } }
+/* v5: одна ширина для шапки, первого экрана и секций (1200) */
+.dz { --container: 1200px; }
+.dz .sv-hero__inner { width: min(100% - 48px, var(--container)); }
+@media (min-width: 1400px) { .dz .sv-scene { --ph: 350px; } }
+.dz .nav { padding-inline: max(24px, calc((100% - var(--container)) / 2)); }
+.dz .sv-hero__inner { padding-bottom: clamp(40px, 5vw, 64px); }
+.dz-formats { padding-bottom: clamp(40px, 5vw, 64px); }
+.dz-how { padding-top: clamp(64px, 7vw, 96px); }
+@media (max-width: 900px) { .dz-hero__note { text-align: left; max-width: none; } .dz .sv-hero__cta { align-items: flex-start; } }

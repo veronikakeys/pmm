@@ -48,7 +48,7 @@
   --shadow-green: 0 14px 40px -16px rgba(81, 130, 51, 0.35);
 
   /* Type — system first (Apple feel), Inter fallback */
-  --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
 
   /* Radius */
