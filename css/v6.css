@@ -1,0 +1,373 @@
+/* ==========================================================================
+   v6 (18.11.2026). Подключается последним, после home.css.
+   Только переопределения; классы с префиксом v6- новые.
+   Токены те же: Inter, палитра v11, светлые полосы #EDF2EA / #F6F3E9,
+   зелёный #518233 только для крупного текста и графики на светлом фоне.
+   Радиусы 14 / 22, линии 1px, тени --shadow-sm / --shadow-md.
+   ========================================================================== */
+
+/* ---------- 1. Первый экран ---------- */
+/* Фон без сетки и цветного пятна: чистый белый */
+.dz-hero.sv-hero { background: #fff; }
+.dz-hero.sv-hero::before, .dz-hero.sv-hero::after { content: none; }
+
+.dz .sv-hero__inner {
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 36vw, 440px);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 72px) clamp(48px, 6vw, 88px);
+}
+.dz .sv-hero__copy { max-width: none; container-type: inline-size; }
+
+/* Заголовок: 3 строки на 1280, 4 на 390 */
+.v6-h1.sv-h1 {
+  margin: 0;
+  font-size: min(4rem, 9.2cqi);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: var(--sv-ink);
+  text-wrap: balance;
+}
+.v6-h1__accent { color: var(--accent); }
+.v6-lead.sv-hero__lead {
+  margin: 28px 0 0;
+  max-width: 32em;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: var(--sv-text);
+  text-wrap: pretty;
+}
+.dz .sv-hero__cta { margin-top: 36px; }
+.dz-stats { margin-top: 44px; }
+
+/* Фото: одно изображение, без слоёв */
+.v6-photo {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  background: #b6b6b4;
+  box-shadow: var(--shadow-md);
+}
+.v6-photo__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: inherit;
+}
+
+/* Карточки метрик hero: см. блок v6c в конце файла */
+
+/* ---------- 2. Кейсы: главная цифра первой, остальное тише ---------- */
+.dz-case { container-type: inline-size; gap: 0; }
+.dz-case__tags { order: 1; margin: 0 0 18px; color: var(--sv-muted); font-weight: 500; }
+.dz-case__hero { order: 2; margin: 0; gap: 10px; }
+.dz-case__hero strong {
+  font-size: min(5.5rem, 30cqi);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.dz-case--honest .dz-case__hero strong { color: var(--accent-brown); }
+.dz-case__hero span { font-size: 1rem; line-height: 1.35; font-weight: 600; color: var(--sv-ink); max-width: 22em; }
+.dz-case__title {
+  order: 3; margin: 22px 0 0; padding-top: 18px; border-top: 1px solid var(--dz-line);
+  font-size: 0.9375rem; line-height: 1.4; font-weight: 600; letter-spacing: -0.01em; color: var(--sv-text);
+}
+.dz-case__did { order: 4; margin: 6px 0 0; font-size: 0.875rem; line-height: 1.55; color: var(--sv-muted); }
+.dz-case__props { order: 5; margin-top: auto; padding-top: 18px; border-top: 0; }
+.dz-case__props li { border-bottom: 0; border-top: 1px solid var(--dz-line); padding: 8px 0; }
+.dz-case__props strong { font-size: 0.9375rem; font-weight: 600; color: var(--sv-ink); }
+.dz-case__props span { color: var(--sv-muted); }
+.dz-case__fail { order: 6; margin-top: 12px; }
+.dz-case--lead .dz-case__props li { border-color: rgba(81, 130, 51, 0.18); }
+
+/* ---------- 3. Как работаем: «не найм» и правила одним блоком ---------- */
+.dz-band::after { content: none; }
+.dz-band { margin-bottom: 0; }
+.dz-how { padding-bottom: 0; }
+
+/* ---------- 4. Обо мне ---------- */
+.v6-facts {
+  list-style: none; margin: 36px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px;
+}
+.v6-facts li { display: flex; flex-direction: column; gap: 8px; }
+.v6-facts b {
+  font-size: clamp(2.5rem, 1.6rem + 2.4vw, 3.5rem); line-height: 0.95; font-weight: 700;
+  letter-spacing: -0.05em; color: var(--accent); font-variant-numeric: tabular-nums lining-nums;
+}
+.v6-facts span { font-size: 0.9375rem; line-height: 1.4; color: var(--sv-text); }
+
+.v6-principles { list-style: none; margin: 40px 0 0; padding: 0 0 0 22px; border-left: 2px solid var(--accent); display: grid; gap: 14px; }
+.v6-principles li { font-size: 1.0625rem; line-height: 1.5; color: var(--sv-text); }
+.v6-principles b { font-weight: 600; color: var(--sv-ink); }
+
+.v6-edu { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--dz-line); }
+.v6-edu__title { margin: 0 0 12px; font-size: 0.8125rem; font-weight: 600; color: var(--accent-brown); }
+.v6-edu ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; }
+.v6-edu li { display: flex; flex-direction: column; gap: 2px; font-size: 0.875rem; line-height: 1.4; }
+.v6-edu b { font-weight: 600; color: var(--sv-ink); }
+.v6-edu span { color: var(--sv-muted); }
+
+/* ---------- Телефон ---------- */
+@media (max-width: 900px) {
+  .dz .sv-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 16px 48px; }
+  .v6-h1.sv-h1 { font-size: clamp(2.25rem, 10.4cqi, 3.25rem); line-height: 1.02; }
+  .v6-lead.sv-hero__lead { margin-top: 20px; font-size: 1.0625rem; }
+  .dz .sv-hero__cta { margin-top: 28px; }
+  .dz-stats { margin-top: 32px; }
+  .v6-photo { aspect-ratio: 4 / 5; }
+  .v6-facts { gap: 24px 20px; }
+  .v6-principles li { font-size: 1rem; }
+  .v6-edu ul { grid-template-columns: 1fr; }
+}
+
+/* правки после проверки */
+.dz-band__grid { row-gap: 0; }
+@media (min-width: 901px) {
+  .dz-why .sv-why__media { position: sticky; top: calc(var(--nav-h, 72px) + 24px); align-self: start; }
+}
+@media (max-width: 900px) {
+  /* Обо мне на телефоне: сначала коллаж, затем текст, учёба в самом низу блока */
+  .dz-why .sv-why__copy { order: 0; }
+}
+
+/* ---------- v6b: «Как мы работаем» без маршрута, один мягкий фон ---------- */
+.dz-how {
+  background: linear-gradient(180deg, #fff 0, #fff 18%, var(--sv-result, #EDF2EA) 62%, var(--sv-result, #EDF2EA) 100%);
+}
+.dz-how .dz-band { background: transparent; border: 0; margin-top: clamp(56px, 7vw, 96px); }
+.v6-steps {
+  list-style: none; margin: clamp(32px, 4vw, 48px) 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px clamp(20px, 2.5vw, 36px);
+  counter-reset: none;
+}
+.v6-steps li { display: flex; flex-direction: column; gap: 8px; }
+.v6-steps__num {
+  font-size: clamp(2.5rem, 1.8rem + 2vw, 3.5rem); line-height: 1; font-weight: 700;
+  letter-spacing: -0.05em; color: var(--accent); font-variant-numeric: tabular-nums lining-nums;
+}
+.v6-steps__title { margin: 8px 0 0; font-size: 1.125rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.015em; color: var(--sv-ink); }
+.v6-steps p { margin: 0; font-size: 0.9375rem; line-height: 1.55; color: var(--sv-text); }
+
+/* Обо мне: учёба строками, «ИИ-агенты» помещается в колонку */
+.v6-edu li { display: block; font-size: 0.875rem; line-height: 1.45; color: var(--sv-muted); }
+.v6-edu ul { grid-template-columns: 1fr; gap: 8px; }
+.v6-facts b { overflow-wrap: anywhere; }
+.v6-facts li:last-child b { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.1; padding-top: 0.25em; }
+
+@media (max-width: 1100px) and (min-width: 901px) { .v6-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) {
+  .dz-how { background: linear-gradient(180deg, #fff 0, #fff 30%, var(--sv-result, #EDF2EA) 55%, var(--sv-result, #EDF2EA) 100%); }
+  .v6-steps { grid-template-columns: 1fr; gap: 24px; }
+  .v6-steps li { display: grid; grid-template-columns: 48px 1fr; column-gap: 12px; row-gap: 4px; }
+  .v6-steps__num { grid-row: span 2; font-size: 2.5rem; }
+  .v6-steps__title { margin: 2px 0 0; }
+}
+@media (max-width: 900px) { .dz-band__title { margin-bottom: 24px; } }
+.v6-facts b { overflow-wrap: normal; white-space: nowrap; }
+@media (max-width: 900px) { .v6-facts b { font-size: 2rem; } .v6-facts li:last-child b { font-size: 1.5rem; padding-top: 0.3em; } }
+
+/* ==========================================================================
+   v6c: единая шкала размеров, motion-карточки hero, плотные кейсы,
+   «Обо мне» и «Как мы работаем» без нижних плашек
+   ========================================================================== */
+
+/* ---------- Шкала: одна на все ширины, меняется только здесь ---------- */
+:root {
+  --fs-h2: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);      /* 28 на 390, 40 на 1280 */
+  --fs-h2-final: var(--fs-h2);
+  --fs-h3: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);     /* 22 на 390, 28 на 1280 */
+  --fs-num: clamp(2rem, 1.75rem + 1.2vw, 2.75rem);       /* главная цифра: 32 на 390, 43 на 1280 */
+  --fs-num-sm: clamp(1.5rem, 1.3rem + 0.7vw, 2rem);      /* вторичные цифры: 24 на 390, 30 на 1280 */
+  --lh-num: 1;
+  --card-radius: var(--radius, 14px);
+  --card-shadow: 0 1px 2px rgba(27, 20, 13, 0.06), 0 12px 32px -12px rgba(27, 20, 13, 0.22);
+  --card-pad: 14px 16px;
+}
+.dz-h2, .dz-h2--xl, .dz-use__head .dz-h2, .dz-final .dz-h2 { font-size: var(--fs-h2); line-height: 1.08; letter-spacing: -0.035em; }
+.dz-band__title { font-size: var(--fs-h3); line-height: 1.15; letter-spacing: -0.03em; }
+.dz-stats strong, .dz-plan .sv-plan__price strong { font-size: var(--fs-num-sm); }
+.dz-case__hero strong { font-size: var(--fs-num); line-height: var(--lh-num); letter-spacing: -0.04em; }
+.v6-facts b, .v6-facts li:last-child b { font-size: var(--fs-num); line-height: var(--lh-num); letter-spacing: -0.04em; padding-top: 0; }
+.v6-steps__num { font-size: var(--fs-num-sm); line-height: var(--lh-num); letter-spacing: -0.03em; }
+@media (max-width: 900px) {
+  .dz-stats strong { font-size: var(--fs-num-sm); }
+  .v6-facts b, .v6-facts li:last-child b { font-size: var(--fs-num); padding-top: 0; }
+  .v6-steps__num { font-size: var(--fs-num-sm); }
+}
+
+/* ---------- Hero: три карточки, привязаны к краям фото ---------- */
+.v6-photo { --edge: 16px; --out: clamp(-56px, -4vw, -32px); }
+.v6-hcard {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  padding: var(--card-pad);
+  background: #fff;
+  border: 1px solid var(--sv-line);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  animation: v6-card-in 0.6s cubic-bezier(.2, .7, .2, 1) both, v6-float 7s ease-in-out infinite;
+}
+.v6-hcard--rev { left: var(--out); top: 18%; width: 196px; animation-delay: 0.5s, 1.1s; }
+.v6-hcard--pay { left: var(--out); bottom: var(--edge); width: 196px; animation-delay: 0.65s, 1.1s; animation-duration: 0.6s, 7.8s; }
+.v6-hcard--crm { right: var(--edge); bottom: var(--edge); width: 232px; animation-delay: 0.8s, 1.1s; animation-duration: 0.6s, 8.6s; }
+.v6-hcard__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin: 0 0 10px; font-size: 0.75rem; line-height: 1.2; font-weight: 500; color: var(--sv-muted);
+}
+.v6-hcard__up { width: 14px; height: 14px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.v6-hcard__cap { margin: 8px 0 0; font-size: 1rem; line-height: 1; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.v6-hcard__live { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: v6-pulse 2s ease-out infinite; }
+
+.v6-rev, .v6-pay { display: block; width: 100%; height: 44px; overflow: visible; }
+.v6-rev__bars rect { fill: rgba(81, 130, 51, 0.16); transform-box: fill-box; transform-origin: bottom; animation: v6-grow 0.5s ease both; }
+.v6-rev__bars rect:nth-child(1) { animation-delay: 0.9s; }
+.v6-rev__bars rect:nth-child(2) { animation-delay: 0.98s; }
+.v6-rev__bars rect:nth-child(3) { animation-delay: 1.06s; }
+.v6-rev__bars rect:nth-child(4) { animation-delay: 1.14s; }
+.v6-rev__bars rect:nth-child(5) { animation-delay: 1.22s; }
+.v6-rev__bars rect:nth-child(6) { animation-delay: 1.3s; }
+.v6-rev__line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; animation: v6-draw 1s ease 1.2s both; }
+.v6-rev__dot, .v6-pay__dot { fill: #fff; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.v6-rev__dot { animation: v6-pop 0.35s ease 2.1s both; transform-box: fill-box; transform-origin: center; }
+.v6-pay__minus { fill: none; stroke: #c9bfa9; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; animation: v6-draw 0.7s ease 1.2s both; }
+.v6-pay__plus { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; animation: v6-draw 0.8s ease 1.9s both; }
+.v6-pay__dot { animation: v6-pop 0.35s ease 1.8s both; transform-box: fill-box; transform-origin: center; }
+
+/* CRM: окно на три строки, новая заявка въезжает сверху (js/v6-hero.js) */
+.v6-crm__win { --row: 38px; height: calc(var(--row) * 3); overflow: hidden; margin: 0 -6px; }
+.v6-crm { list-style: none; margin: 0; padding: 0; transition: transform 0.55s cubic-bezier(.2, .7, .2, 1); }
+.v6-crm li {
+  position: relative;
+  height: var(--row);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 0 6px;
+  border-radius: 8px;
+  animation: v6-row-in 0.45s ease both;
+}
+.v6-crm li { animation: none; }
+.v6-crm.is-intro li { animation: v6-row-in 0.45s ease both; }
+.v6-crm.is-intro li:nth-child(1) { animation-delay: 1.2s; }
+.v6-crm.is-intro li:nth-child(2) { animation-delay: 1.4s; }
+.v6-crm.is-intro li:nth-child(3) { animation-delay: 1.6s; }
+.v6-crm li + li::after { content: ""; position: absolute; left: 6px; right: 6px; top: 0; height: 1px; background: var(--sv-line); }
+.v6-crm li::before { content: ""; position: absolute; inset: 2px 0; border-radius: 8px; background: var(--sv-result, #EDF2EA); opacity: 0; transition: opacity 0.8s ease; }
+.v6-crm li.is-fresh::before { opacity: 1; transition: none; }
+.v6-crm li > * { position: relative; }
+.v6-crm span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.v6-crm b { font-size: 0.75rem; line-height: 1.2; font-weight: 500; color: var(--sv-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.v6-crm small { font-size: 0.625rem; line-height: 1.2; color: var(--sv-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.v6-crm em { flex: none; font-style: normal; font-size: 0.6875rem; font-weight: 600; color: var(--accent); }
+
+@keyframes v6-card-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes v6-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+@keyframes v6-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes v6-grow { from { transform: scaleY(0); } to { transform: none; } }
+@keyframes v6-pop { from { transform: scale(0); } to { transform: none; } }
+@keyframes v6-row-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes v6-pulse { 0% { box-shadow: 0 0 0 0 rgba(81, 130, 51, 0.45); } 100% { box-shadow: 0 0 0 8px rgba(81, 130, 51, 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .v6-hcard, .v6-rev__bars rect, .v6-rev__line, .v6-rev__dot, .v6-pay__minus, .v6-pay__plus, .v6-pay__dot,
+  .v6-crm li, .v6-crm.is-intro li, .v6-hcard__live { animation: none; }
+  .v6-crm { transition: none; }
+}
+
+/* Телефон: карточки внутри фото и под ним, лицо свободно, без выхода за края экрана */
+@media (max-width: 900px) {
+  .v6-photo { --edge: 12px; margin-bottom: 88px; }
+  .v6-hcard { padding: 12px 14px; }
+  .v6-hcard--rev { left: var(--edge); top: auto; bottom: 120px; width: calc(50% - var(--edge) - 5px); }
+  .v6-hcard--pay { left: auto; right: var(--edge); bottom: 120px; width: calc(50% - var(--edge) - 5px); }
+  .v6-hcard--crm { left: var(--edge); right: var(--edge); bottom: -76px; width: auto; }
+  .v6-rev, .v6-pay { height: 38px; }
+}
+
+/* ---------- Кейсы: ниша · страна сверху, плотная вёрстка без растяжки ---------- */
+.dz-rail { align-items: flex-start; }
+.dz-case { align-self: flex-start; height: auto; justify-content: flex-start; }
+.dz-case > * { flex-grow: 0; }
+.dz-case__props { margin-top: 0; }
+
+/* ---------- Обо мне: три факта и плашка рынков ---------- */
+.v6-facts { grid-template-columns: repeat(3, auto); justify-content: start; gap: 24px 40px; align-items: start; }
+.v6-facts b { white-space: nowrap; }
+.v6-facts__markets {
+  grid-column: 1 / -1;
+  flex-direction: row !important; align-items: baseline; gap: 16px !important;
+  padding: 16px 20px; border-radius: var(--card-radius); background: var(--sv-result, #EDF2EA);
+}
+.v6-facts__markets b { font-size: var(--fs-num-sm) !important; flex: none; }
+.v6-facts__markets span { font-size: 0.9375rem; line-height: 1.45; color: var(--sv-text); }
+@media (max-width: 900px) {
+  .v6-facts { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+  .v6-facts li:nth-child(2) b { white-space: normal; }
+  .v6-facts__markets { flex-direction: column !important; align-items: flex-start; gap: 6px !important; padding: 14px 16px; }
+}
+
+/* ---------- Как мы работаем: одна сетка этапов ---------- */
+.v6-steps { align-items: start; }
+.v6-steps li { gap: 0; }
+.v6-steps__title { margin: 12px 0 8px; }
+.v6-steps p { line-height: 1.55; }
+.dz-band__list { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .v6-steps__title { margin: 0 0 4px; }
+  .v6-steps__num { padding-top: 2px; }
+}
+/* Факты: «ИИ-агенты» слово, а не число, поэтому на шаг меньше; низ подписей на одной линии */
+.v6-facts { gap: 24px 36px; }
+.v6-facts li:not(.v6-facts__markets) b { display: flex; align-items: flex-end; min-height: var(--fs-num); }
+.v6-facts li:nth-child(3) b { font-size: var(--fs-num-sm); letter-spacing: -0.03em; }
+@media (max-width: 900px) {
+  .v6-facts li:nth-child(3) b { font-size: var(--fs-num-sm); }
+  .v6-facts li:nth-child(2) b { min-height: 0; }
+}
+@media (max-width: 900px) { .v6-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* «ИИ-агенты»: без табличных цифр, иначе дефис в Inter получает ширину цифры */
+.v6-facts li:nth-child(3) b { font-variant-numeric: normal; }
+@media (max-width: 900px) {
+  /* Телефон: 10 лет и ИИ-агенты в ряд, «до 15 человек» на всю ширину, порядок в HTML не меняется */
+  .v6-facts { grid-auto-flow: row dense; }
+  .v6-facts li:nth-child(2) { grid-column: 1 / -1; }
+  .v6-facts li:nth-child(2) b { white-space: nowrap; min-height: 0; }
+  .v6-facts li:nth-child(3) b { min-height: var(--fs-num); }
+}
+@media (max-width: 900px) { .v6-hcard--rev, .v6-hcard--pay { height: 118px; } }
+
+/* ==========================================================================
+   v6d: H1 по шкале, широкая карточка «Что не получилось» в две колонки
+   ========================================================================== */
+:root { --fs-h1: clamp(2.125rem, 1.55rem + 2.15vw, 3.25rem); } /* 34 на 390, 52 на 1280 */
+.v6-h1.sv-h1 { font-size: var(--fs-h1); line-height: 1.04; }
+@media (max-width: 900px) { .v6-h1.sv-h1 { font-size: var(--fs-h1); line-height: 1.06; } }
+
+/* Кейс 06: две ширины обычной карточки + зазор ленты, содержимое в две колонки.
+   Слева: тег, цифра, заголовок, описание. Справа: показатели и «Что не получилось». */
+@media (min-width: 901px) {
+  .dz-case--honest {
+    flex-basis: calc(clamp(288px, 30vw, 372px) * 2 + 20px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas: "tags props" "hero props" "title fail" "did fail";
+    column-gap: 36px;
+    align-items: start;
+  }
+  .dz-case--honest .dz-case__tags { grid-area: tags; }
+  .dz-case--honest .dz-case__hero { grid-area: hero; }
+  .dz-case--honest .dz-case__title { grid-area: title; }
+  .dz-case--honest .dz-case__did { grid-area: did; }
+  .dz-case--honest .dz-case__props { grid-area: props; padding-top: 0; }
+  .dz-case--honest .dz-case__fail { grid-area: fail; margin-top: 16px; }
+}
+/* Телефон: кейс 06 в одну колонку и обычной ширины */
+@media (max-width: 900px) { .dz-case--honest { flex-basis: 78vw; } }
