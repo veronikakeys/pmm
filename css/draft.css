@@ -56,11 +56,6 @@
 
 /* Анимация первого экрана (CSS). Плавание плашек, прорисовка графика и поочерёдные заявки
    уже есть в v11 (sv-float, sv-draw, sv-row-in); ниже добавлены маршрут и горы. */
-.dz-route-flow {
-  fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round;
-  stroke-dasharray: 2 10; opacity: 0.85;
-  animation: dz-flow 2.4s linear 2.2s infinite;
-}
 .dz-climber { animation: sv-fade 0.5s ease 2s both; }
 .dz-climber circle:last-child { fill: #fff; }
 .dz-climber__halo { fill: rgba(255,255,255,0.35); transform-box: fill-box; transform-origin: center; animation: dz-pulse 2.6s ease-in-out 2.4s infinite; }
@@ -90,8 +85,6 @@
 
 /* ——— 3. Кейсы: кремовая полоса с силуэтом гор, лента scroll-snap ——— */
 .dz-cases { position: relative; background: var(--sv-cream); overflow: hidden; }
-.dz-cases__ridge { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px; }
-.dz-cases__ridge path { fill: var(--bg-soft); opacity: 0.55; }
 .dz-cases__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
 .dz-rail-nav { display: flex; gap: 8px; flex: none; }
 .dz-rail-btn {
@@ -170,17 +163,6 @@
 
 /* ——— 5. Как работаем: маршрут на горе, тёмная полоса «Это не найм» ——— */
 .dz-how { padding-bottom: 0; }
-.dz-route { margin-top: clamp(24px, 3vw, 40px); }
-.dz-route__svg { display: block; width: 100%; height: 150px; overflow: visible; }
-.dz-route__far { fill: var(--bg-elevated); }
-.dz-route__near { fill: var(--bg-soft); opacity: 0.7; }
-.dz-route__line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-dasharray: 7 7; vector-effect: non-scaling-stroke; }
-.dz-route__camps circle { fill: #fff; stroke: var(--accent); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
-.dz-route__flag path:first-child { stroke: var(--accent-hover); stroke-width: 2; vector-effect: non-scaling-stroke; }
-.dz-route__flag path:last-child { fill: var(--accent-bright); }
-.dz-route__steps { list-style: none; margin: 0; padding: 18px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--dz-line); }
-.dz-route__steps li { font-size: 0.9375rem; line-height: 1.5; color: var(--sv-text); }
-.dz-route__steps b { display: block; margin-bottom: 4px; font-size: 1.0625rem; color: var(--sv-ink); }
 .dz-band { margin-top: clamp(48px, 6vw, 80px); padding: clamp(40px, 5vw, 64px) 0; background: var(--dz-deep); color: #fff; position: relative; overflow: hidden; }
 .dz-band::after { content: ""; position: absolute; right: -40px; bottom: -10px; width: 520px; height: 140px; opacity: 0.12;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 140'%3E%3Cpath d='M0 140 L80 70 L130 96 L220 20 L290 74 L360 40 L440 90 L520 50 V140Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center / contain; }
@@ -224,7 +206,6 @@
 /* ——— Адаптив ——— */
 @media (max-width: 1100px) {
   .dz-format { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
-  .dz-route__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
   .dz-use__grid, .dz-band__grid, .dz-formats__head { grid-template-columns: 1fr; }
@@ -240,8 +221,6 @@
   .dz-rail-nav { display: none; }
   .dz-case { flex-basis: 82vw; }
   .dz-case--honest { flex-basis: 86vw; }
-  .dz-route__svg { height: 90px; }
-  .dz-route__steps { grid-template-columns: 1fr; gap: 14px; }
 }
 @media (max-width: 640px) {
   .dz-format { grid-template-columns: 1fr; padding: 26px 0; }
@@ -503,11 +482,6 @@
 
 /* ——— 5. Как работаем ——— */
 .dz-how { padding-top: clamp(80px, 9vw, 128px); }
-.dz-route { margin-top: 40px; }
-.dz-route__steps { gap: 0; padding-top: 20px; }
-.dz-route__steps li { padding-right: 28px; font-size: 0.9375rem; }
-.dz-route__steps b { font-size: var(--fs-h4); letter-spacing: -0.015em; margin-bottom: 6px; }
-.dz-route__line, .dz-route__camps circle { stroke-width: 2; }
 .dz-band { margin-top: clamp(64px, 7vw, 96px); padding-block: clamp(56px, 6vw, 88px); }
 .dz-band__title { font-size: var(--fs-h3); line-height: 1.05; letter-spacing: -0.035em; }
 .dz-band__list li { position: relative; padding: 20px 0; border-top: 1px solid rgba(81,130,51,0.35); font-size: var(--fs-body); }
@@ -531,14 +505,6 @@
   .dz-stats strong { font-size: 1.75rem; }
   .dz-plans { padding-top: 40px; }
   .dz-plan:hover, .dz-case:hover { transform: none; }
-  /* Как работаем: вертикальный маршрут вместо горизонтальной горы */
-  .dz-route__svg { display: none; }
-  .dz-route__steps { position: relative; grid-template-columns: 1fr; gap: 0; padding: 0; border-top: 0; }
-  .dz-route__steps::before { content: ""; position: absolute; left: 7px; top: 12px; bottom: 28px; border-left: 2px dashed var(--accent); opacity: 0.7; }
-  .dz-route__steps li { position: relative; padding: 0 0 24px 36px; }
-  .dz-route__steps li::before { content: ""; position: absolute; left: 0; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); }
-  .dz-route__steps li:last-child { padding-bottom: 0; }
-  .dz-route__steps li:last-child::before { background: var(--accent-bright); border-color: var(--accent-hover); }
   .dz-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .dz-facts li { padding: 14px 12px; border-top: 0; border-left: 1px solid var(--dz-line); }
   .dz-facts li:first-child { padding-left: 0; border-left: 0; }
