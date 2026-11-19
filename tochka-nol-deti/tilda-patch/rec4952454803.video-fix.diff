@@ -1,0 +1,83 @@
+--- tochka-nol-deti/tilda-patch/rec4952454803.new.html
++++ tochka-nol-deti/tilda-patch/rec4952454803.video-fix.html
+@@ -9,6 +9,7 @@
+ @media (prefers-reduced-motion:reduce){.tz.tz-hero *,.tz.tz-hero *::after{transition:none!important;animation:none!important}}
+ /* --- блок --- */
+ .tz.tz-hero{--pad:0px;min-height:100vh;min-height:100svh}.tz.tz-hero .tz-hero__bar{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;height:54px}.tz.tz-hero .tz-hero__nav{display:none}.tz.tz-hero .tz-hero__wa{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(245,238,226,.35);color:var(--ivory);transition:box-shadow .4s ease}.tz.tz-hero .tz-hero__wa:hover{box-shadow:inset 0 0 0 1px var(--gold)}.tz.tz-hero .tz-hero__grid{position:relative;z-index:2;display:grid;gap:12px;padding-bottom:56px}.tz.tz-hero .tz-hero__media{position:relative;overflow:hidden;aspect-ratio:9/10;background:#1c2620}.tz.tz-hero .tz-hero__video{width:100%;height:100%;object-fit:cover}.tz.tz-hero .tz-hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,23,18,0) 60%,rgba(14,23,18,.35))}.tz.tz-hero .tz-hero__tag{position:absolute;left:14px;bottom:12px;z-index:1;font:600 10px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(245,238,226,.85)}.tz.tz-hero .tz-hero__label{display:none;font-size:10.5px}.tz.tz-hero .tz-hero__tag-d{display:none}.tz.tz-hero .tz-hero__title{font:500 31px/1 var(--serif);letter-spacing:-.01em}.tz.tz-hero .tz-hero__title em{display:block;font-style:italic;color:var(--gold-2)}.tz.tz-hero .tz-hero__text{display:flex;flex-direction:column}.tz.tz-hero .tz-hero__cta{order:2;display:flex;flex-direction:column;gap:14px;margin-top:16px}.tz.tz-hero .tz-hero__cta .tz-btn{white-space:nowrap}.tz.tz-hero .tz-btn i{width:16px}.tz.tz-hero .tz-hero__cta{flex-wrap:wrap}.tz.tz-hero .tz-hero__lead{order:3;margin-top:26px}.tz.tz-hero .tz-hero__quote{order:4}.tz.tz-hero .tz-hero__lead{margin-top:6px;max-width:520px}.tz.tz-hero .tz-hero__hand{display:none}.tz.tz-hero .tz-hero__quote{margin-top:22px;padding-top:18px;border-top:1px solid rgba(245,238,226,.16);max-width:520px}.tz.tz-hero .tz-hero__quote blockquote{font:italic 500 18px/1.35 var(--serif);color:var(--ivory)}.tz.tz-hero .tz-hero__quote figcaption{margin-top:10px;font-size:12px;letter-spacing:.06em;color:rgba(245,238,226,.6)}.tz.tz-hero .tz-hero__orbit{position:absolute;z-index:1;top:-90px;right:-150px;width:360px;opacity:.35}.tz.tz-hero .tz-hero__intro{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(245,238,226,.1)}.tz.tz-hero .tz-topbar{position:fixed;top:0;left:0;right:0;z-index:9980;display:none}.tz.tz-hero .tz-sticky{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:9990;display:flex;gap:8px;transform:translateY(calc(100% + 30px));visibility:hidden;transition:transform .6s var(--ease),visibility 0s linear .6s}.tz.tz-hero .tz-sticky.is-on{transform:none;visibility:visible;transition:transform .6s var(--ease)}.tz.tz-hero .tz-sticky .tz-btn{flex:1;box-shadow:0 14px 30px rgba(14,23,18,.35)}.tz.tz-hero .tz-sticky__wa{flex:none;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--ivory);color:var(--pine);box-shadow:0 14px 30px rgba(14,23,18,.3)}.tz.tz-hero .tz-anim .tz-hero__media{clip-path:inset(0 0 100% 0);animation:tz-curtain 1.8s var(--ease) .15s forwards}.tz.tz-hero .tz-anim .tz-hero__media video{transform:scale(1.15);animation:tz-unzoom 2.6s var(--ease) .15s forwards}.tz.tz-hero .tz-anim .tz-hero__orbit path{stroke-dasharray:1200;stroke-dashoffset:1200;animation:tz-drawin 3.4s var(--ease) .3s forwards}
++.tz.tz-hero .tz-hero__play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0;padding:0;border:0;border-radius:50%;background:rgba(14,23,18,.55);color:var(--ivory);box-shadow:inset 0 0 0 1px rgba(245,238,226,.5);cursor:pointer}.tz.tz-hero .tz-hero__play:hover{box-shadow:inset 0 0 0 1px var(--gold)}.tz.tz-hero .tz-hero__play:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+ @keyframes tz-curtain{to{clip-path:inset(0 0 0 0)}}
+ @keyframes tz-unzoom{to{transform:none}}
+ @keyframes tz-drawin{to{stroke-dashoffset:0}}
+@@ -117,15 +118,64 @@
+     var watch=function(){document.querySelectorAll('#zapis,.t-form').forEach(function(el){io.observe(el);});};watch();addEventListener('load',watch);
+   }
+   addEventListener('scroll',update,{passive:true});update();
+-  // видео: подключаем после загрузки страницы, на экономии трафика и при «уменьшить движение» — только постер
++  // видео: источник сразу, без window.load. Автозапуск только если нет reduced-motion и saveData.
+   var v=hero.querySelector('video');
+-  var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,save=navigator.connection&&navigator.connection.saveData;
+-  if(!v||calm||save)return;
+-  function start(){
+-    var s=document.createElement('source');s.src=v.getAttribute('data-mp4');s.type='video/mp4';v.appendChild(s);
+-    v.muted=true;v.load();var p=v.play();if(p&&p.catch)p.catch(function(){});
+-    if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else v.pause();});}).observe(v);
++  if(v&&!v.getAttribute('data-video-init')){
++    v.setAttribute('data-video-init','1');
++    var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,save=navigator.connection&&navigator.connection.saveData;
++    var userStarted=false,observing=false,sawPlaying=false,btn=null,watchTimer=0;
++    function prime(){
++      v.muted=true;v.defaultMuted=true;v.playsInline=true;
++      v.setAttribute('muted','');v.setAttribute('playsinline','');
++    }
++    function attach(){
++      if(v.getAttribute('data-src-on')||v.querySelector('source'))return;
++      var url=v.getAttribute('data-mp4');if(!url)return;
++      var s=document.createElement('source');s.src=url;s.type='video/mp4';
++      v.appendChild(s);v.setAttribute('data-src-on','1');v.load();
++    }
++    function dropBtn(){if(!btn)return;btn.remove();btn=null;}
++    function showBtn(){
++      if(btn||sawPlaying)return;
++      var media=v.closest('.tz-hero__media')||v.parentElement;if(!media)return;
++      btn=document.createElement('button');
++      btn.type='button';btn.className='tz-hero__play';
++      btn.setAttribute('aria-label','Включить видео');
++      btn.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9 7.2v9.6l8.2-4.8L9 7.2z"/></svg>';
++      btn.addEventListener('click',onUser);
++      media.appendChild(btn);
++    }
++    function arm(){
++      if(observing||!('IntersectionObserver' in window))return;
++      observing=true;
++      new IntersectionObserver(function(es){es.forEach(function(e){
++        if(!e.isIntersecting){v.pause();return;}
++        if((calm||save)&&!userStarted)return;
++        tryPlay();
++      });}).observe(v);
++    }
++    function tryPlay(){
++      prime();
++      var p;
++      try{p=v.play();}catch(err){showBtn();return;}
++      if(p&&typeof p.then==='function')p.then(function(){},function(){showBtn();});
++    }
++    function schedule(){
++      clearTimeout(watchTimer);
++      watchTimer=setTimeout(function(){if(!sawPlaying&&v.paused)showBtn();},2500);
++    }
++    function onCanPlay(){v.removeEventListener('canplay',onCanPlay);schedule();}
++    function onUser(){userStarted=true;prime();attach();tryPlay();}
++    v.addEventListener('playing',function(){sawPlaying=true;clearTimeout(watchTimer);dropBtn();arm();});
++    function boot(){
++      prime();
++      if(calm||save){showBtn();return;}
++      attach();
++      tryPlay();
++      if(v.readyState>=3)schedule();
++      else{schedule();v.addEventListener('canplay',onCanPlay);}
++    }
++    boot();
+   }
+-  if(document.readyState==='complete')start();else addEventListener('load',start);
+ })();
+ </script> 

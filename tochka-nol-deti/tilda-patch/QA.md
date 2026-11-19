@@ -1,0 +1,179 @@
+# QA: remove user-facing messengers on tochkanol.ru
+
+Status: **code written and checked locally. Not saved in the Tilda CMS. Not published.**
+
+No form was submitted. Headless runs abort every non-GET request, and the local preview pages add a submit blocker (`#qa-no-submit`) that is **not** in the paste files.
+
+The repo had no `tochka-nol-deti/` copy. Everything below is built from the public HTML fetched on 2026-11-08 (`https://tochkanol.ru/` and `https://tochkanol.ru/spasibo`). T123 blocks are wrapped in `<!-- nominify begin -->` … `<!-- nominify end -->` and were not minified, so the published inner HTML was editable. Paste `tilda-patch/rec<ID>.new.html` into that block’s T123 field.
+
+The published `<title>` is still «Современный танец для детей от 3х лет» and the description is still the shorter live sentence. Those were not edited. If the CMS editor already holds a different unpublished title/description, leave the page SEO settings alone. If the editor’s T123 source for a block below does not match `backup/live-2026-11-08/rec<ID>.t123.html`, do not paste over it; re-apply the same diff onto the editor source.
+
+## Live block roles (the brief’s ids do not match the published page)
+
+| Record | Published role | Action |
+|---|---|---|
+| rec4952454803 | Hero, header, sticky bar | Edited. Removed both WhatsApp links. Trial CTAs stay. |
+| rec4952530703 | Signup section `#zapis` next to the form, not the footer | Edited. Removed WhatsApp and MAX buttons. Phone link stays. |
+| rec4952540703 | Footer «Мессенджеры и соцсети» | **Unchanged.** This is the footer contacts block. |
+| rec4952550803 | Signup popup | Edited. Removed «Удобнее написать?» plus WhatsApp and MAX. |
+| rec4958844703 | Page form (moved into `#zapis`) | Unchanged. |
+| rec4960398603 | Popup form | Unchanged. |
+| rec4983233203 | `/spasibo` thank-you page | Edited. Removed «Напишите нам» WhatsApp and MAX. One CSS rule so the address card is not a leftover two-column grid. |
+| rec4952501203 | «Пространство» | Unchanged. The word «телеграммы» is about the Alferaki palace post office, not Telegram. |
+
+The brief named rec4952530703 as the footer to keep and rec4952540703 as the popup. On the live page those roles are reversed. Messengers were removed from the signup section and the popup, and left in the real footer.
+
+## Messenger inventory
+
+| Where | What | Decision |
+|---|---|---|
+| rec4952454803 header | `wa.me` «Написать в WhatsApp» | Removed |
+| rec4952454803 sticky | `wa.me` «Написать в WhatsApp» | Removed |
+| rec4952530703 signup | «Удобнее написать? Телефон и WhatsApp» plus WhatsApp and MAX buttons | Buttons and the WhatsApp words removed. Text is now «Телефон:» plus `tel:+79885661432` |
+| rec4952540703 footer | Phone, WhatsApp, MAX, VK, Instagram, address | Kept, byte-for-byte |
+| rec4952550803 popup | «Удобнее написать?» plus WhatsApp and MAX | Removed |
+| rec4983233203 thanks | «Не хочется ждать звонка? Напишите нам» plus WhatsApp and MAX | Removed |
+| rec4983233203 thanks | «Загляните в нашу жизнь» VK and Instagram follow buttons | Kept. They are a subscribe card, not a contact-channel chooser. Same networks stay in the footer. |
+| rec4958844703, rec4960398603 | Fields: name, age radios, phone, consent checkbox, submit «Записаться на пробное». Success URL `/spasibo`. No messenger field, no username field. | Kept |
+| Shared block script | Toast «Текст скопирован — вставьте его в чат MAX» on `[data-copy]` | Kept. The footer MAX link still uses `data-copy`. The script does not look up the removed buttons. |
+| Client JS | `api.telegram.org`, `t.me`, a Telegram bot fetch | None in the public HTML. Form `POST` handlers were not edited, so a Tilda-side admin notification is untouched. |
+
+Grep of the patched home preview: `wa.me`, `max.ru`, `t.me`, and `api.telegram` occur only inside rec4952540703. The patched thanks page has no `wa.me` and no `max.ru`.
+
+## What was checked
+
+Local preview only (`preview/index.html`, `preview/spasibo.html`) against the fetched live HTML. Chrome headless, no production POST.
+
+### Measured
+
+Horizontal overflow (`scrollWidth - clientWidth`), home and `/spasibo`, popup open and closed:
+
+| Viewport | Home | Thanks | Popup open |
+|---|---|---|---|
+| 375 | 0 | 0 | 0 |
+| 768 | 0 | 0 | 0 |
+| 1280 | 0 | 0 | 0 |
+
+Sticky bar (visible below 960px; `display:none` from the existing `min-width:960px` rule, both before and after):
+
+| Viewport | Before | After |
+|---|---|---|
+| 375 | Trial button 291px + WhatsApp 56px + 8px flex gap. Bar 355px. | One trial button 355px. Unused width 0. |
+| 768 | Trial button 684px + WhatsApp 56px + 8px gap. Bar 748px. | One trial button 748px. Unused width 0. |
+| 1280 | Not shown (`display:none`). | Not shown (`display:none`). |
+
+Header bar, last visible item’s gap to the right edge:
+
+| Viewport | Before | After |
+|---|---|---|
+| 1280 | Logo, nav, 42px WhatsApp. Right gap 0. | Logo and nav. Right gap 0. |
+| 375 and 768 | Logo and 42px WhatsApp (nav is `display:none`). | Logo only. No 42px circle left in the bar. |
+
+Popup panel after the form has laid out:
+
+| Viewport | Before | After |
+|---|---|---|
+| 1280 | Third row 145px (the messenger strip). `bottomGap` 0. | Third row 0px. `bottomGap` 0. No WhatsApp/MAX in the panel. |
+| 375 | Form slot height 552px once laid out (separate remeasure). Messengers visible under the form. | Form slot height 552px. No messenger row. |
+
+Thank-you «Где мы» card at 1280: before, the card was 1008px wide and the address column was 479px, with the messenger column beside it. After the buttons were removed, that 6fr/5fr rule left an empty column, so the rule is now `display:block` inside the same `min-width:960px` query. Remeasured: one child, card 1008px, content 934px (card padding), overflow 0.
+
+Duplicate `id`s: 0 in the static HTML and 0 in the live DOM after scripts, home and thanks.
+
+Markup balance of the four edited T123 fragments (tags outside `<style>` and `<script>`): no unclosed tags, no leftover stack.
+
+Scripts do not call `querySelector` for `.tz-hero__wa`, `.tz-sticky__wa`, `.tz-popup__alt`, or `.tz-msg`. Those names remain only as unused CSS. A wrapper counted null `querySelector` results during load, scroll, and popup use. The null selectors are Tilda’s own optional nodes (`.t396`, payment box, phone-mask script, and similar). None of them are the removed messenger nodes. The null set matches the baseline. `pageerror` count was 0 on home and thanks at 375, 768, and 1280.
+
+Console `error` lines that did appear are the same on the baseline and the patch: `TildaStat: fail pageview` and `Failed to load resource: net::ERR_FAILED`. Those come from stats/resources while non-GET is aborted in the test. They are not new exceptions from the removed nodes. Thanks pages logged 0 console errors.
+
+Keyboard, home, from the top of the document:
+
+- Baseline at 1280 and 375: tab reaches «Написать в WhatsApp» in the header before the trial CTA.
+- Patch at 1280 and 375: that stop is gone. The next control is «Записаться на пробное» (`href="#zapis"`). The focused CTA is visible (about 278×56 at 768/1280, 335×56 at 375).
+- Computed focus on that CTA, keyboard Tab, all three widths: `outline: solid 2px rgb(184, 147, 90); outline-offset: 4px`. That is the existing `.tz-hero :focus-visible` rule.
+
+Popup focus, opened with a click on `a.tz-btn.tz-btn--light`, then Escape. Same result before and after:
+
+| Viewport | Focus when opened | Shift+Tab from first control | Tab from last control | After Escape |
+|---|---|---|---|---|
+| 375, 768 | The panel (`<960` does not move focus into the name field). Panel outline is `none`. | Last control | Close button | Hero CTA, visible |
+| 1280 | Name field. Border bottom `solid 1px rgb(212, 180, 131)`, outline `none`. | Last control | Close button | Hero CTA, visible |
+
+Before, the last control was the MAX link. After, it is the submit button «Записаться на пробное». The cycle still wraps. Escape clears `is-visible`. Focus returns to the same hero CTA.
+
+Form controls found in the open popup and in both form records: name text input, five age radios, phone, checkbox «Даю согласие на обработку персональных данных» with links to `/soglasie` and `/politika`, submit button. Labels read from the DOM: «Ваше имя», «Возраст ребенка», «Телефон».
+
+### Seen in the screenshots
+
+Pairs are in `tilda-patch/screenshots/` (`before-*` / `after-*` at 375, 768, 1280).
+
+- Header: the round WhatsApp control is gone at 375, 768, and 1280. The logo, menu (from 960px), and «Записаться на пробное» stay. No empty circle.
+- Sticky: at 375 and 768 the green trial button fills the bar. The white WhatsApp circle is gone. At 1280 the bar is hidden by the existing CSS, as on the live page.
+- Signup section at 1280: WhatsApp and MAX buttons are gone. «Телефон: +7 988 566-14-32» remains. The form, consent, and submit button remain.
+- Popup: at 1280 the right column is the form only. At 375 and 768 the sheet goes from the photo and text straight into the form. No «Удобнее написать?» row and no blank band where it was.
+- Thanks at 1280: the address card is a single block. VK and Instagram stay in «Загляните в нашу жизнь».
+- Footer at 1280: phone, four messenger/social icons, and the address are still there.
+
+### Not tested
+
+- Screen readers (VoiceOver, NVDA, TalkBack). Not claimed.
+- A physical phone. Viewports are headless Chrome at 375, 768, and 1280, height 900 (sticky shots use the scrolled viewport).
+- Sticky at 1280, because the existing stylesheet hides it from 960px up.
+- A dedicated crop of the signup section at 375 and 768. Overflow for the whole page at those widths is 0, and the block’s HTML is the same one checked at 1280.
+- Pasting into Tilda, publishing, or comparing an unpublished CMS draft.
+- `/politika` and `/soglasie`.
+- Submitting either form, including the success redirect. The `/spasibo` page was opened directly.
+- Whether the gold focus ring meets a contrast score. The computed color was recorded; no score was calculated.
+
+## Rollback
+
+1. Do not publish this change from the repo. Tilda is still serving the live page.
+2. For each edited block, paste `backup/live-2026-11-08/rec<ID>.t123.html` back into the T123 field:
+   - rec4952454803
+   - rec4952530703
+   - rec4952550803
+   - rec4983233203
+3. Do not replace rec4952540703, rec4958844703, or rec4960398603. They were not changed.
+4. Full fetched pages: `backup/live-2026-11-08/index.html` and `spasibo.html`.
+
+## Hero video init (rec4952454803)
+
+Status: **written and checked in the local preview. Not pasted into Tilda. Not published.** No form was submitted.
+
+Paste file: `tilda-patch/rec4952454803.video-fix.html`. Diff against the current messenger patch: `rec4952454803.video-fix.diff`. `rec4952454803.new.html` is unchanged. `node --check` on the extracted `<script>` passed.
+
+The source is attached immediately (the script sits after the `<video>`). `muted`, `defaultMuted`, and `playsInline` are set before `play()`. `prefers-reduced-motion` and `saveData` do not attach the source and do not autoplay; they show one `<button type="button" class="tz-hero__play" aria-label="Включить видео">` (56×56, absolutely centered on the media). A rejected `play()`, or still paused 2.5s after the attempt / `canplay`, shows the same button. `playing` removes it. The intersection observer is created once, on the first `playing`, and under reduced-motion or saveData it resumes only after the user started the video.
+
+Headless Chrome on `preview/index.html`. Non-GET aborted. `pageerror`: 0 in every case. Console errors: 0. Duplicate ids: none. Overflow: 0.
+
+| Case | 375 | 1280 |
+|---|---|---|
+| Normal autoplay | `paused=false`, `readyState=4`, 1 `<source>`, 0 buttons, `muted`/`defaultMuted`/`playsInline` true, both attributes set. mp4 requested once. | Same. |
+| Autoplay blocked | Chrome flag `--autoplay-policy=document-user-activation-required` still autoplayed this muted video (`paused=false`, `readyState=4`, no button). The blocked case used an override: `HTMLMediaElement.prototype.play` rejects unless `navigator.userActivation.isActive`. Button appeared (56×56, label «Включить видео», `type=button`). Focused: `outline solid 2px rgb(184, 147, 90)`, offset 3px. Click played; button removed; `paused=false`, `readyState=4`. | Same override. Enter on the focused button played; button removed; `paused=false`, `readyState=4`. |
+| `prefers-reduced-motion: reduce` | Before activation: `calm=true`, `paused=true`, `readyState=0`, 0 sources, 0 mp4 requests, 1 button. Enter attached one source and played (`readyState=4`, `paused=false`, button gone, 1 mp4 request). | Same before activation. Click played (`readyState=4`, `paused=false`, button gone, 1 mp4 request). |
+
+Extra, 1280 only: `navigator.connection.saveData=true` (defined before load). Before click: `paused=true`, 0 sources, 1 button. After click: `paused=false`, `readyState=4`, 1 source, 0 buttons. `pageerror` 0. Not repeated at 375.
+
+Not tested: a real phone, iOS `playsinline` playback, and a hung `window.load` on the live page (the new script does not wait for `load`).
+
+## Schedule: «7–9 лет» open on mobile (rec4952520703)
+
+Status: **written and checked in the local preview. Not pasted into Tilda. Not published.**
+
+Base is the live T123 fetched 08.11 23:19 MSK (`uploads` file, saved as `backup/live-2026-11-08/rec4952520703.t123.html`). There was no older per-record backup. The inner HTML already inside `backup/live-2026-11-08/index.html` is the same bytes, so nothing was overwritten.
+
+The mobile UI is a radio group inside `.tz-sched__tabs`. The block’s own CSS shows that group below 960px and the full table from `min-width:960px`. Default checked radio was `#tz-s1` («3–4 года»). The patch does not move `checked` in the HTML. A short script, once, checks `#tz-s4` («7–9 лет») only when `matchMedia('(min-width:960px)')` is false and the user has not yet changed the group. A later `change` (click or arrow keys) is kept across resizes. Desktop does not rewrite the radio.
+
+`node --check` on the block script passed. The tabs have no `aria-selected`, `aria-expanded`, or `aria-pressed`. Selection is the radio `checked` state, and the visible list is the panel whose `display` is `block`. Those two stay in agreement. `aria-hidden` on the desktop «нет занятий» dashes was not edited.
+
+Headless Chrome. Non-GET aborted. `pageerror`: 0. Duplicate ids: none. Overflow: 0 at 375 and 1280.
+
+| Check | Result |
+|---|---|
+| 375 on load, patched | `#tz-s4` checked (1 of 6). Label «7–9 лет». Only panel `data-p=4` is `display:block`. Tabs `display:block`, table `display:none`. Times: Пн 17:00–18:00, Пт 17:00–18:30, Сб 12:00–13:30. |
+| 375 baseline | `#tz-s1` «3–4 года», panel 1, Вт/Чт 17:30–18:30. |
+| Keyboard at 375 | Focus started on `#tz-s4`. ArrowRight moved to `#tz-s5` «11–13 лет», panel 5 only. The matching label outline was `solid 2px rgb(184, 147, 90)`. Click «3–4 года» selected `#tz-s1`. Click «14–18 лет» selected `#tz-s6`. |
+| 1280 on load, patched and baseline | Both `#tz-s1`, tabs `display:none`, table `display:block`. The two screenshots are byte-identical. |
+| Resize | Loaded at 1280: `#tz-s1`. Narrowed to 375: `#tz-s4`, panel 4. Chose «5–6 лет · I» (`#tz-s2`). Widened to 1280: table visible, radio stayed `#tz-s2`. Narrowed again: still `#tz-s2`, panel 2. At 959px the tabs are shown; at 960px the table is shown. |
+
+Screenshots: `tilda-patch/screenshots/sched-before-375.jpeg`, `sched-after-375.jpeg`, `sched-before-1280.jpeg`, `sched-after-1280.jpeg`.
